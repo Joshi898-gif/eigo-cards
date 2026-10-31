@@ -1,0 +1,902 @@
+{
+ "dog": {
+  "file": "Huskiesatrest.jpg",
+  "page": "Dog",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=12870432",
+  "artist": "M. Rehemtulla",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/quoimedia/5403502096/\">https://www.flickr.com/photos/quoimedia/5403502096/</a>"
+ },
+ "cat": {
+  "file": "Siam_lilacpoint.jpg",
+  "page": "Cat",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3020045",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Kam%C3%A9e\" title=\"User:Kamée\">Karin Langner-Bahmann</a>, upload von <a href=\"//commons.wikimedia.org/wiki/User:Martin_Bahmann\" title=\"User:Martin Bahmann\">Martin Bahmann</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "rabbit": {
+  "file": "Oryctolagus_cuniculus_Rcdo.jpg",
+  "page": "Rabbit",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=24986245",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Alur%C3%ADn\" title=\"User:Alurín\">JM Ligero Loarte</a>",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "hamster": {
+  "file": "European_hamster_(Cricetus_cricetus)_Meidling.jpg",
+  "page": "Hamster",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=157527872",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q54800218\" class=\"extiw\" title=\"d:Q54800218\"><span title=\"Scottish wildlife photographer\">Charles J. Sharp</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"https://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography.co.uk</a>"
+ },
+ "mouse": {
+  "file": "Mouse_white_background.jpg",
+  "page": "House mouse",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=187114",
+  "artist": "Unknown author<span style=\"display: none;\">Unknown author</span> (original) / <a href=\"//commons.wikimedia.org/wiki/User:Ilmari_Karonen\" title=\"User:Ilmari Karonen\">Ilmari Karonen</a> (editing)",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "Based on <a href=\"//commons.wikimedia.org/wiki/File:House_mouse.jpg\" title=\"File:House mouse.jpg\">File:House mouse.jpg</a> from <a rel=\"nofollow\" class=\"external free\" href=\"http://www.nigms.nih.gov/NR/rdonlyres/89908011-CCC4-4A12-BC08-BC64FCA62DF8/0/mouse.jpg\">http://www.nigms.nih.gov/NR/rdonlyres/89908011-CCC4-4A12-BC08-BC64FCA62DF8/0/mouse.jpg</a> at <a rel=\"nofollow\" class=\"external free\" href=\"http://www.nigms.nih.gov/Initiatives/Models/\">http://www.nigms.nih.gov/Initiatives/Models/</a> (formerly at <a rel=\"nofollow\" class=\"external free\" href=\"http://www.nigms.nih.gov/research/modelorganisms.html\">http://www.nigms.nih.gov/research/modelorganisms.html</a>)"
+ },
+ "cow": {
+  "file": "Cow_(Fleckvieh_breed)_Oeschinensee_Slaunger_2009-07-07.jpg",
+  "page": "Cattle",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=7421277",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Slaunger\" title=\"User:Slaunger\">Kim Hansen</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "horse": {
+  "file": "Nokota_Horses_cropped.jpg",
+  "page": "Horse",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=9456234",
+  "artist": "<ul><li><a href=\"//commons.wikimedia.org/wiki/File:Nokota_Horses.jpg\" title=\"File:Nokota Horses.jpg\">Nokota_Horses.jpg</a>: François Marchal</li>\n<li>derivative work: <a href=\"//commons.wikimedia.org/wiki/User:Dana_boomer\" title=\"User:Dana boomer\">Dana boomer</a> (<a href=\"//commons.wikimedia.org/wiki/User_talk:Dana_boomer\" title=\"User talk:Dana boomer\"><span class=\"signature-talk\">talk</span></a>)</li></ul>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<ul><li><a href=\"//commons.wikimedia.org/wiki/File:Nokota_Horses.jpg\" title=\"File:Nokota Horses.jpg\">Nokota_Horses.jpg</a></li></ul>"
+ },
+ "pig": {
+  "file": "Pig_farm_Vampula_1.jpg",
+  "page": "Pig",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=110364613",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Kallerna\" title=\"User:Kallerna\">kallerna</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "sheep": {
+  "file": "Flock_of_sheep.jpg",
+  "page": "Sheep",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=16818",
+  "artist": "Keith Weller",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" data-mw-original-href=\"http://www.ars.usda.gov/is/graphics/photos/apr12/k4166-5.htm\" href=\"https://www.ars.usda.gov/is/graphics/photos/apr12/k4166-5.htm\">http://www.ars.usda.gov/is/graphics/photos/apr12/k4166-5.htm</a> (Image Number K4166-5)"
+ },
+ "goat": {
+  "file": "Hausziege_04.jpg",
+  "page": "Goat",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=10972619",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Kuebi\" title=\"User:Kuebi\">Kuebi</a> = Armin Kübelbeck",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "deer": {
+  "file": "Cervus_nippon_002.jpg",
+  "page": "Sika deer",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=2653794",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Lilly_M\" title=\"User:Lilly M\">Lilly M</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "wild boar": {
+  "file": "Wildschwein,_Nähe_Pulverstampftor_(cropped).jpg",
+  "page": "Wild boar",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=46902117",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Valelantin&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Valelantin (page does not exist)\">Valentin Panzirsch</a>",
+  "license": "CC BY-SA 3.0 at",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+  "credit": "<a href=\"//commons.wikimedia.org/wiki/File:Wildschein,_N%C3%A4he_Pulverstampftor.jpg\" class=\"mw-redirect\" title=\"File:Wildschein, Nähe Pulverstampftor.jpg\">File:Wildschein, Nähe Pulverstampftor.jpg</a>"
+ },
+ "fox": {
+  "file": "Portrait_of_a_red_fox_in_Rautas_fjällurskog_(cropped).jpg",
+  "page": "Red fox",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=180051162",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:ClaudiaTen&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ClaudiaTen (page does not exist)\">ClaudiaTen</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "raccoon dog": {
+  "file": "Japanese Raccoon Dog（Nyctereutes viverrinus）ホンドタヌキ.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=118559444",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/51148533@N00\">Ken Ishigaki</a>",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/kenishigaki/51871673695/\">Japanese Raccoon Dog（Nyctereutes procyonoides viverrinus）ホンドタヌキ</a>"
+ },
+ "bear": {
+  "file": "2010-kodiak-bear-1.jpg",
+  "page": "Brown bear",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=23241619",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Yathin_sk\" title=\"User:Yathin sk\">Yathin S Krishnappa</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "lion": {
+  "file": "020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg",
+  "page": "Lion",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=151312926",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Giles_Laurent\" title=\"User:Giles Laurent\">Giles Laurent</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"https://gileslaurent.com\">gileslaurent.com</a>"
+ },
+ "tiger": {
+  "file": "Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg",
+  "page": "Tiger",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=88142663",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q54800218\" class=\"extiw\" title=\"d:Q54800218\"><span title=\"Scottish wildlife photographer\">Charles J. Sharp</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "Crop of <a href=\"//commons.wikimedia.org/wiki/File:Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg\" title=\"File:Bengal tiger (Panthera tigris tigris) female 3.jpg\">File:Bengal tiger (Panthera tigris tigris) female 3.jpg</a>"
+ },
+ "elephant": {
+  "file": "178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+  "page": "African bush elephant",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=180972909",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Giles_Laurent\" title=\"User:Giles Laurent\">Giles Laurent</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "giraffe": {
+  "file": "Jirafa Masai (Giraffa camelopardalis), reserva natural Masái Mara, Kenia, 2024-05-20, DD 91.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=151089817",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "zebra": {
+  "file": "Equus_quagga_burchellii_-_Etosha,_2014.jpg",
+  "page": "Plains zebra",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=31862629",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Yathin_sk\" title=\"User:Yathin sk\">Yathin S Krishnappa</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "rhino": {
+  "file": "109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+  "page": "White rhinoceros",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=180969499",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Giles_Laurent\" title=\"User:Giles Laurent\">Giles Laurent</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "hippo": {
+  "file": "Portrait_Hippopotamus_in_the_water.jpg",
+  "page": "Hippopotamus",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=121282994",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Muhammad_Mahdi_Karim\" title=\"User:Muhammad Mahdi Karim\">Muhammad Mahdi Karim</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "gorilla": {
+  "file": "Male_gorilla_in_SF_zoo.jpg",
+  "page": "Western gorilla",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=7283971",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://sites.google.com/site/thebrockeninglory/\">Brocken Inaglory</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "chimpanzee": {
+  "file": "015_Chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg",
+  "page": "Chimpanzee",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=134376867",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Giles_Laurent\" title=\"User:Giles Laurent\">Giles Laurent</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"https://gileslaurent.com\">gileslaurent.com</a>"
+ },
+ "orangutan": {
+  "file": "Orang_Utan,_Semenggok_Forest_Reserve,_Sarawak,_Borneo,_Malaysia.JPG",
+  "page": "Orangutan",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3913620",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Eleifert&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Eleifert (page does not exist)\">Eleifert</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "monkey": {
+  "file": "Japanese_Snow_Monkey_(Macaque)_Mother_Grooms_Her_Young.jpg",
+  "page": "Japanese macaque",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=91398831",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rocktendo&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rocktendo (page does not exist)\">Rocktendo &amp; Adam Gman</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "panda": {
+  "file": "Grosser_Panda.JPG",
+  "page": "Giant panda",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=9010137",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:J._Patrick_Fischer\" title=\"User:J. Patrick Fischer\">J. Patrick Fischer</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "koala": {
+  "file": "Koala_climbing_tree.jpg",
+  "page": "Koala",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=361837",
+  "artist": "<div class=\"fn value\">\n<a href=\"//commons.wikimedia.org/wiki/User:Diliff\" title=\"User:Diliff\">Diliff</a></div>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "kangaroo": {
+  "file": "Osphranter rufus - Tierpark Hagenbeck 01.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=200878926",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Llez\" title=\"User:Llez\">H. Zell</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "camel": {
+  "file": "Camelus_dromedarius_in_Nuweiba.jpg",
+  "page": "Dromedary",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=5330768",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Florian_Prischl\" title=\"User:Florian Prischl\">Florian Prischl</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "leopard": {
+  "file": "African_leopard_male_(cropped).jpg",
+  "page": "Leopard",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=107561790",
+  "artist": "Sumeet Moghe",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<a href=\"//commons.wikimedia.org/wiki/File:African_leopard_male.jpg\" title=\"File:African leopard male.jpg\">File:African_leopard_male.jpg</a>"
+ },
+ "cheetah": {
+  "file": "Male_cheetah_facing_left_in_South_Africa.jpg",
+  "page": "Cheetah",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=144450685",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:AfricanConservation&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:AfricanConservation (page does not exist)\">AfricanConservation</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, photo taken at <a rel=\"nofollow\" class=\"external text\" href=\"https://workingwithwildlife.org/\">Working with Wildlife</a>"
+ },
+ "wolf": {
+  "file": "Eurasian_wolf_2.jpg",
+  "page": "Wolf",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=95523086",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mas3cf&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mas3cf (page does not exist)\">User:Mas3cf</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "This file was derived from:  <a href=\"//commons.wikimedia.org/wiki/File:Eurasian_wolf.JPG\" title=\"File:Eurasian wolf.JPG\">Eurasian wolf.JPG</a><br>"
+ },
+ "squirrel": {
+  "file": "Squirrel_posing.jpg",
+  "page": "Red squirrel",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=29980115",
+  "artist": "Peter Trimming",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/peter-trimming/6583159839/\">https://www.flickr.com/photos/peter-trimming/6583159839/</a>"
+ },
+ "bat": {
+  "file": "Big-eared-townsend-fledermaus.jpg",
+  "page": "Bat",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=192812",
+  "artist": "PD-USGov, exact author unknown",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.nps.gov/chis/learn/nature/townsends-bats.htm\">https://www.nps.gov/chis/learn/nature/townsends-bats.htm</a>"
+ },
+ "whale": {
+  "file": "Humpback_whale_breaching_off_Cabo_San_Lucas.jpg",
+  "page": "Humpback whale",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=197915789",
+  "artist": "Juan Cruzado Cortés",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.inaturalist.org/photos/344677883\">https://www.inaturalist.org/photos/344677883</a>"
+ },
+ "dolphin": {
+  "file": "Tursiops_truncatus_01-cropped.jpg",
+  "page": "Common bottlenose dolphin",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=37679800",
+  "artist": "<p>NASA\n</p>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://images.nasa.gov/details/KSC-04pd0178\">https://images.nasa.gov/details/KSC-04pd0178</a></li>\n<li><bdi lang=\"en\" dir=\"ltr\" title=\"archived on 13 November 2005 at the Wayback Machine\"><a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20051113140743/http://mediaarchive.ksc.nasa.gov/detail.cfm?mediaid=21807\">http://mediaarchive.ksc.nasa.gov/detail.cfm?mediaid=21807 on the Wayback Machine</a> at the <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Wayback_Machine\" class=\"extiw\" title=\"en:Wayback Machine\"><span lang=\"en\" dir=\"ltr\">Wayback Machine</span></a></span></bdi></li></ul>"
+ },
+ "orca": {
+  "file": "Killerwhales_jumping.jpg",
+  "page": "Orca",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=1433661",
+  "artist": "Robert Pittman",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "NOAA (<a rel=\"nofollow\" class=\"external free\" href=\"http://www.afsc.noaa.gov/Quarterly/amj2005/divrptsNMML3.htm\">http://www.afsc.noaa.gov/Quarterly/amj2005/divrptsNMML3.htm</a>])"
+ },
+ "seal": {
+  "file": "Common_seal_(Phoca_vitulina)_2.jpg",
+  "page": "Harbor seal",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=42803334",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q54800218\" class=\"extiw\" title=\"d:Q54800218\"><span title=\"Scottish wildlife photographer\">Charles J. Sharp</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"http://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography</a>"
+ },
+ "sea lion": {
+  "file": "California_Sea_Lion,_Monterey,_California,_United_States_imported_from_iNaturalist_photo_203598492.jpg",
+  "page": "California sea lion",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=175928959",
+  "artist": "(c) Jonathan Eisen, some rights reserved (CC BY)",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.inaturalist.org/photos/203598492\">https://www.inaturalist.org/photos/203598492</a>"
+ },
+ "sparrow": {
+  "file": "Tree_Sparrow_August_2007_Osaka_Japan.jpg",
+  "page": "Eurasian tree sparrow",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=2841616",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Laitche\" title=\"User:Laitche\">Laitche</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "pigeon": {
+  "file": "Columba_livia_(Rock_Dove,_wild),_Duncansby_Head,_Caithness,_Scotland_1.jpg",
+  "page": "Rock dove",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=182057104",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.inaturalist.org/people/william_stephens\">william_stephens</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.inaturalist.org/photos/200458574\">https://www.inaturalist.org/photos/200458574</a>"
+ },
+ "crow": {
+  "file": "Jungle_crow_(Close-up_of_the_head_area),_Tennōji_Park,_Osaka_II.jpg",
+  "page": "Large-billed crow",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=43678087",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Laitche\" title=\"User:Laitche\">Laitche</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "swallow": {
+  "file": "Rauchschwalbe_Hirundo_rustica.jpg",
+  "page": "Barn swallow",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=40877458",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"http://photo-natur.de\">Andreas Trepte</a>",
+  "license": "CC BY-SA 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "chicken": {
+  "file": "Male_and_female_chicken_sitting_together.jpg",
+  "page": "Chicken",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3769100",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/29465285@N00\">Andrei Niemimäki</a> from Turku, Finland",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/29465285@N00/2137186793/\">Friends</a>"
+ },
+ "chick": {
+  "file": "Kleiber_Flug.jpg",
+  "page": "Bird",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=19149015",
+  "artist": "C. Robiller / naturlichter.de (<a href=\"https://de.wikipedia.org/wiki/User:Hyla_meridionalis\" class=\"extiw\" title=\"de:User:Hyla meridionalis\">Hyla meridionalis</a>)",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\">Self-photographed</span>"
+ },
+ "duck": {
+  "file": "American Pekin Duck.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=128703985",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Pathgreen&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Pathgreen (page does not exist)\">Pat Hansen</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "swan": {
+  "file": "CygneVaires.jpg",
+  "page": "Mute swan",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3019282",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Sanchezn\" title=\"User:Sanchezn\">Sanchezn</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "penguin": {
+  "file": "Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+  "page": "Emperor penguin",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=9962254",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/38323841@N00\">Ian Duffy</a> from UK",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<p><a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/38323841@N00/4322964957/\">Animal Portraits</a>\n</p>\n<ul><li>Uploaded by <a href=\"//commons.wikimedia.org/wiki/User:Snowmanradio\" title=\"User:Snowmanradio\">Snowmanradio</a></li></ul>"
+ },
+ "owl": {
+  "file": "Strix_uralensis,_Kotka,_Finland_1.jpg",
+  "page": "Ural owl",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=30295749",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/47089990@N02\">Jyrki Salmi</a> from Finland",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/salman2000/8377910170/\">Ural owl</a>"
+ },
+ "eagle": {
+  "file": "Bald_eagle_about_to_fly_in_Alaska_(2016).jpg",
+  "page": "Bald eagle",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=61980497",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/66020093@N03\">Andy Morffew</a> from Itchen Abbas, Hampshire, UK",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/andymorffew/26075320352/\">About to Launch</a>"
+ },
+ "hawk": {
+  "file": "Northern_Goshawk_ad_M2.jpg",
+  "page": "Eurasian goshawk",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=1062838",
+  "artist": "Norbert Kenntner, Berlin",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "ostrich": {
+  "file": "Struthio_camelus_-_Etosha_2014_(3).jpg",
+  "page": "Common ostrich",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=38145796",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Yathin_sk\" title=\"User:Yathin sk\">Yathin S Krishnappa</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "flamingo": {
+  "file": "American_Flamingo_JG.jpg",
+  "page": "American flamingo",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=158155624",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:JeffreyGammon&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:JeffreyGammon (page does not exist)\">JeffreyGammon</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "parrot": {
+  "file": "Cacatua_galerita_Tas_2.jpg",
+  "page": "Sulphur-crested cockatoo",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=6913159",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:JJ_Harrison\" title=\"User:JJ Harrison\">JJ Harrison</a> (<a rel=\"nofollow\" class=\"external free\" href=\"https://www.jjharrison.com.au/\">https://www.jjharrison.com.au/</a>)",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "snake": {
+  "file": "Trimeresurus_sabahi_fucatus,_Banded_pit_viper_-_Takua_Pa_District,_Phang-nga_Province_(46710893582).jpg",
+  "page": "Snake",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=76854409",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rushenb\" title=\"User:Rushenb\">Rushenb</a>",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/rushen/46710893582/\">Trimeresurus sabahi fucatus, Banded pit viper - Takua Pa District, Phang-nga Province</a>"
+ },
+ "lizard": {
+  "file": "Hemidactylus_platyurus_(Flat-tailed_House_Gecko)_on_white_background,_focus_stacking.jpg",
+  "page": "Lizard",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=75702310",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Basile_Morin\" title=\"User:Basile Morin\">Basile Morin</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "turtle": {
+  "file": "Red-eared slider (Trachemys scripta elegans).jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=115003457",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q54800218\" class=\"extiw\" title=\"d:Q54800218\"><span title=\"Scottish wildlife photographer\">Charles J. Sharp</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"https://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography.co.uk</a>"
+ },
+ "crocodile": {
+  "file": "Nile_crocodile_head.jpg",
+  "page": "Crocodile",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=27223324",
+  "artist": "Leigh Bedford",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/31447080@N04/3376075505/in/photolist-69kgCn-6cPp1J-71Erw1-71Ar5p-6cNS2C-6cJHPV-6cNRau-6cNRM1-bdFmf8-bdFmpB-66N41c-66N84R-ib7D2-7WNFHf\">https://www.flickr.com/photos/31447080@N04/3376075505/in/photolist-69kgCn-6cPp1J-71Erw1-71Ar5p-6cNS2C-6cJHPV-6cNRau-6cNRM1-bdFmf8-bdFmpB-66N41c-66N84R-ib7D2-7WNFHf</a>"
+ },
+ "chameleon": {
+  "file": "Panther_Chameleon_738367_(cropped).jpg",
+  "page": "Chameleon",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=190277564",
+  "artist": "Rod Waddington",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/rod_waddington/53400541248/\">https://www.flickr.com/photos/rod_waddington/53400541248/</a>"
+ },
+ "frog": {
+  "file": "Tree_frog2.jpg",
+  "page": "Japanese tree frog",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=4593224",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%E6%B1%A0%E7%94%B0%E6%AD%A3%E6%A8%B9\" title=\"User:池田正樹\">池田正樹</a> (<a href=\"//commons.wikimedia.org/wiki/User_talk:%E6%B1%A0%E7%94%B0%E6%AD%A3%E6%A8%B9\" title=\"User talk:池田正樹\"><span class=\"signature-talk\">talk</span></a>)masaki ikeda",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "tadpole": {
+  "file": "RanaTemporariaLarva2.jpg",
+  "page": "Tadpole",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=8716417",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Viridiflavus&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Viridiflavus (page does not exist)\">Viridiflavus</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "newt": {
+  "file": "Cynops_pyrrhogaster_sasayamae_female.jpg",
+  "page": "Japanese fire-bellied newt",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=9990190",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wuchthans&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wuchthans (page does not exist)\">Wuchthans</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "goldfish": {
+  "file": "Gold_fish1.jpg",
+  "page": "Goldfish",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=61364629",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Lehava.m&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Lehava.m (page does not exist)\">לינה אבוגוש</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "medaka": {
+  "file": "Oryzias_latipes(Hamamatsu,Shizuoka,Japan,2007)-1.jpg",
+  "page": "Japanese rice fish",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3207970",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Seotaro\" title=\"User:Seotaro\">Seotaro</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "carp": {
+  "file": "Ojiya_Nishikigoi_no_Sato_ac_(3).jpg",
+  "page": "Koi",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=87497789",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Asturio_Cantabrio\" title=\"User:Asturio Cantabrio\">Asturio Cantabrio</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "tuna": {
+  "file": "Pacific_bluefin_tuna.jpg",
+  "page": "Pacific bluefin tuna",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=19132968",
+  "artist": "aes256",
+  "license": "CC BY 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.1/jp/deed.en",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://photozou.jp/photo/photo_only/296250/118149451\">http://photozou.jp/photo/photo_only/296250/118149451</a>"
+ },
+ "salmon": {
+  "file": "Dog_Salmon_Breeding_Male.jpg",
+  "page": "Chum salmon",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=29189094",
+  "artist": "A. Hoen and Co.",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "Scanned from plates in <cite class=\"book\" style=\"font-style:normal\" id=\"Reference-Evermann-1907\">Evermann, Barton Warren; Goldsborough, Edmund Lee (1907)      <i> The Fishes of Alaska</i>, <a href=\"https://en.wikipedia.org/wiki/en:Washington,_D.C.\" class=\"extiw\" title=\"w:en:Washington, D.C.\"><span title=\"capital city of the United States of America\">Washington, D.C.</span></a>:  Department of Commerce and Labor Bureau of Fisheries  <small></small></cite>"
+ },
+ "saury": {
+  "file": "Cololabis saira in a tank.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=123956924",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%E5%87%BA%E7%BE%BD%E9%9B%80%E5%8F%B0&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:出羽雀台 (page does not exist)\">出羽雀台</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "horse mackerel": {
+  "file": "MaAji.jpg",
+  "page": "Japanese jack mackerel",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=556819",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Izuzuki\" title=\"User:Izuzuki\">Izuzuki</a>",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.izuzuki.com/\">http://www.izuzuki.com/</a>"
+ },
+ "sardine": {
+  "file": "Japan_fish,_South_American_pilchard_(Sardinops_sagax)_(15579000828).jpg",
+  "page": "Sardinops",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=39169501",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/89279812@N07\">harum.koh</a> from Kobe city, Japan",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/harumkoh/15579000828/\">Japan fish, South American pilchard (Sardinops sagax)</a>"
+ },
+ "shark": {
+  "file": "White_shark.jpg",
+  "page": "Great white shark",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=1561215",
+  "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Pterantula\" class=\"extiw\" title=\"en:User:Pterantula\">Pterantula</a> (Terry Goss) at <a class=\"external text\" data-mw-original-href=\"http://en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a>",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "credit": "Derivative of <a href=\"https://en.wikipedia.org/wiki/Image:Whiteshark-TGoss5b.jpg\" class=\"extiw\" title=\"w:Image:Whiteshark-TGoss5b.jpg\">w:Image:Whiteshark-TGoss5b.jpg</a>"
+ },
+ "stingray": {
+  "file": "SStringray.jpg",
+  "page": "Stingray",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=9527246",
+  "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Wrtiii3644\" class=\"extiw\" title=\"wikipedia:User:Wrtiii3644\">Wrtiii3644</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<bdi lang=\"en\" dir=\"ltr\">Transferred from <span class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Jacob_Robertson\" title=\"User:Jacob Robertson\">Jacob Robertson</a> using <a href=\"https://iw.toolforge.org/commonshelper/\" class=\"extiw\" title=\"toollabs:commonshelper/\">CommonsHelper</a>.</bdi>"
+ },
+ "eel": {
+  "file": "Anguilla_japonica.jpg",
+  "page": "Japanese eel",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=14520151",
+  "artist": "opencage",
+  "license": "CC BY-SA 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://opencage.info/pics/large_14405.asp\">http://opencage.info/pics/large_14405.asp</a>"
+ },
+ "seahorse": {
+  "file": "Hippocampus_hippocampus_(on_Ascophyllum_nodosum).jpg",
+  "page": "Seahorse",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=22106851",
+  "artist": "<div class=\"fn value\">\n<a href=\"//commons.wikimedia.org/wiki/User:Biopics\" title=\"User:Biopics\">Hans Hillewaert</a></div>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "octopus": {
+  "file": "Octopus2.jpg",
+  "page": "Octopus",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=2795257",
+  "artist": "albert kok",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "squid": {
+  "file": "Sepioteuthis_sepioidea_(Caribbean_Reef_Squid).jpg",
+  "page": "Squid",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=11464510",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nhobgood\" title=\"User:Nhobgood\">Nhobgood</a> Nick Hobgood",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "crab": {
+  "file": "Cancer_pagurus.jpg",
+  "page": "Crab",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=359132",
+  "artist": "<div class=\"fn value\">\n<a href=\"//commons.wikimedia.org/wiki/User:Biopics\" title=\"User:Biopics\">Hans Hillewaert</a></div>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "shrimp": {
+  "file": "Heterocarpus_ensifer.jpg",
+  "page": "Caridea",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=6526242",
+  "artist": "NOAA",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://oceanexplorer.noaa.gov/explorations/04etta/background/decapods/media/heterocarpus_ensifer.html\">http://oceanexplorer.noaa.gov/explorations/04etta/background/decapods/media/heterocarpus_ensifer.html</a>"
+ },
+ "jellyfish": {
+  "file": "Jelly_cc11.jpg",
+  "page": "Jellyfish",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=527474",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/dan90266/\">Dan90266</a>",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/dan90266/37269957/\">https://www.flickr.com/photos/dan90266/37269957/</a>"
+ },
+ "starfish": {
+  "file": "Starfish_montage.png",
+  "page": "Starfish",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=158982544",
+  "artist": "<p>Top left: Klaus Rassinger (Museum Wiesbaden)\nTop right: Katie Ahlfeld\nBottom right: Jon Zander (Digon3)\n</p>\nBottom left: Espen Rekdal",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<ul><li><a href=\"//commons.wikimedia.org/wiki/File:0059_Blauer_Seestern.jpg\" title=\"File:0059 Blauer Seestern.jpg\">File:0059 Blauer Seestern.jpg</a> – CC BY SA 4.0</li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Echinaster_serpentarius_(USNM_E28192)_001.jpeg\" title=\"File:Echinaster serpentarius (USNM E28192) 001.jpeg\">File:Echinaster serpentarius (USNM E28192) 001.jpeg</a> – CC 0</li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Horned_Starfish_Macro.JPG\" title=\"File:Horned Starfish Macro.JPG\">File:Horned Starfish Macro.JPG</a> – CC BY SA 3.0</li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Hymenaster_pellucidus_02_Espen_Rekdal.jpg\" title=\"File:Hymenaster pellucidus 02 Espen Rekdal.jpg\">File:Hymenaster pellucidus 02 Espen Rekdal.jpg</a> – CC BY 4.0</li></ul>"
+ },
+ "sea urchin": {
+  "file": "Tripneustes_ventricosus_(West_Indian_Sea_Egg-top)_and_Echinometra_viridis_(Reef_Urchin_-_bottom).jpg",
+  "page": "Sea urchin",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=11449176",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nhobgood\" title=\"User:Nhobgood\">Nhobgood</a> (<a href=\"//commons.wikimedia.org/wiki/User_talk:Nhobgood\" title=\"User talk:Nhobgood\"><span class=\"signature-talk\">talk</span></a>) Nick Hobgood",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "clam": {
+  "file": "Ruditapes philippinarum 2024.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=149109811",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Naturalist_LJ&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Naturalist LJ (page does not exist)\">Naturalist LJ</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "sea otter": {
+  "file": "Sea_Otter_(Enhydra_lutris)_(25169790524)_crop.jpg",
+  "page": "Sea otter",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=66140539",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/23660854@N07\">Marshal Hedin</a> from San Diego",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/23660854@N07/25169790524/\">Sea Otter (Enhydra lutris)</a>"
+ },
+ "sea turtle": {
+  "file": "Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+  "page": "Green sea turtle",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=155815572",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q54800218\" class=\"extiw\" title=\"d:Q54800218\"><span title=\"Scottish wildlife photographer\">Charles J. Sharp</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"https://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography.co.uk</a>"
+ },
+ "rhinoceros beetle": {
+  "file": "Kabutomushi-JapaneseBeetle-July2004.jpg",
+  "page": "Japanese rhinoceros beetle",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=7276531",
+  "artist": "<a href=\"https://en.wikipedia.org/wiki/ja:User:Gombe\" class=\"extiw\" title=\"w:ja:User:Gombe\">Gombe</a> at <a href=\"https://en.wikipedia.org/wiki/ja:\" class=\"extiw\" title=\"w:ja:\">Japanese Wikipedia</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"\">own work by the original uploader</span> (<span lang=\"en\" dir=\"ltr\">Original text: <i><bdi lang=\"\"><a href=\"https://ja.wikipedia.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Gombe\" class=\"extiw\" title=\"ja:利用者:Gombe\">Gombe</a>撮影</bdi></i></span>)<br>"
+ },
+ "stag beetle": {
+  "file": "Lucanus maculifemoratus taiwanus (27399831431).jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=75499736",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/37180297@N08\">LiCheng Shih</a>",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/papilioshih/27399831431/\">_DSK6378 Lucanus maculifemoratus taiwanus</a>"
+ },
+ "butterfly": {
+  "file": "Fesoj_-_Papilio_machaon_(by).jpg",
+  "page": "Butterfly",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=7263187",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/16847028@N07\">fesoj</a>",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<p><a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/16847028@N07/3703041681/\">Otakárek fenyklový  [Papilio machaon</a>]\n</p>\n<ul><li>Uploaded by <a href=\"//commons.wikimedia.org/wiki/User:ComputerHotline\" title=\"User:ComputerHotline\">ComputerHotline</a></li></ul>"
+ },
+ "dragonfly": {
+  "file": "Red_grasshawk_(Neurothemis_fluctuans)_male_Phuket_2.jpg",
+  "page": "Dragonfly",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=120044160",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q54800218\" class=\"extiw\" title=\"d:Q54800218\"><span title=\"Scottish wildlife photographer\">Charles J. Sharp</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"https://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography.co.uk</a>"
+ },
+ "cicada": {
+  "file": "Cicada_-_Neotibicen_linnei,_Woodbridge,_Virginia.jpg",
+  "page": "Cicada",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=55253654",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/52450054@N04/\">Judy Gallagher</a>",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/52450054@N04/20100922753/\">https://www.flickr.com/photos/52450054@N04/20100922753/</a>"
+ },
+ "grasshopper": {
+  "file": "American_Bird_Grasshopper.jpg",
+  "page": "Grasshopper",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=4324165",
+  "artist": "<div class=\"fn value\">\n<a href=\"//commons.wikimedia.org/wiki/User:Tomfriedel\" title=\"User:Tomfriedel\">http://www.birdphotos.com</a></div>",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "praying mantis": {
+  "file": "Mantis_(European).jpg",
+  "page": "Mantis",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=158560957",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mihai_C._Popa&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mihai C. Popa (page does not exist)\">Mihai C. Popa</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "ladybug": {
+  "file": "Coccinella-septempunctata-15-fws.jpg",
+  "page": "Coccinellidae",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=103292729",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Kryp\" title=\"User:Kryp\">Francisco Welter-Schultes</a>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "firefly": {
+  "file": "Photuris_lucicrescens.jpg",
+  "page": "Firefly",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=1536654",
+  "artist": "Bruce Marlin",
+  "license": "CC BY-SA 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "credit": "Own work <a rel=\"nofollow\" class=\"external free\" href=\"http://www.cirrusimage.com/beetle_firefly_Photuris_lucicrescens.htm\">http://www.cirrusimage.com/beetle_firefly_Photuris_lucicrescens.htm</a>"
+ },
+ "ant": {
+  "file": "Red_Ant_-_March_2025.jpg",
+  "page": "Ant",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=162275615",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/28573309@N06\">Samantha Henneke</a> from Seagrove, North Carolina, USA",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/bulldogpottery/5093284259/\">Ant</a>"
+ },
+ "bee": {
+  "file": "The_Lone_Pollinator.jpg",
+  "page": "Honey bee",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=63835519",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tanner_Smida&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tanner Smida (page does not exist)\">Tanner Smida</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "mosquito": {
+  "file": "Culex pipiens 01.JPG",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=61958978",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:AfroBrazilian\" title=\"User:AfroBrazilian\">AfroBrazilian</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "fly": {
+  "file": "Common_house_fly,_Musca_domestica.jpg",
+  "page": "Housefly",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=25727555",
+  "artist": "USDAgov",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/usdagov/8674435033/sizes/o/in/photostream/\">https://www.flickr.com/photos/usdagov/8674435033/sizes/o/in/photostream/</a>"
+ },
+ "spider": {
+  "file": "Araneus_diadematus_(Clerck,_1757).JPG",
+  "page": "Spider",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=28957311",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Michael_G%C3%A4bler\" title=\"User:Michael Gäbler\">Michael Gäbler</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "pill bug": {
+  "file": "Armadillidium_vulgare_male.jpg",
+  "page": "Armadillidium vulgare",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=148880630",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Xeroporcellio\" title=\"User:Xeroporcellio\">Xeroporcellio</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ }
+}
