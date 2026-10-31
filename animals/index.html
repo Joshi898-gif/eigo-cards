@@ -201,6 +201,15 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
   .stage.learn .side{flex:1}
 }
 .side{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;min-width:0}
+.book{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:8px}
+.bk{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);text-align:center;padding-bottom:10px;border:4px solid transparent;transition:transform .08s}
+.bk:active{transform:scale(.96)}
+.bk.playing{border-color:var(--sun)}
+.bk img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:6px}
+.bk .e{font-weight:700;font-size:19px;line-height:1.1}
+.bk .j{font-size:13px;color:var(--muted)}
+.bk .k{position:absolute}
+.bk.got{border-color:var(--leaf)}
 </style>
 </head>
 <body>
@@ -217,6 +226,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
   <div class="stack">
     <button class="bigbtn sky" id="btnToday"><span class="ico">🌟</span><span>きょうの れんしゅう<small id="todaySub"></small></span></button>
     <button class="bigbtn sun" id="btnMore" hidden><span class="ico">🎲</span><span>もっと あそぶ<small>おぼえた どうぶつで クイズ</small></span></button>
+    <button class="bigbtn" id="btnBook"><span class="ico">📖</span><span>どうぶつ ずかん<small>100ぴき ぜんぶ みられるよ。タップで こえが でるよ</small></span></button>
   </div>
   <div class="row3">
     <div class="stat"><b id="stDone">0</b><span>きょう やった かず</span></div>
@@ -258,6 +268,13 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
       </div>
     </div>
   </div>
+</section>
+
+<!-- BOOK -->
+<section class="screen" id="s-book">
+  <div class="topbar"><button class="iconbtn small" data-go="home" aria-label="ホームへもどる">🏠</button><div class="title">📖 どうぶつ ずかん</div><div class="spacer"></div><div class="pill" id="bookCount"></div></div>
+  <div class="filters" id="bookCats"></div>
+  <div class="book" id="bookGrid"></div>
 </section>
 
 <!-- RESULT -->
@@ -477,20 +494,34 @@ function renderHome(){
     b.onclick=()=>startSession(c);g.appendChild(b);}
 }
 $("#btnToday").onclick=()=>startSession(0);
+/* ---------- picture book ---------- */
+let bookCat=0;
+function renderBook(){
+  const ws=W.filter(w=>!bookCat||w.cat===bookCat);
+  $("#bookCount").textContent=`${ws.length}ぴき`;
+  $("#bookCats").innerHTML=`<button class="${bookCat===0?"on":""}" data-c="0">ぜんぶ 100</button>`+CATS.slice(1).map((c,i)=>`<button class="${bookCat===i+1?"on":""}" data-c="${i+1}">${c.i} ${c.n}</button>`).join("");
+  $$("#bookCats button").forEach(b=>b.onclick=()=>{bookCat=+b.dataset.c;renderBook();window.scrollTo(0,0)});
+  $("#bookGrid").innerHTML=ws.map(w=>`<button class="bk${strength(st(w.id))>=3?" got":""}" data-id="${w.id}"><img src="${imgSrc(w)}" alt="" loading="lazy"><div class="e en">${esc(w.en)}</div><div class="j">${esc(w.ja)}</div></button>`).join("");
+  $$("#bookGrid .bk").forEach(b=>b.onclick=()=>{$$("#bookGrid .bk.playing").forEach(x=>x.classList.remove("playing"));b.classList.add("playing");setTimeout(()=>b.classList.remove("playing"),1500);play(BYID[+b.dataset.id],"",null)});
+}
+$("#btnBook").onclick=()=>{go("book");renderBook()};
 $("#btnMore").onclick=()=>{const q=practiceQueue();if(!q.length){toast("まだ どうぶつに であっていないよ");return}runQueue(q,"practice")};
 
 /* ---------- session ---------- */
 let SES=null;
+function browseQueue(cat){return W.filter(w=>!cat||w.cat===cat).map(w=>({w,kind:"browse",mode:"intro"}))}
 function startSession(cat){
   let q=buildQueue(cat);
-  if(!q.length){if(cat&&!newPool(cat).length&&newBudget()>0){toast("この なかまは ぜんぶ であったよ。ほかの なかまを えらんでね");return}
-    const p=practiceQueue();if(!p.length){toast("まず「きょうの れんしゅう」を おしてね");return}toast("きょうの ぶんは おわり！ クイズで あそぼう");runQueue(p,"practice");return}
+  if(cat&&!q.some(it=>it.kind==="intro")){
+    toast(newPool(cat).length?"きょうの あたらしい ことばは おわり。ずかんで みてみよう":"この なかまは ぜんぶ であったよ。ずかんで みてみよう");
+    runQueue(browseQueue(cat),"browse");return}
+  if(!q.length){const p=practiceQueue();if(!p.length){toast("まず「きょうの れんしゅう」を おしてね");return}toast("きょうの ぶんは おわり！ クイズで あそぼう");runQueue(p,"practice");return}
   runQueue(q,cat?"cat":"today");
 }
 function runQueue(q,label){SES={q,i:0,correct:0,total:0,wrong:new Set(),retried:new Set(),words:[],start:Date.now(),label};go("item");showItem()}
 const PROMPT={intro:"きいて まねして いってみよう",say:"えいごで なんて いうかな？",phrase:"ぶんで いってみよう",pick:"どれかな？ きいて えらんでね"};
 const KINDMSG={intro:"きいて まねして いおう",review:"",same:"",retry:"",practice:""};
-const KIND={intro:"あたらしい",review:"ふくしゅう",same:"もういちど",retry:"もういちど",practice:"クイズ"};
+const KIND={intro:"あたらしい",review:"ふくしゅう",same:"もういちど",retry:"もういちど",practice:"クイズ",browse:"ずかん"};
 function showItem(){
   stopAll();
   const it=SES.q[SES.i],w=it.w;SES.t0=Date.now();SES.checked=false;
@@ -574,7 +605,7 @@ function finish(){
   $("#rStars").textContent="⭐".repeat(stars)+"☆".repeat(3-stars);
   $("#rEmoji").textContent=stars===3?"🎉":stars===2?"😊":"💪";
   $("#rTitle").textContent=stars===3?"すごい！ よくできました！":stars===2?"いいかんじ！":"がんばったね！";
-  $("#rText").textContent=rate===null?`${SES.words.length}ひきの どうぶつに であったよ`:`${SES.total}もん中 ${SES.correct}もん せいかい（${rate}％）`;
+  $("#rText").textContent=rate===null?`${SES.words.length}ひきの どうぶつを ${SES.label==="browse"?"みたよ":"おぼえはじめたよ"}`:`${SES.total}もん中 ${SES.correct}もん せいかい（${rate}％）`;
   const ch=$("#rChips");ch.innerHTML="";
   for(const w of SES.words){ch.insertAdjacentHTML("beforeend",`<span class="chip${SES.wrong.has(w.id)?" ng":""}"><img src="${imgSrc(w)}" alt=""><span class="en">${esc(w.en)}</span></span>`)}
   const due=dueList().length;
@@ -608,7 +639,7 @@ function renderDash(){
   $("#catProgress").innerHTML=h;
   const weak=rows.filter(x=>x.s.intro&&((x.s.lapses||0)>=2||(x.s.sameMiss||0)>=2)).sort((a,b)=>(b.s.lapses||0)-(a.s.lapses||0)).slice(0,24);
   $("#weakChips").innerHTML=weak.length?weak.map(x=>`<span class="chip${isLeech(x.s)?" ng":""}"><img src="${imgSrc(x.w)}" alt=""><span class="en">${esc(x.w.en)}</span><span style="color:var(--muted);font-size:13px">×${x.s.lapses||0}</span></span>`).join(""):'<span class="empty">まだありません</span>';
-  const LAB={today:"きょうの練習",cat:"カテゴリー練習",practice:"クイズ"};
+  const LAB={today:"きょうの練習",cat:"カテゴリー練習",practice:"クイズ",browse:"ずかん"};
   const tb=$("#sessTable tbody");const ss=[...S()].reverse().slice(0,15);
   tb.innerHTML=ss.length?ss.map(s=>`<tr><td>${fmt(s.t)}</td><td>${LAB[s.k]||s.k}</td><td class="num">${s.n}</td><td class="num">${s.c}</td><td class="num">${s.n?Math.round(s.c/s.n*100)+"%":"—"}</td><td class="num">${s.s?Math.round(s.s/60)+"分":"—"}</td></tr>`).join(""):'<tr><td colspan="6" class="empty">まだ学習していません</td></tr>';
 }
