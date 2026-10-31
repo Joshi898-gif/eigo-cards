@@ -235,7 +235,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
   </div>
   <div class="h">あたらしい どうぶつは どこから？</div>
   <div class="cats" id="catGrid"></div>
-  <p class="sub" style="margin-top:14px">ふくしゅうが さきに でて、そのあと あたらしい どうぶつが でるよ</p>
+  <p class="sub" style="margin-top:14px">ふくしゅうが さきに でて、そのあと あたらしい どうぶつが 5ひきずつ でるよ</p>
 </section>
 
 <!-- ITEM -->
@@ -320,7 +320,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
     <div class="chips" id="weakChips" style="justify-content:flex-start"></div>
     <div class="h">最近の学習</div>
     <div class="wrap"><table id="sessTable"><thead><tr><th>日時</th><th>内容</th><th>問題数</th><th>正解</th><th>正答率</th><th>時間</th></tr></thead><tbody></tbody></table></div>
-    <div class="setting" style="margin-top:14px"><label>この構成のねらい</label><div class="desc">新しい語は同じ日に3回（出会う→言う→聞いて選ぶ）思い出し、翌日・3日後・7日後・14日後・30日後・60日後・120日後に復習します。間違えた語は間隔を1段階戻して翌日に出し、答える速さで間隔を自動調整します。復習は全カテゴリーを混ぜ、覚えが進むほど4択から「絵を見て言う」「文で言う」に切り替えます。</div></div>
+    <div class="setting" style="margin-top:14px"><label>この構成のねらい</label><div class="desc">新しい語は同じ日に3回（出会う→言う→聞いて選ぶ）思い出し、翌日・3日後・7日後・14日後・30日後・60日後・120日後に復習します。間違えた語は間隔を1段階戻して翌日に出し、答える速さで間隔を自動調整します。復習は全カテゴリーを混ぜ、覚えが進むほど4択から「絵を見て言う」「文で言う」に切り替えます。新しい語は1回5語ずつ区切って出し、1日の上限はありません。</div></div>
   </div>
   <div class="panel" id="p-words">
     <input type="search" id="wq" placeholder="英語・日本語で検索">
@@ -335,8 +335,8 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
     <div class="setting"><label>子どものプロフィール</label>
       <div class="btnrow"><input type="text" id="newChild" placeholder="なまえ（例：はな）" style="flex:1;min-width:160px"><button class="btn" id="addChild">追加</button><button class="btn ghost" id="renameChild">名前を変更</button></div>
       <div class="desc">学習履歴は子どもごとに分けて保存されます。切り替えは右上のメニューから。</div></div>
-    <div class="setting"><label>1日に出す新しい単語：<span id="newLabel">5</span>語</label><input type="range" id="newPerDay" min="2" max="8" step="1"><div class="desc">1年生は3〜5語がおすすめです。復習が20枚以上たまっている日は、新しい単語は自動的に出ません。</div></div>
-    <div class="setting"><label>1回の復習の上限：<span id="revLabel">20</span>枚</label><input type="range" id="maxReview" min="8" max="30" step="1"><div class="desc">残った復習は次の回に持ち越します。</div></div>
+    <div class="setting"><label>1回に出す新しい単語：<span id="newLabel">5</span>語</label><input type="range" id="newPer" min="3" max="10" step="1"><div class="desc">1回は「新しい語 → 思い出す → 4択」で区切られます。終わったら「つづけて あたらしい どうぶつ」で何回でも続けられるので、1日の上限はありません。5語で約3分です。</div></div>
+    <div class="setting"><label>1回の復習の上限：<span id="revLabel">20</span>枚</label><input type="range" id="maxReview" min="8" max="40" step="1"><div class="desc">復習は新しい語より先に出ます。残った復習は次の回に持ち越します。</div></div>
     <div class="setting"><label>音声の確認</label>
       <div class="desc">子どもは「こたえを みる」の前に声に出して言い、お手本を聞いてから「いえた！／わからなかった」を自分で選びます。マイクは使いません。</div>
       <div class="btnrow"><button class="btn ghost" id="testAudio">🔊 音声を試す</button></div><div id="micTestOut" class="desc" style="margin-top:8px;font-weight:700"></div></div>
@@ -406,8 +406,8 @@ const SOUNDS={
 function soundsOf(w){const e=w.en.toLowerCase();return Object.keys(SOUNDS).filter(k=>SOUNDS[k].re.test(e)).slice(0,2)}
 
 /* ---------- storage ---------- */
-function defaultDB(){return {v:2,children:[{id:"c1",name:"こども"}],active:"c1",settings:{newPerDay:5,maxReview:20,mic:true,record:true,hints:true},progress:{c1:{}},sessions:{c1:[]},days:{c1:{}}}}
-function load(){try{const r=localStorage.getItem(KEY);if(!r)return defaultDB();const d=JSON.parse(r);if(!d.children||!d.active)return defaultDB();d.settings=Object.assign({newPerDay:5,maxReview:20,mic:true,record:true,hints:true},d.settings||{});d.progress??={};d.sessions??={};d.days??={};for(const c of d.children){d.progress[c.id]??={};d.sessions[c.id]??=[];d.days[c.id]??={};}return d;}catch(e){return defaultDB()}}
+function defaultDB(){return {v:2,children:[{id:"c1",name:"こども"}],active:"c1",settings:{newPer:5,maxReview:20,hints:true},progress:{c1:{}},sessions:{c1:[]},days:{c1:{}}}}
+function load(){try{const r=localStorage.getItem(KEY);if(!r)return defaultDB();const d=JSON.parse(r);if(!d.children||!d.active)return defaultDB();d.settings=Object.assign({newPer:5,maxReview:20,hints:true},d.settings||{});d.progress??={};d.sessions??={};d.days??={};for(const c of d.children){d.progress[c.id]??={};d.sessions[c.id]??=[];d.days[c.id]??={};}return d;}catch(e){return defaultDB()}}
 let DB=load();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){toast("保存できませんでした")}}
 const P=()=>DB.progress[DB.active], S=()=>DB.sessions[DB.active], DAYS=()=>DB.days[DB.active];
@@ -440,7 +440,7 @@ function grade(w,kind,mode,ok,rt){
 }
 function dueList(now=Date.now()){return W.filter(w=>isDue(st(w.id),now)).sort((a,b)=>st(a.id).due-st(b.id).due)}
 function introToday(){return (DAYS()[dkey()]||{}).intro||0}
-function newBudget(){const due=dueList().length;if(due>=DB.settings.maxReview)return 0;return Math.max(0,DB.settings.newPerDay-introToday())}
+function newBudget(){return DB.settings.newPer}
 function newPool(cat){let pool=W.filter(w=>!st(w.id).intro);if(cat)return pool.filter(w=>w.cat===cat);for(let c=1;c<CATS.length;c++){const p=pool.filter(w=>w.cat===c);if(p.length)return p}return []}
 function buildQueue(cat){
   const reviews=dueList().slice(0,DB.settings.maxReview);
@@ -483,7 +483,7 @@ function renderHome(){
   const due=dueList().length,nb=newBudget(),pool=newPool(0).length;
   const n=Math.min(nb,pool);
   const parts=[];if(due)parts.push(`ふくしゅう ${due}まい`);if(n)parts.push(`あたらしい どうぶつ ${n}こ`);
-  $("#todaySub").textContent=parts.length?parts.join(" ＋ "):(pool?"きょうの ぶんは おわり！ また あした":"ぜんぶの どうぶつに であったよ！");
+  $("#todaySub").textContent=parts.length?parts.join(" ＋ "):"ぜんぶの どうぶつに であったよ！";
   $("#btnMore").hidden=!(W.some(w=>st(w.id).intro));
   const td=DAYS()[dkey()]||{};$("#stDone").textContent=(td.n||0)+(td.intro||0);
   $("#stStreak").textContent=streak();
@@ -513,12 +513,12 @@ function browseQueue(cat){return W.filter(w=>!cat||w.cat===cat).map(w=>({w,kind:
 function startSession(cat){
   let q=buildQueue(cat);
   if(cat&&!q.some(it=>it.kind==="intro")){
-    toast(newPool(cat).length?"きょうの あたらしい ことばは おわり。ずかんで みてみよう":"この なかまは ぜんぶ であったよ。ずかんで みてみよう");
-    runQueue(browseQueue(cat),"browse");return}
-  if(!q.length){const p=practiceQueue();if(!p.length){toast("まず「きょうの れんしゅう」を おしてね");return}toast("きょうの ぶんは おわり！ クイズで あそぼう");runQueue(p,"practice");return}
-  runQueue(q,cat?"cat":"today");
+    toast("この なかまは ぜんぶ であったよ。ずかんで みてみよう");
+    runQueue(browseQueue(cat),"browse",cat);return}
+  if(!q.length){const p=practiceQueue();if(!p.length){toast("まず「きょうの れんしゅう」を おしてね");return}toast("ぜんぶ であったよ！ クイズで あそぼう");runQueue(p,"practice");return}
+  runQueue(q,cat?"cat":"today",cat);
 }
-function runQueue(q,label){SES={q,i:0,correct:0,total:0,wrong:new Set(),retried:new Set(),words:[],start:Date.now(),label};go("item");showItem()}
+function runQueue(q,label,cat){SES={q,i:0,correct:0,total:0,wrong:new Set(),retried:new Set(),words:[],start:Date.now(),label,cat:cat||0};go("item");showItem()}
 const PROMPT={intro:"きいて まねして いってみよう",say:"えいごで なんて いうかな？",phrase:"ぶんで いってみよう",pick:"どれかな？ きいて えらんでね"};
 const KINDMSG={intro:"きいて まねして いおう",review:"",same:"",retry:"",practice:""};
 const KIND={intro:"あたらしい",review:"ふくしゅう",same:"もういちど",retry:"もういちど",practice:"クイズ",browse:"ずかん"};
@@ -608,9 +608,9 @@ function finish(){
   $("#rText").textContent=rate===null?`${SES.words.length}ひきの どうぶつを ${SES.label==="browse"?"みたよ":"おぼえはじめたよ"}`:`${SES.total}もん中 ${SES.correct}もん せいかい（${rate}％）`;
   const ch=$("#rChips");ch.innerHTML="";
   for(const w of SES.words){ch.insertAdjacentHTML("beforeend",`<span class="chip${SES.wrong.has(w.id)?" ng":""}"><img src="${imgSrc(w)}" alt=""><span class="en">${esc(w.en)}</span></span>`)}
-  const due=dueList().length;
-  $("#rAgainTxt").textContent=SES.wrong.size?"まちがえたのを もういちど":due?"ふくしゅうを つづける":"クイズで あそぶ";
-  $("#rAgain").onclick=()=>{if(SES.wrong.size){const ws=[...SES.wrong].map(id=>BYID[id]);runQueue(ws.map(w=>({w,kind:"practice",mode:"pick"})),"practice")}else if(due)startSession(0);else{const p=practiceQueue();if(p.length)runQueue(p,"practice");else go("home")}};
+  const due=dueList().length;const moreNew=SES.label!=="browse"&&SES.label!=="practice"&&newPool(SES.cat).length>0;
+  $("#rAgainTxt").textContent=SES.wrong.size?"まちがえたのを もういちど":moreNew?"つづけて あたらしい どうぶつ":due?"ふくしゅうを つづける":"クイズで あそぶ";
+  $("#rAgain").onclick=()=>{if(SES.wrong.size){const ws=[...SES.wrong].map(id=>BYID[id]);runQueue(ws.map(w=>({w,kind:"practice",mode:"pick"})),"practice")}else if(moreNew)startSession(SES.cat);else if(due)startSession(0);else{const p=practiceQueue();if(p.length)runQueue(p,"practice");else go("home")}};
 }
 
 /* ---------- parent gate ---------- */
@@ -673,8 +673,8 @@ function openWord(id){
 $("#modal").onclick=e=>{if(e.target.id==="modal")$("#modal").classList.remove("on")};
 
 /* settings */
-function renderSettings(){const s=DB.settings;$("#newPerDay").value=s.newPerDay;$("#newLabel").textContent=s.newPerDay;$("#maxReview").value=s.maxReview;$("#revLabel").textContent=s.maxReview;$("#useHints").checked=s.hints}
-$("#newPerDay").oninput=e=>{DB.settings.newPerDay=+e.target.value;$("#newLabel").textContent=e.target.value;save()};
+function renderSettings(){const s=DB.settings;$("#newPer").value=s.newPer;$("#newLabel").textContent=s.newPer;$("#maxReview").value=s.maxReview;$("#revLabel").textContent=s.maxReview;$("#useHints").checked=s.hints}
+$("#newPer").oninput=e=>{DB.settings.newPer=+e.target.value;$("#newLabel").textContent=e.target.value;save()};
 $("#maxReview").oninput=e=>{DB.settings.maxReview=+e.target.value;$("#revLabel").textContent=e.target.value;save()};
 $("#useHints").onchange=e=>{DB.settings.hints=e.target.checked;save()};
 $("#addChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n)return;const id="c"+Date.now();DB.children.push({id,name:n});DB.progress[id]={};DB.sessions[id]=[];DB.days[id]={};DB.active=id;$("#newChild").value="";save();renderChildSel();renderDash();renderWords();toast(n+" を追加しました")};
