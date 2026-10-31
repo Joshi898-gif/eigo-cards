@@ -237,27 +237,24 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
       <div class="wordbox"><div class="w en" id="enTxt"></div><div class="j" id="jaTxt"></div><div class="p en" id="phTxt"></div></div>
       <div class="prompt" id="prompt"></div>
       <div class="hints" id="hints"></div>
-      <div class="stack" id="micZone" style="align-items:center">
-        <button class="mic" id="micBtn"><span class="ico">🎤</span><span id="micLabel">いってみる</span></button>
-        <div class="sub" id="micMsg"></div>
-        <button class="ghostbtn" id="skipBtn">わからない 🤔</button>
+      <div class="stack" id="askZone" style="align-items:center">
+        <div class="sub">こえに だして いってから…</div>
+        <div class="actions"><button class="act next" id="revealBtn">こたえを みる 👀</button></div>
       </div>
       <div class="choices" id="choices" hidden></div>
       <div class="feedback" id="feedback"></div>
       <div class="stack" id="after" hidden style="align-items:center">
         <div class="verdict" id="verdict"></div>
         <div class="round">
-          <button id="bNormal" class="main"><span class="ico">🔊</span>おてほん</button>
+          <button id="bNormal" class="main"><span class="ico">🔊</span>もういちど</button>
           <button id="bSlow"><span class="ico">🐢</span>ゆっくり</button>
           <button id="bPhrase"><span class="ico">📣</span>ぶん</button>
-          <button id="bMe" hidden><span class="ico">🎧</span>じぶんのこえ</button>
-          <button id="bAgain"><span class="ico">🎤</span>もういちど</button>
         </div>
         <div class="actions" id="selfBtns" hidden>
-          <button class="act ok" id="selfOk"><span class="ico">😊</span>おなじに いえた</button>
-          <button class="act hard" id="selfNg"><span class="ico">🤔</span>ちがった</button>
+          <button class="act ok" id="selfOk"><span class="ico">😊</span>いえた！</button>
+          <button class="act hard" id="selfNg"><span class="ico">🤔</span>わからなかった</button>
         </div>
-        <div class="actions"><button class="act next" id="nextBtn">つぎへ ▶</button></div>
+        <div class="actions" id="nextWrap"><button class="act next" id="nextBtn">つぎへ ▶</button></div>
       </div>
     </div>
   </div>
@@ -302,8 +299,6 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
     <div class="legend"><span><i class="s0"></i>未学習</span><span><i class="s1"></i>おぼえはじめ（1〜3日）</span><span><i class="s2"></i>おぼえてきた（1〜2週間）</span><span><i class="s3"></i>しっかり（1〜2か月）</span><span><i class="s4"></i>定着</span></div>
     <div class="h">カテゴリー別の進み具合</div>
     <div id="catProgress"></div>
-    <div class="h">にがてな音 <span style="font-size:13px;color:var(--muted);font-weight:500">マイクで判定できたときの正答率</span></div>
-    <div id="soundRows"></div>
     <div class="h">つまずいている単語</div>
     <div class="chips" id="weakChips" style="justify-content:flex-start"></div>
     <div class="h">最近の学習</div>
@@ -316,7 +311,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
       <button class="on" data-f="all">すべて</button><button data-f="due">今日の復習</button><button data-f="s0">未学習</button><button data-f="s1">おぼえはじめ</button><button data-f="s2">おぼえてきた</button><button data-f="s3">しっかり</button><button data-f="s4">定着</button><button data-f="leech">にがて</button>
     </div>
     <div class="filters"><span style="font-size:13px;color:var(--muted);align-self:center">カテゴリー</span><select id="wcat" style="width:auto"></select></div>
-    <div class="wrap"><table id="wordTable"><thead><tr><th>写真</th><th>英語</th><th>日本語</th><th>強さ</th><th>正解/回答</th><th>発音OK</th><th>次回</th></tr></thead><tbody></tbody></table></div>
+    <div class="wrap"><table id="wordTable"><thead><tr><th>写真</th><th>英語</th><th>日本語</th><th>強さ</th><th>正解/回答</th><th>次回</th></tr></thead><tbody></tbody></table></div>
     <p style="font-size:13px;color:var(--muted)">行をタップすると履歴と音声の確認ができます。</p>
   </div>
   <div class="panel" id="p-settings">
@@ -325,11 +320,9 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
       <div class="desc">学習履歴は子どもごとに分けて保存されます。切り替えは右上のメニューから。</div></div>
     <div class="setting"><label>1日に出す新しい単語：<span id="newLabel">5</span>語</label><input type="range" id="newPerDay" min="2" max="8" step="1"><div class="desc">1年生は3〜5語がおすすめです。復習が20枚以上たまっている日は、新しい単語は自動的に出ません。</div></div>
     <div class="setting"><label>1回の復習の上限：<span id="revLabel">20</span>枚</label><input type="range" id="maxReview" min="8" max="30" step="1"><div class="desc">残った復習は次の回に持ち越します。</div></div>
-    <div class="setting"><label>マイクと録音</label>
-      <div class="btnrow"><label style="font-weight:500"><input type="checkbox" id="useMic"> マイクで発音を判定する（使える端末のみ）</label></div>
-      <div class="btnrow"><label style="font-weight:500"><input type="checkbox" id="useRec"> 自分の声を録音して聞き比べる（使える端末のみ）</label></div>
-      <div class="desc">マイクが使えない端末では、声に出して言ったあとにお手本を聞いて「おなじに いえた／ちがった」を自分で選ぶ方式になります。</div>
-      <div class="btnrow"><button class="btn ghost" id="testMic">🎤 マイクを試す</button><button class="btn ghost" id="testAudio">🔊 音声を試す</button></div><div id="micTestOut" class="desc" style="margin-top:8px;font-weight:700"></div></div>
+    <div class="setting"><label>音声の確認</label>
+      <div class="desc">子どもは「こたえを みる」の前に声に出して言い、お手本を聞いてから「いえた！／わからなかった」を自分で選びます。マイクは使いません。</div>
+      <div class="btnrow"><button class="btn ghost" id="testAudio">🔊 音声を試す</button></div><div id="micTestOut" class="desc" style="margin-top:8px;font-weight:700"></div></div>
     <div class="setting"><label>発音のヒント</label><div class="btnrow"><label style="font-weight:500"><input type="checkbox" id="useHints"> 口の形のヒントを表示する（R・L・TH・F・V・W）</label></div></div>
   </div>
   <div class="panel" id="p-data">
@@ -428,7 +421,6 @@ function grade(w,kind,mode,ok,rt){
   }else if(kind==="same"&&!ok){s.sameMiss=(s.sameMiss||0)+1;}
   bumpDay("item",ok);save();
 }
-function recordPron(w,ok,heard){if(ok===null)return;const s=st(w.id);s.pt=(s.pt||0)+1;if(ok)s.pc=(s.pc||0)+1;for(const k of soundsOf(w)){const o=s.snd[k]||(s.snd[k]={t:0,c:0});o.t++;if(ok)o.c++;}save()}
 function dueList(now=Date.now()){return W.filter(w=>isDue(st(w.id),now)).sort((a,b)=>st(a.id).due-st(b.id).due)}
 function introToday(){return (DAYS()[dkey()]||{}).intro||0}
 function newBudget(){const due=dueList().length;if(due>=DB.settings.maxReview)return 0;return Math.max(0,DB.settings.newPerDay-introToday())}
@@ -497,6 +489,7 @@ function startSession(cat){
 }
 function runQueue(q,label){SES={q,i:0,correct:0,total:0,wrong:new Set(),retried:new Set(),words:[],start:Date.now(),label};go("item");showItem()}
 const PROMPT={intro:"きいて まねして いってみよう",say:"えいごで なんて いうかな？",phrase:"ぶんで いってみよう",pick:"どれかな？ きいて えらんでね"};
+const KINDMSG={intro:"きいて まねして いおう",review:"",same:"",retry:"",practice:""};
 const KIND={intro:"あたらしい",review:"ふくしゅう",same:"もういちど",retry:"もういちど",practice:"クイズ"};
 function showItem(){
   stopAll();
@@ -514,77 +507,29 @@ function showItem(){
   $("#phTxt").hidden=m!=="phrase";
   $("#prompt").textContent=PROMPT[m];
   renderHints(w,m==="intro"||isLeech(st(w.id)));
-  $("#micZone").hidden=m==="pick";$("#choices").hidden=m!=="pick";$("#after").hidden=true;$("#feedback").textContent="";$("#feedback").className="feedback";
-  $("#skipBtn").hidden=m==="intro";
-  $("#bMe").hidden=true;$("#selfBtns").hidden=true;$("#bPhrase").hidden=m!=="phrase"&&st(w.id).lvl<4;
-  setMic("idle");
+  $("#askZone").hidden=m!=="say"&&m!=="phrase";$("#choices").hidden=m!=="pick";$("#after").hidden=true;$("#feedback").textContent="";$("#feedback").className="feedback";
+  $("#selfBtns").hidden=true;$("#nextWrap").hidden=false;$("#bPhrase").hidden=m!=="phrase"&&st(w.id).lvl<4;
   if(m==="pick")renderPick(w);
-  else if(m==="intro"){play(w,"",$("#bNormal"));}
+  else if(m==="intro"){SES.checked=true;$("#after").hidden=false;const v=$("#verdict");v.className="verdict";v.textContent="きいて まねして いってみよう";play(w,"",$("#bNormal"));}
 }
 function renderHints(w,show){const h=$("#hints");h.innerHTML="";if(!show||!DB.settings.hints)return;for(const k of soundsOf(w)){h.insertAdjacentHTML("beforeend",`<div class="hint">${MOUTH[k]}<div class="t"><b>${k}</b>${SOUNDS[k].hint}</div></div>`)}}
 
-/* ---------- mic: speech recognition + recording ---------- */
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-let srOK=!!SR,listening=false,rec=null,recorder=null,recUrl=null,recOK=!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder);
-const micMode=()=>DB.settings.mic&&srOK?"sr":"self";
-function setMic(state){const b=$("#micBtn");b.classList.toggle("listening",state==="listening");b.classList.toggle("rec",state==="rec");
-  const it=SES&&SES.q[SES.i];const intro=it&&it.mode==="intro";
-  if(state==="listening"){$("#micLabel").textContent="きいてるよ… いってね！";$("#micMsg").textContent="はっきり ゆっくり いってみよう"}
-  else if(state==="rec"){$("#micLabel").textContent="ろくおんちゅう… いってね！";$("#micMsg").textContent="いいおわったら もういちど タップ"}
-  else if(micMode()==="sr"){$("#micLabel").textContent="いってみる";$("#micMsg").textContent="🎤を おしてから えいごで いってね"}
-  else{$("#micLabel").textContent=intro?"いえたら タップ":"こえに だして いえたら タップ";$("#micMsg").textContent=intro?"おてほんの まねを してから おしてね":"いったあとに おてほんを きいて くらべよう"}
-}
-function norm(s){return s.toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9' ]/g," ").replace(/\b(a|an|the|i|see|it's|its|it|is|this|that)\b/g," ").replace(/\s+/g," ").trim()}
-async function startRec(){if(!DB.settings.record||!recOK)return false;try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});const chunks=[];recorder=new MediaRecorder(stream);recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};recorder.onstop=()=>{stream.getTracks().forEach(t=>t.stop());if(!chunks.length)return;if(recUrl)URL.revokeObjectURL(recUrl);recUrl=URL.createObjectURL(new Blob(chunks,{type:recorder.mimeType||"audio/webm"}));$("#bMe").hidden=false};recorder.start();return true}catch(e){recOK=false;recorder=null;return false}}
-function stopRec(){try{if(recorder&&recorder.state==="recording")recorder.stop()}catch(e){}recorder=null}
-function stopAll(){listening=false;try{rec&&rec.abort()}catch(e){}rec=null;stopRec();try{player.pause()}catch(e){};try{speechSynthesis.cancel()}catch(e){}}
-async function onMic(){
-  if(!SES||listening)return;const it=SES.q[SES.i],w=it.w;
-  if(micMode()!=="sr"){ // self-check mode: optional recording, then reveal
-    if(recorder&&recorder.state==="recording"){stopRec();reveal(null);return}
-    if(await startRec()){setMic("rec");return}
-    reveal(null);return;
-  }
-  let done=false;
-  try{rec=new SR();rec.lang="en-US";rec.maxAlternatives=5;rec.interimResults=false;rec.continuous=false}catch(e){srOK=false;setMic("idle");reveal(null);return}
-  listening=true;setMic("listening");
-  const target=norm(it.mode==="phrase"?phraseOf(w):w.en);
-  const to=setTimeout(()=>{try{rec.stop()}catch(e){}},8000);
-  rec.onresult=e=>{done=true;clearTimeout(to);stopRec();const alts=[...e.results[0]].map(r=>norm(r.transcript)).filter(Boolean);
-    const ok=alts.some(a=>a===target||(target.length>=3&&a.includes(target))||(a.length>=3&&target.includes(a)));reveal(ok,alts[0]||"")};
-  rec.onerror=e=>{done=true;clearTimeout(to);listening=false;stopRec();
-    if(["not-allowed","service-not-allowed","audio-capture"].includes(e.error)){srOK=false;toast("マイクが つかえないので、じぶんで くらべる モードに するね");setMic("idle");reveal(null)}
-    else if(e.error==="no-speech"){setMic("idle");$("#micMsg").textContent="きこえなかったよ。もういちど タップして いってみよう"}
-    else{setMic("idle");reveal(null)}};
-  rec.onend=()=>{listening=false;if(!done){done=true;stopRec();setMic("idle");$("#micMsg").textContent="きこえなかったよ。もういちど タップして いってみよう"}};
-  await startRec();
-  try{rec.start()}catch(e){listening=false;srOK=false;stopRec();reveal(null)}
-}
-function reveal(ok,heard){
-  listening=false;const it=SES.q[SES.i],w=it.w;const rt=Date.now()-SES.t0;
+/* ---------- recall: say it, reveal, self-grade ---------- */
+function stopAll(){try{player.pause()}catch(e){};try{speechSynthesis.cancel()}catch(e){}}
+function reveal(){
+  const it=SES.q[SES.i],w=it.w;if(SES.checked)return;SES.checked=true;SES.revealT=Date.now();
   $("#enTxt").hidden=false;$("#jaTxt").hidden=false;
   if(it.mode==="phrase")$("#phTxt").innerHTML=esc(phraseOf(w)).replace(w.en,`<b>${esc(w.en)}</b>`);
-  $("#micZone").hidden=true;$("#after").hidden=false;
-  const v=$("#verdict");v.className="verdict";
-  if(it.mode==="intro"){
-    if(ok===true){v.textContent="じょうず！ そのとおり！";v.className="verdict ok"}else if(ok===false){v.textContent="おしい！ もういちど きいて まねしてみよう";v.className="verdict ng";renderHints(w,true)}else v.textContent="おてほんを きいて もういちど いってみよう";
-    if(heard)v.insertAdjacentHTML("beforeend",`<small>きこえた ことば：${esc(heard)}</small>`);
-    recordPron(w,ok,heard);$("#selfBtns").hidden=true;$("#nextBtn").hidden=false;
-  }else if(ok===null){ // self-check
-    v.textContent="おてほんを きいて くらべてみよう";$("#selfBtns").hidden=false;$("#nextBtn").hidden=true;
-  }else{
-    v.textContent=ok?"せいかい！ じょうずに いえたね！":"おしい！ こたえは「"+w.en+"」だよ";v.className="verdict "+(ok?"ok":"ng");
-    if(heard)v.insertAdjacentHTML("beforeend",`<small>きこえた ことば：${esc(heard)}</small>`);
-    if(!ok)renderHints(w,true);
-    recordPron(w,ok,heard);finishItem(ok,rt);$("#selfBtns").hidden=true;$("#nextBtn").hidden=false;
-  }
-  SES.checked=true;
-  setTimeout(()=>play(w,it.mode==="phrase"?"_p":"",it.mode==="phrase"?$("#bPhrase"):$("#bNormal")),200);
+  $("#askZone").hidden=true;$("#after").hidden=false;
+  const v=$("#verdict");v.className="verdict";v.textContent="いえたかな？";
+  $("#selfBtns").hidden=false;$("#nextWrap").hidden=true;
+  play(w,it.mode==="phrase"?"_p":"",it.mode==="phrase"?$("#bPhrase"):$("#bNormal"));
 }
-function onSkip(){reveal(false,"")}
-function onSelf(ok){const it=SES.q[SES.i],w=it.w;const rt=Date.now()-SES.t0;$("#selfBtns").hidden=true;$("#nextBtn").hidden=false;const v=$("#verdict");
-  if(ok){v.textContent="いいね！ そのちょうし！";v.className="verdict ok"}else{v.textContent="もういちど きいて まねしてみよう";v.className="verdict ng";renderHints(w,true)}
-  finishItem(ok,rt)}
+function onSelf(ok){const it=SES.q[SES.i],w=it.w;const rt=(SES.revealT||Date.now())-SES.t0;$("#selfBtns").hidden=true;
+  if(!ok)renderHints(w,true);
+  finishItem(ok,rt);
+  if(ok)next();else{const v=$("#verdict");v.textContent="だいじょうぶ！ あとで もういちど でるよ";v.className="verdict ng";$("#nextWrap").hidden=false;}
+}
 function finishItem(ok,rt){const it=SES.q[SES.i],w=it.w;
   if(it.kind!=="practice")grade(w,it.kind,it.mode,ok,rt);
   SES.total++;if(ok)SES.correct++;else SES.wrong.add(w.id);
@@ -592,13 +537,12 @@ function finishItem(ok,rt){const it=SES.q[SES.i],w=it.w;
   $("#count").textContent=`${SES.i+1}/${SES.q.length}`;
 }
 function next(){SES.i++;if(SES.i<SES.q.length)showItem();else finish()}
-$("#micBtn").onclick=onMic;$("#skipBtn").onclick=onSkip;$("#nextBtn").onclick=next;
+$("#revealBtn").onclick=reveal;$("#nextBtn").onclick=next;
 $("#selfOk").onclick=()=>onSelf(true);$("#selfNg").onclick=()=>onSelf(false);
 $("#bNormal").onclick=()=>play(SES.q[SES.i].w,"",$("#bNormal"));
 $("#bSlow").onclick=()=>play(SES.q[SES.i].w,"_slow",$("#bSlow"));
 $("#bPhrase").onclick=()=>play(SES.q[SES.i].w,"_p",$("#bPhrase"));
-$("#bMe").onclick=()=>{if(!recUrl)return;try{player.pause();player.src=recUrl;player.onerror=null;player.play();flash($("#bMe"))}catch(e){}};
-$("#bAgain").onclick=()=>{const it=SES.q[SES.i];$("#after").hidden=true;$("#micZone").hidden=false;if(it.mode!=="intro"){$("#enTxt").hidden=true;$("#jaTxt").hidden=true}setMic("idle");onMic()};
+$("#picbox").onclick=()=>{if(!SES)return;const it=SES.q[SES.i];if(it.mode==="pick")return;if(SES.checked)play(it.w,"",$("#bNormal"));else reveal()};
 
 /* ---------- pick quiz ---------- */
 function renderPick(w){
@@ -655,17 +599,13 @@ function renderDash(){
   const now=Date.now();const rows=W.map(w=>({w,s:st(w.id)}));
   const learned=rows.filter(x=>x.s.intro).length,got=rows.filter(x=>mastered(x.s)).length;
   const dueT=rows.filter(x=>isDue(x.s,now)).length,dueTm=rows.filter(x=>x.s.intro&&x.s.due>now&&x.s.due<=startOfDay(now)+2*DAY).length,dueW=rows.filter(x=>x.s.intro&&x.s.due>now&&x.s.due<=now+7*DAY).length;
-  const pt=rows.reduce((n,x)=>n+(x.s.pt||0),0),pc=rows.reduce((n,x)=>n+(x.s.pc||0),0);
-  const kp=[[learned,"出会った単語"],[got,"定着した単語"],[dueT,"今日の復習"],[dueTm,"明日の復習"],[dueW,"7日以内の復習"],[streak(),"連続日数"],[pt?Math.round(pc/pt*100)+"%":"—","発音判定の正答率"],[S().length,"学習回数"]];
+  const kp=[[learned,"出会った単語"],[got,"定着した単語"],[dueT,"今日の復習"],[dueTm,"明日の復習"],[dueW,"7日以内の復習"],[streak(),"連続日数"],[S().length,"学習回数"]];
   $("#kpis").innerHTML=kp.map(([v,l])=>`<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join("");
   const cnt=[0,0,0,0,0];rows.forEach(x=>cnt[strength(x.s)]++);
   $("#strengthBar").innerHTML=cnt.map((n,i)=>n?`<i class="s${i}" style="width:${n}%" title="${SNAME[i]} ${n}"></i>`:"").join("");
   let h="";for(let c=1;c<CATS.length;c++){const cs=rows.filter(x=>x.w.cat===c);const m=cs.filter(x=>strength(x.s)>=3).length,l=cs.filter(x=>x.s.intro&&strength(x.s)<3).length;const at=cs.reduce((n,x)=>n+x.s.h.filter(a=>a.k==="review").length,0),cc=cs.reduce((n,x)=>n+x.s.h.filter(a=>a.k==="review"&&a.r).length,0);
     h+=`<div class="catrow"><div style="font-size:26px">${CATS[c].i}</div><div><div style="font-size:14px;font-weight:700">${CATS[c].n}</div><div class="bar"><i class="s1" style="width:${Math.round((m+l)/cs.length*100)}%"></i><i class="s4" style="width:${Math.round(m/cs.length*100)}%"></i></div></div><div class="pct">${at?Math.round(cc/at*100)+"%":"—"}<div style="font-size:11px;color:var(--muted);font-weight:500">${m}/${cs.length}語</div></div></div>`}
   $("#catProgress").innerHTML=h;
-  const snd={};rows.forEach(x=>{for(const [k,o] of Object.entries(x.s.snd||{})){const a=snd[k]||(snd[k]={t:0,c:0});a.t+=o.t;a.c+=o.c}});
-  const sk=Object.keys(snd).sort((a,b)=>(snd[a].c/snd[a].t)-(snd[b].c/snd[b].t));
-  $("#soundRows").innerHTML=sk.length?sk.map(k=>`<div class="snd"><b class="en" style="font-size:18px">${k}</b><div class="bar"><i style="width:${Math.round(snd[k].c/snd[k].t*100)}%"></i></div><div style="text-align:right;font-variant-numeric:tabular-nums">${snd[k].c}/${snd[k].t}（${Math.round(snd[k].c/snd[k].t*100)}%）</div></div>`).join(""):'<div class="empty">マイクで判定できたデータがまだありません</div>';
   const weak=rows.filter(x=>x.s.intro&&((x.s.lapses||0)>=2||(x.s.sameMiss||0)>=2)).sort((a,b)=>(b.s.lapses||0)-(a.s.lapses||0)).slice(0,24);
   $("#weakChips").innerHTML=weak.length?weak.map(x=>`<span class="chip${isLeech(x.s)?" ng":""}"><img src="${imgSrc(x.w)}" alt=""><span class="en">${esc(x.w.en)}</span><span style="color:var(--muted);font-size:13px">×${x.s.lapses||0}</span></span>`).join(""):'<span class="empty">まだありません</span>';
   const LAB={today:"きょうの練習",cat:"カテゴリー練習",practice:"クイズ"};
@@ -682,7 +622,7 @@ function renderWords(){
   if(q)rows=rows.filter(x=>x.w.en.toLowerCase().includes(q)||x.w.ja.includes(q));
   const tb=$("#wordTable tbody");
   tb.innerHTML=rows.map(x=>{const rv=x.s.h.filter(a=>a.k==="review"||a.k==="same"),rc=rv.filter(a=>a.r).length;
-    return `<tr class="clickable" data-id="${x.w.id}"><td><img src="${imgSrc(x.w)}" alt="" style="width:44px;height:33px;object-fit:cover;border-radius:8px;vertical-align:middle"></td><td class="en" style="font-weight:600">${esc(x.w.en)}</td><td>${esc(x.w.ja)}</td><td><span class="badge s${x.k}">${SNAME[x.k]}</span>${isLeech(x.s)?' <span class="badge leech">にがて</span>':""}</td><td class="num">${rc}/${rv.length}</td><td class="num">${x.s.pt?Math.round(x.s.pc/x.s.pt*100)+"%":"—"}</td><td>${x.s.intro?fmtD(x.s.due):"—"}</td></tr>`}).join("")||'<tr><td colspan="7" class="empty">該当する単語がありません</td></tr>';
+    return `<tr class="clickable" data-id="${x.w.id}"><td><img src="${imgSrc(x.w)}" alt="" style="width:44px;height:33px;object-fit:cover;border-radius:8px;vertical-align:middle"></td><td class="en" style="font-weight:600">${esc(x.w.en)}</td><td>${esc(x.w.ja)}</td><td><span class="badge s${x.k}">${SNAME[x.k]}</span>${isLeech(x.s)?' <span class="badge leech">にがて</span>':""}</td><td class="num">${rc}/${rv.length}</td><td>${x.s.intro?fmtD(x.s.due):"—"}</td></tr>`}).join("")||'<tr><td colspan="6" class="empty">該当する単語がありません</td></tr>';
   $$("#wordTable tr.clickable").forEach(tr=>tr.onclick=()=>openWord(+tr.dataset.id));
 }
 function openWord(id){
@@ -690,7 +630,7 @@ function openWord(id){
   $("#sheet").innerHTML=`<h3><span class="en">${esc(w.en)}</span> <span style="font-size:16px;color:var(--muted)">${esc(w.ja)}</span></h3><img class="big" src="${imgSrc(w)}" alt="">
   <div class="btnrow"><button class="btn ghost" id="shN">🔊 ${esc(w.en)}</button><button class="btn ghost" id="shS">🐢 ゆっくり</button><button class="btn ghost" id="shP">📣 ${esc(phraseOf(w))}</button></div>
   <p style="margin:10px 0 4px"><span class="badge s${strength(s)}">${SNAME[strength(s)]}</span> ${s.intro?`　次回：${fmtD(s.due)}　間隔レベル ${s.lvl}/7　調整 ×${s.ease}`:"　まだ出会っていません"}</p>
-  <p style="margin:4px 0;color:var(--muted);font-size:14px">復習 ${s.reps||0}回 ／ 忘れた ${s.lapses||0}回 ／ 発音判定 ${s.pc||0}/${s.pt||0} ／ 言えた ${s.sayOk||0}回</p>
+  <p style="margin:4px 0;color:var(--muted);font-size:14px">復習 ${s.reps||0}回 ／ 忘れた ${s.lapses||0}回 ／ 言えた ${s.sayOk||0}回</p>
   <div class="hist">${hist.map(a=>`<i class="${a.r?"c":"w"}" title="${fmt(a.t)} ${a.m} ${a.rt/10}秒">${{pick:"選",say:"言",phrase:"文",intro:"初"}[a.m]||"?"}</i>`).join("")||'<span class="empty">履歴なし</span>'}</div>
   <div class="btnrow"><button class="btn" id="shTomorrow">明日もう一度出す</button><button class="btn ghost" id="shReset">この単語をリセット</button><button class="btn ghost" id="shClose">閉じる</button></div>`;
   $("#modal").classList.add("on");
@@ -702,18 +642,16 @@ function openWord(id){
 $("#modal").onclick=e=>{if(e.target.id==="modal")$("#modal").classList.remove("on")};
 
 /* settings */
-function renderSettings(){const s=DB.settings;$("#newPerDay").value=s.newPerDay;$("#newLabel").textContent=s.newPerDay;$("#maxReview").value=s.maxReview;$("#revLabel").textContent=s.maxReview;$("#useMic").checked=s.mic;$("#useRec").checked=s.record;$("#useHints").checked=s.hints}
+function renderSettings(){const s=DB.settings;$("#newPerDay").value=s.newPerDay;$("#newLabel").textContent=s.newPerDay;$("#maxReview").value=s.maxReview;$("#revLabel").textContent=s.maxReview;$("#useHints").checked=s.hints}
 $("#newPerDay").oninput=e=>{DB.settings.newPerDay=+e.target.value;$("#newLabel").textContent=e.target.value;save()};
 $("#maxReview").oninput=e=>{DB.settings.maxReview=+e.target.value;$("#revLabel").textContent=e.target.value;save()};
-$("#useMic").onchange=e=>{DB.settings.mic=e.target.checked;save()};$("#useRec").onchange=e=>{DB.settings.record=e.target.checked;save()};$("#useHints").onchange=e=>{DB.settings.hints=e.target.checked;save()};
+$("#useHints").onchange=e=>{DB.settings.hints=e.target.checked;save()};
 $("#addChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n)return;const id="c"+Date.now();DB.children.push({id,name:n});DB.progress[id]={};DB.sessions[id]=[];DB.days[id]={};DB.active=id;$("#newChild").value="";save();renderChildSel();renderDash();renderWords();toast(n+" を追加しました")};
 $("#renameChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n){toast("新しい名前を入力してください");return}child().name=n;$("#newChild").value="";save();renderChildSel();toast("名前を変更しました")};
 $("#testAudio").onclick=()=>{play(W[0],"",null);$("#micTestOut").textContent="「dog」が聞こえれば音声は正常です。聞こえない場合は端末の音量とサイレントモードを確認してください。"};
-$("#testMic").onclick=()=>{const out=$("#micTestOut");if(!SR){out.textContent="このブラウザは音声認識に対応していません（Chrome・Edge・Safari で開いてください）。自分で聞き比べるモードで学習できます。";return}
-  try{const r=new SR();r.lang="en-US";out.textContent="聞いています… 英語で何か言ってください（例：dog）";r.onresult=e=>{out.textContent="認識できました：「"+e.results[0][0].transcript+"」。マイクは使えます。"};r.onerror=e=>{out.textContent="エラー："+e.error+(e.error==="not-allowed"?"（マイクの許可がありません。この環境ではマイクが使えないため、自分で聞き比べるモードになります）":"")};r.onend=()=>{if(out.textContent.startsWith("聞いて"))out.textContent="音声が検出されませんでした。もう一度お試しください。"};r.start()}catch(e){out.textContent="音声認識を起動できませんでした："+e.message}};
 
 /* data */
-function csv(){const rows=[["英語","日本語","カテゴリー","強さ","間隔レベル","調整","復習回数","忘れた回数","発音OK","発音判定数","次回"]];for(const w of W){const s=st(w.id);rows.push([w.en,w.ja,CATS[w.cat].n,SNAME[strength(s)],s.lvl,s.ease,s.reps||0,s.lapses||0,s.pc||0,s.pt||0,s.intro?dkey(s.due):""])}return rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n")}
+function csv(){const rows=[["英語","日本語","カテゴリー","強さ","間隔レベル","調整","復習回数","忘れた回数","次回"]];for(const w of W){const s=st(w.id);rows.push([w.en,w.ja,CATS[w.cat].n,SNAME[strength(s)],s.lvl,s.ease,s.reps||0,s.lapses||0,s.intro?dkey(s.due):""])}return rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n")}
 $("#exportCsv").onclick=()=>{$("#outBox").value=csv()};
 $("#copyOut").onclick=()=>{const t=$("#outBox");if(!t.value)t.value=csv();navigator.clipboard?.writeText(t.value).then(()=>toast("コピーしました")).catch(()=>{t.select();toast("選択しました。コピーしてください")})};
 $("#exportJson").onclick=()=>{$("#jsonBox").value=JSON.stringify(DB)};
