@@ -2211,13 +2211,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "police car": {
-  "file": "Washington_DC_Metropolitan_Police_Department_Dodge_Charger_No._1605.jpg",
-  "page": "Police car",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=146119411",
-  "artist": "Raymond Wambsgans",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/cak757/53561576672/\">https://www.flickr.com/photos/cak757/53561576672/</a>"
+  "file": "Musashino Police Car 02.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=36601197",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Douglaspperkins\" title=\"User:Douglaspperkins\">Douglas Paul Perkins</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "sun": {
   "file": "The_Sun_in_white_light.jpg",
@@ -3261,10 +3261,10 @@
   "generated": true
  },
  "police station": {
-  "file": "NYPD_Bx_42nd_Precinct_IMG_3248_HLG.jpg",
-  "page": "Police station",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=68355600",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:HugoHelp\" title=\"User:HugoHelp\">Hugo L. González</a>",
+  "file": "Atago Police Station entrance.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=129031866",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ominae\" title=\"User:Ominae\">Ominae</a>",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
