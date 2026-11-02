@@ -188,7 +188,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
 
 <!-- QUIZ -->
 <section class="screen" id="s-quiz">
-  <div class="topbar"><button class="iconbtn small" data-go="home" aria-label="ホームへもどる">🏠</button><div class="progress"><i id="bar"></i></div><div id="count" class="pill">1/10</div></div>
+  <div class="topbar"><button class="iconbtn small" id="quitBtn" aria-label="おわる">🏠</button><div class="progress"><i id="bar"></i></div><div id="count" class="pill">⭕ 0</div></div>
   <div class="stage">
     <div class="qhead"><button class="speakbig" id="qSpeak" aria-label="えいごをきく">🔊</button><div class="qword en" id="qWord"></div></div>
     <div class="choices" id="choices"></div>
@@ -244,7 +244,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
     <div class="chips" id="weakChips" style="justify-content:flex-start"></div>
     <div class="h">最近のクイズ</div>
     <div class="wrap"><table id="sessTable"><thead><tr><th>日時</th><th>内容</th><th>問題数</th><th>正解</th><th>正答率</th></tr></thead><tbody></tbody></table></div>
-    <div class="setting" style="margin-top:14px"><label>この構成のねらい</label><div class="desc">英語を聞いて写真を選ぶ四択だけで進みます。正解した語は 1日→3日→7日→14日→30日 と間隔をあけて出し直し、間違えた語は同じ回の後半でもう一度出して翌日にも出します。覚えが進んだ語は英語の文字を隠して音だけで出題します。1回は10問（設定で5〜20問）です。</div></div>
+    <div class="setting" style="margin-top:14px"><label>この構成のねらい</label><div class="desc">英語を聞いて写真を選ぶ四択だけで進みます。正解した語は 1日→3日→7日→14日→30日 と間隔をあけて出し直し、間違えた語は同じ回の後半でもう一度出して翌日にも出します。覚えが進んだ語は英語の文字を隠して音だけで出題します。問題数の区切りはなく、🏠を押すまで続きます。復習が必要な語が先に出て、そのあと新しい語が出ます。</div></div>
   </div>
   <div class="panel" id="p-words">
     <input type="search" id="wq" placeholder="英語・日本語で検索">
@@ -257,7 +257,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
     <div class="setting"><label>子どものプロフィール</label>
       <div class="btnrow"><input type="text" id="newChild" placeholder="なまえ（例：はな）" style="flex:1;min-width:160px"><button class="btn" id="addChild">追加</button><button class="btn ghost" id="renameChild">名前を変更</button></div>
       <div class="desc">学習履歴は子どもごとに分けて保存されます。切り替えは右上のメニューから。</div></div>
-    <div class="setting"><label>1回の問題数：<span id="perLabel">10</span>問</label><input type="range" id="per" min="5" max="20" step="1"><div class="desc">10問で2〜3分です。終わったら「つぎの クイズ」で何回でも続けられます。</div></div>
+    <div class="setting"><label>問題の数</label><div class="desc">区切りはありません。始めたら🏠を押すまで続きます。10問ごとに「10もん クリア！」と表示されます。</div></div>
     <div class="setting"><label>音声の確認</label><div class="btnrow"><button class="btn ghost" id="testAudio">🔊 音声を試す</button></div><div id="audioOut" class="desc" style="margin-top:8px;font-weight:700"></div></div>
   </div>
   <div class="panel" id="p-data">
@@ -344,7 +344,7 @@ function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clea
 function renderHome(){
   $("#childName").textContent="👤 "+child().name;
   const now=Date.now();const due=W.filter(w=>isDue(st(w.id),now)).length;
-  $("#startSub").textContent=due?`ふくしゅう ${due}こ から はじまるよ`:"きいて えらぼう（10もん）";
+  $("#startSub").textContent=due?`ふくしゅう ${due}こ から はじまるよ`:"きいて えらぼう。やめるまで つづくよ";
   const td=DAYS()[dkey()]||{};$("#stToday").textContent=td.n||0;$("#stRate").textContent=td.n?Math.round(td.c/td.n*100)+"%":"—";
   $("#stGot").textContent=W.filter(w=>got(st(w.id))).length;
   const g=$("#catGrid");g.innerHTML="";
@@ -356,11 +356,13 @@ $("#btnStart").onclick=()=>startRound(0);
 
 /* ---------- quiz ---------- */
 let SES=null,autoT=null;
-function startRound(cat){const q=buildRound(cat);if(!q.length){toast("ことばが ありません");return}SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(),start:Date.now()};prepare(q[0]);go("quiz");showQ()}
+function startRound(cat){const q=buildRound(cat);if(!q.length){toast("ことばが ありません");return}SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(),start:Date.now()};prepare(q[0]);go("quiz");updateScore();showQ()}
+function recentIds(){return new Set(SES.q.slice(Math.max(0,SES.i-6)).map(it=>it.w.id))}
+function refill(){if(SES.q.length-SES.i>3)return;const recent=recentIds();let add=buildRound(SES.cat).filter(it=>!recent.has(it.w.id));if(!add.length)add=buildRound(SES.cat);SES.q.push(...add)}
+function updateScore(){$("#count").textContent=`⭕ ${SES.correct}`;$("#bar").style.width=((SES.total%10)/10*100)+"%"}
 function showQ(){
   clearTimeout(autoT);const it=SES.q[SES.i],w=it.w;SES.t0=Date.now();
   if(!SES.words.includes(w))SES.words.push(w);
-  $("#bar").style.width=(SES.i/SES.q.length*100)+"%";$("#count").textContent=`${SES.i+1}/${SES.q.length}`;
   const hideWord=st(w.id).b>=2&&!it.retry;
   const qw=$("#qWord");qw.textContent=hideWord?"きいて えらぼう":w.en;qw.className="qword en"+(hideWord?" hide":"");
   $("#feedback").textContent="";$("#feedback").className="feedback";$("#nextBtn").hidden=true;
@@ -381,12 +383,13 @@ function answer(o,btn){
   if(!ok)btn.classList.add("wrong");
   $("#qWord").textContent=w.en;$("#qWord").className="qword en";
   const f=$("#feedback");f.textContent=ok?shuffle(["せいかい！","すごい！ あたり！","やったね！"])[0]:"おしい！ こたえは「"+w.ja+"」だよ";f.className="feedback "+(ok?"ok":"ng");
-  grade(w,ok,it.retry);SES.total++;if(ok)SES.correct++;else SES.wrong.add(w.id);
-  if(!ok&&!it.retry&&!SES.retried.has(w.id)){SES.retried.add(w.id);const pos=Math.min(SES.q.length,SES.i+2+Math.floor(Math.random()*2));SES.q.splice(pos,0,{w,retry:true});$("#count").textContent=`${SES.i+1}/${SES.q.length}`}
+  grade(w,ok,it.retry);SES.total++;if(ok)SES.correct++;else SES.wrong.add(w.id);updateScore();if(SES.total%10===0){$("#bar").style.width="100%";toast(`🎉 ${SES.total}もん クリア！`)}
+  if(!ok&&!it.retry&&!SES.retried.has(w.id)){SES.retried.add(w.id);const pos=Math.min(SES.q.length,SES.i+2+Math.floor(Math.random()*2));SES.q.splice(pos,0,{w,retry:true})}
   if(ok){autoT=setTimeout(nextQ,900)}else{play(w,$("#qSpeak"));$("#nextBtn").hidden=false;autoT=setTimeout(nextQ,2600)}
 }
-function nextQ(){clearTimeout(autoT);if(!SES||!$("#s-quiz").classList.contains("on"))return;SES.i++;if(SES.i<SES.q.length)showQ();else finish()}
+function nextQ(){clearTimeout(autoT);if(!SES||!$("#s-quiz").classList.contains("on"))return;SES.i++;refill();showQ()}
 $("#nextBtn").onclick=nextQ;
+$("#quitBtn").onclick=()=>{clearTimeout(autoT);if(SES&&SES.total>0)finish();else go("home")};
 
 /* ---------- result ---------- */
 function finish(){
@@ -399,8 +402,9 @@ function finish(){
   $("#rTitle").textContent=stars===3?"すごい！ よくできました！":stars===2?"いいかんじ！":"がんばったね！";
   $("#rText").textContent=`${SES.total}もん中 ${SES.correct}もん せいかい（${rate}％）`;
   const ch=$("#rChips");ch.innerHTML="";
-  for(const w of SES.words){ch.insertAdjacentHTML("beforeend",`<span class="chip${SES.wrong.has(w.id)?" ng":""}"><img src="${imgSrc(w)}" alt=""><span class="en">${esc(w.en)}</span></span>`)}
-  $("#rAgainTxt").textContent=SES.wrong.size?"まちがえたのを もういちど":"つぎの クイズ";
+  const shown=[...SES.words.filter(w=>SES.wrong.has(w.id)),...SES.words.filter(w=>!SES.wrong.has(w.id))].slice(0,40);
+  for(const w of shown){ch.insertAdjacentHTML("beforeend",`<span class="chip${SES.wrong.has(w.id)?" ng":""}"><img src="${imgSrc(w)}" alt=""><span class="en">${esc(w.en)}</span></span>`)}
+  $("#rAgainTxt").textContent=SES.wrong.size?"まちがえたのを もういちど":"もっと やる";
   const cat=SES.cat;
   $("#rAgain").onclick=()=>{if(SES.wrong.size){const ws=[...SES.wrong].map(id=>BYID[id]);const q=shuffle(ws).map(w=>({w,retry:true}));SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(ws.map(w=>w.id)),start:Date.now()};go("quiz");showQ()}else startRound(cat)};
 }
@@ -455,8 +459,7 @@ function renderWords(){
   $("#wordTable tbody").innerHTML=rows.map(x=>`<tr data-id="${x.w.id}" style="cursor:pointer"><td><img src="${imgSrc(x.w)}" alt="" style="width:44px;height:33px;object-fit:cover;border-radius:8px;vertical-align:middle"></td><td class="en" style="font-weight:600">${esc(x.w.en)}</td><td>${esc(x.w.ja)}</td><td><span class="badge b${x.k}">${STNAME[x.k]}</span></td><td class="num">${x.s.c}/${x.s.a}</td><td>${x.s.seen?fmtD(x.s.due):"—"}</td></tr>`).join("")||'<tr><td colspan="6" class="empty">該当する単語がありません</td></tr>';
   $$("#wordTable tr[data-id]").forEach(tr=>tr.onclick=()=>play(BYID[+tr.dataset.id],null));
 }
-function renderSettings(){$("#per").value=DB.settings.per;$("#perLabel").textContent=DB.settings.per}
-$("#per").oninput=e=>{DB.settings.per=+e.target.value;$("#perLabel").textContent=e.target.value;save()};
+function renderSettings(){}
 $("#addChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n)return;const id="c"+Date.now();DB.children.push({id,name:n});DB.progress[id]={};DB.sessions[id]=[];DB.days[id]={};DB.active=id;$("#newChild").value="";save();renderChildSel();renderDash();renderWords();toast(n+" を追加しました")};
 $("#renameChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n){toast("新しい名前を入力してください");return}child().name=n;$("#newChild").value="";save();renderChildSel();toast("名前を変更しました")};
 $("#testAudio").onclick=()=>{play(W[0],null);$("#audioOut").textContent="「dog」が聞こえれば正常です。聞こえない場合は端末の音量とサイレントモード（iPhoneは側面のスイッチ）を確認してください。"};
