@@ -94,6 +94,16 @@ img{max-width:100%}
 .act{padding:14px 10px;border-radius:22px;font-size:19px;font-weight:800;min-height:64px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);transition:transform .08s;width:min(100%,560px)}
 .act:active{transform:scale(.96)}
 .act.next{background:var(--sky);color:#fff}
+.act.idk{background:var(--card);color:var(--muted);min-height:56px;font-size:18px}
+/* princess reward every 10 questions */
+.prin{position:fixed;inset:0;z-index:70;display:grid;place-items:center;background:rgba(39,48,74,.35);animation:fadein .2s;padding:16px}
+.pcard{background:var(--card);border-radius:32px;box-shadow:var(--shadow);padding:14px 20px 18px;text-align:center;width:min(78vw,300px);animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
+.psvg svg{width:100%;height:auto;display:block;transform-origin:50% 100%;animation:sway 1.6s ease-in-out infinite}
+.ptxt{font-size:24px;font-weight:800;color:var(--berry);margin-top:4px}
+.pname{font-size:15px;color:var(--muted);font-weight:700}
+@keyframes pop{0%{transform:scale(.3) rotate(-8deg);opacity:0}100%{transform:none;opacity:1}}
+@keyframes fadein{from{opacity:0}}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 /* result */
 .result{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding-top:20px}
 .result .big{font-size:84px;line-height:1}
@@ -158,7 +168,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
 .empty{text-align:center;color:var(--muted);padding:20px 10px}
 .credits li{font-size:13px;color:var(--muted);margin-bottom:6px;overflow-wrap:anywhere}
 .credits li b{color:var(--ink)}
-@media (prefers-reduced-motion: reduce){.speakbig.playing,.speakbig.need{animation:none}}
+@media (prefers-reduced-motion: reduce){.speakbig.playing,.speakbig.need,.pcard,.psvg svg{animation:none}}
 </style>
 </head>
 <body>
@@ -192,6 +202,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
   <div class="stage">
     <div class="qhead"><button class="speakbig" id="qSpeak" aria-label="えいごをきく">🔊</button><div class="qword en" id="qWord"></div></div>
     <div class="choices" id="choices"></div>
+    <button class="act idk" id="idkBtn">🤔 わからない</button>
     <div class="feedback" id="feedback"></div>
     <button class="act next" id="nextBtn" hidden>つぎへ ▶</button>
   </div>
@@ -274,6 +285,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
 </section>
 </div>
 <div class="toast" id="toast"></div>
+<div class="prin" id="prin" hidden><div class="pcard"><div class="psvg" id="prinSvg"></div><div class="ptxt" id="prinTxt"></div><div class="pname" id="prinName"></div></div></div>
 
 <script>
 /* ---------- data ---------- */
@@ -337,7 +349,7 @@ function play(w,btn){
 function tts(text){if(!("speechSynthesis" in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>/en[-_]US/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
 
 /* ---------- nav ---------- */
-function go(id){$$(".screen").forEach(s=>s.classList.remove("on"));$("#s-"+id).classList.add("on");window.scrollTo(0,0);if(id==="home")renderHome();if(id!=="quiz"){try{player.pause()}catch(e){}}}
+function go(id){$$(".screen").forEach(s=>s.classList.remove("on"));$("#s-"+id).classList.add("on");window.scrollTo(0,0);if(id==="home")renderHome();if(id!=="quiz"){try{player.pause()}catch(e){}hidePrincess()}}
 $$("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2400)}
 
@@ -366,7 +378,7 @@ function showQ(){
   if(!SES.words.includes(w))SES.words.push(w);
   const hideWord=st(w.id).b>=2&&!it.retry;
   const qw=$("#qWord");qw.textContent=hideWord?"きいて えらぼう":w.en;qw.className="qword en"+(hideWord?" hide":"");
-  $("#feedback").textContent="";$("#feedback").className="feedback";$("#nextBtn").hidden=true;
+  $("#feedback").textContent="";$("#feedback").className="feedback";$("#nextBtn").hidden=true;$("#idkBtn").hidden=false;
   const opts=it.opts||(it.opts=makeOpts(w));
   const c=$("#choices");c.innerHTML="";
   for(const o of opts){const b=document.createElement("button");b.className="choice";b.dataset.id=o.id;b.innerHTML=`<div class="cimg"><img src="${imgSrc(o)}" alt="" onerror="this.replaceWith(document.createTextNode('${esc(o.ja)}'))"></div><div class="lab"></div>`;b.onclick=()=>answer(o,b);c.appendChild(b)}
@@ -378,16 +390,66 @@ function makeOpts(w){let others=W.filter(x=>x.cat===w.cat&&x.id!==w.id&&x.ja!==w
 const IMGCACHE={};
 function prepare(it){if(!it)return;it.opts=it.opts||makeOpts(it.w);for(const o of it.opts){if(!IMGCACHE[o.id]){const im=new Image();im.decoding="async";im.src=imgSrc(o);IMGCACHE[o.id]=im}}preload(it.w)}
 $("#qSpeak").onclick=()=>play(SES.q[SES.i].w,$("#qSpeak"));
+// o === null means the child pressed わからない: show the answer and treat it like a miss
 function answer(o,btn){
-  const it=SES.q[SES.i],w=it.w;const ok=o.id===w.id;
+  const it=SES.q[SES.i],w=it.w;const ok=!!o&&o.id===w.id;
+  $("#idkBtn").hidden=true;
   $$("#choices .choice").forEach(b=>{b.disabled=true;b.querySelector(".lab").textContent=BYID[b.dataset.id].ja;if(b.dataset.id===w.id)b.classList.add("right")});
-  if(!ok)btn.classList.add("wrong");
+  if(!ok&&btn)btn.classList.add("wrong");
   $("#qWord").textContent=w.en;$("#qWord").className="qword en";
-  const f=$("#feedback");f.textContent=ok?shuffle(["せいかい！","すごい！ あたり！","やったね！"])[0]:"おしい！ こたえは「"+w.ja+"」だよ";f.className="feedback "+(ok?"ok":"ng");
-  grade(w,ok,it.retry);SES.total++;if(ok)SES.correct++;else SES.wrong.add(w.id);updateScore();if(SES.total%10===0){$("#bar").style.width="100%";toast(`🎉 ${SES.total}もん クリア！`)}
+  const f=$("#feedback");f.textContent=ok?shuffle(["せいかい！","すごい！ あたり！","やったね！"])[0]:o?"おしい！ こたえは「"+w.ja+"」だよ":"こたえは「"+w.ja+"」だよ。おぼえようね";f.className="feedback "+(ok?"ok":"ng");
+  grade(w,ok,it.retry);SES.total++;if(ok)SES.correct++;else SES.wrong.add(w.id);updateScore();
+  const milestone=SES.total%10===0;if(milestone){$("#bar").style.width="100%";showPrincess(SES.total)}
   if(!ok&&!it.retry&&!SES.retried.has(w.id)){SES.retried.add(w.id);const pos=Math.min(SES.q.length,SES.i+2+Math.floor(Math.random()*2));SES.q.splice(pos,0,{w,retry:true})}
-  if(ok){autoT=setTimeout(nextQ,900)}else{play(w,$("#qSpeak"));$("#nextBtn").hidden=false;autoT=setTimeout(nextQ,2600)}
+  if(ok){autoT=setTimeout(nextQ,milestone?3000:900)}else{play(w,$("#qSpeak"));$("#nextBtn").hidden=false;autoT=setTimeout(nextQ,milestone?3800:2600)}
 }
+$("#idkBtn").onclick=()=>answer(null,null);
+
+/* ---------- princess reward (original characters drawn for this app) ---------- */
+const PRINCESS=[
+  {name:"ローズひめ",hair:"#F4C04E",hair2:"#DDA02C",dress:"#FF9CC2",dress2:"#F2568E",eye:"#3F7BD9",style:"long"},
+  {name:"アクアひめ",hair:"#7A5434",hair2:"#5A3B22",dress:"#8FD0FA",dress2:"#3E8FD8",eye:"#2E6FB8",style:"bun"},
+  {name:"サニーひめ",hair:"#EE8A3C",hair2:"#CC6A28",dress:"#FFE170",dress2:"#F2B420",eye:"#3D9A5B",style:"twin"},
+  {name:"ミントひめ",hair:"#33324A",hair2:"#1C1B2C",dress:"#9AE6C8",dress2:"#38B886",eye:"#7A4FC9",style:"long"},
+  {name:"ルナひめ",hair:"#CDBBF4",hair2:"#A68CE2",dress:"#C1A2F7",dress2:"#8C6FE6",eye:"#C2477F",style:"twin"},
+  {name:"ココひめ",hair:"#F6A9C9",hair2:"#E07EA8",dress:"#FFC09A",dress2:"#F0884F",eye:"#8A4B2A",style:"bun"}
+];
+function princessSVG(p){
+  const skin="#FFE6D6",ink="#2B2233";
+  const spark=(x,y,s,c)=>`<path d="M${x} ${y-s} Q${x} ${y} ${x+s} ${y} Q${x} ${y} ${x} ${y+s} Q${x} ${y} ${x-s} ${y} Q${x} ${y} ${x} ${y-s}Z" fill="${c}"/>`;
+  const back=p.style==="long"?`<path d="M56 92 Q42 170 60 216 Q100 228 140 216 Q158 170 144 92Z" fill="${p.hair2}"/>`
+    :p.style==="twin"?`<ellipse cx="46" cy="134" rx="17" ry="44" fill="${p.hair2}"/><ellipse cx="154" cy="134" rx="17" ry="44" fill="${p.hair2}"/>`
+    :`<circle cx="100" cy="44" r="21" fill="${p.hair2}"/><path d="M60 92 Q56 128 70 140 L130 140 Q144 128 140 92Z" fill="${p.hair2}"/>`;
+  const ribbons=p.style==="twin"?`<circle cx="58" cy="90" r="8" fill="${p.dress2}"/><circle cx="142" cy="90" r="8" fill="${p.dress2}"/>`:"";
+  const eye=x=>`<ellipse cx="${x}" cy="102" rx="7.5" ry="10" fill="${p.eye}"/><ellipse cx="${x}" cy="105" rx="4.2" ry="6" fill="#1D1A2E" opacity=".55"/><circle cx="${x+3}" cy="97.5" r="3" fill="#fff"/><circle cx="${x-2.5}" cy="106.5" r="1.6" fill="#fff"/><path d="M${x-9} 94 Q${x} 87 ${x+9} 94" stroke="${ink}" stroke-width="2.6" fill="none" stroke-linecap="round"/>`;
+  return `<svg viewBox="0 0 200 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${p.name}">
+  ${spark(22,40,9,"#FFD84D")}${spark(178,62,7,p.dress2)}${spark(170,196,8,"#FFD84D")}${spark(30,180,6,p.dress2)}
+  ${back}
+  <path d="M66 168 Q100 156 134 168 L176 250 Q100 268 24 250Z" fill="${p.dress}"/>
+  <path d="M30 240 Q42 250 54 244 Q66 254 78 246 Q90 256 100 248 Q110 256 122 246 Q134 254 146 244 Q158 250 170 240" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/>
+  <circle cx="70" cy="214" r="3.5" fill="#fff" opacity=".8"/><circle cx="104" cy="226" r="3.5" fill="#fff" opacity=".8"/><circle cx="136" cy="208" r="3.5" fill="#fff" opacity=".8"/><circle cx="90" cy="196" r="3" fill="#fff" opacity=".8"/>
+  <path d="M68 154 Q60 168 66 180" stroke="${skin}" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M132 154 Q140 168 134 180" stroke="${skin}" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M80 138 Q100 146 120 138 L126 172 Q100 180 74 172Z" fill="${p.dress2}"/>
+  <circle cx="74" cy="146" r="13" fill="${p.dress}"/><circle cx="126" cy="146" r="13" fill="${p.dress}"/>
+  <path d="M73 170 Q100 180 127 170" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="100" cy="176" r="6" fill="#FFD84D"/>
+  <rect x="93" y="120" width="14" height="22" rx="6" fill="${skin}"/>
+  <ellipse cx="100" cy="96" rx="38" ry="40" fill="${skin}"/>
+  <path d="M60 104 Q54 50 100 48 Q146 50 140 104 Q136 80 124 70 Q116 86 100 72 Q86 86 76 70 Q64 80 60 104Z" fill="${p.hair}"/>
+  <path d="M61 90 Q56 120 66 136 Q70 112 70 90Z" fill="${p.hair}"/><path d="M139 90 Q144 120 134 136 Q130 112 130 90Z" fill="${p.hair}"/>
+  ${ribbons}${eye(85)}${eye(115)}
+  <ellipse cx="75" cy="116" rx="6" ry="3.5" fill="#FF9DB5" opacity=".7"/><ellipse cx="125" cy="116" rx="6" ry="3.5" fill="#FF9DB5" opacity=".7"/>
+  <path d="M94 119 Q100 125 106 119" stroke="#C4476B" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <path d="M78 58 L84 42 L92 54 L100 34 L108 54 L116 42 L122 58 Q100 52 78 58Z" fill="#FFD84D" stroke="#E5A800" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="100" cy="49" r="4" fill="${p.dress2}"/><circle cx="84" cy="44" r="2.4" fill="#fff"/><circle cx="116" cy="44" r="2.4" fill="#fff"/>
+</svg>`;
+}
+let prinLast=-1,prinT=null,actx=null;
+function chime(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();actx.resume&&actx.resume();const t=actx.currentTime;[784,988,1175,1568].forEach((f,i)=>{const o=actx.createOscillator(),g=actx.createGain(),s=t+i*.09;o.type="triangle";o.frequency.value=f;g.gain.setValueAtTime(0,s);g.gain.linearRampToValueAtTime(.16,s+.02);g.gain.exponentialRampToValueAtTime(.001,s+.5);o.connect(g);g.connect(actx.destination);o.start(s);o.stop(s+.55)})}catch(e){}}
+function showPrincess(n){let k;do{k=Math.floor(Math.random()*PRINCESS.length)}while(k===prinLast);prinLast=k;const p=PRINCESS[k];
+  $("#prinSvg").innerHTML=princessSVG(p);$("#prinTxt").textContent=`🎉 ${n}もん クリア！`;$("#prinName").textContent=`${p.name}が きたよ！`;
+  $("#prin").hidden=false;chime();clearTimeout(prinT);prinT=setTimeout(hidePrincess,2600)}
+function hidePrincess(){clearTimeout(prinT);$("#prin").hidden=true}
+$("#prin").onclick=hidePrincess;
 function nextQ(){clearTimeout(autoT);if(!SES||!$("#s-quiz").classList.contains("on"))return;SES.i++;refill();showQ()}
 $("#nextBtn").onclick=nextQ;
 $("#quitBtn").onclick=()=>{clearTimeout(autoT);if(SES&&SES.total>0)finish();else go("home")};
