@@ -2572,5 +2572,773 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "spinach": {
+  "file": "Afang leave.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=164300697",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Daniel_Paullll&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Daniel Paullll (page does not exist)\">Daniel Paullll</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "radish": {
+  "file": "Different_kinds_of_White_Radish.png",
+  "page": "Daikon",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=115411117",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:KimYunmi&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:KimYunmi (page does not exist)\">KimYunmi</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "green pepper": {
+  "file": "Green-Yellow-Red-Pepper-2009.jpg",
+  "page": "Bell pepper",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=6411532",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Khamtran\" title=\"User:Khamtran\">Kham Tran</a> - <a rel=\"nofollow\" class=\"external text\" href=\"http://www.khamtran.com/\">www.khamtran.com</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "garlic": {
+  "file": "Garlic bulbs and cloves.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=129705892",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Iifar\" title=\"User:Iifar\">Ivar Leidus</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "ginger": {
+  "file": "Fresh ginger (20240131).jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=150228236",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Fumikas_Sagisavas\" title=\"User:Fumikas Sagisavas\">Fumikas Sagisavas</a>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "beans": {
+  "file": "French_beans_J1.JPG",
+  "page": "Bean",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=20929718",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Jamain\" title=\"User:Jamain\">Jamain</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "chestnut": {
+  "file": "Frucht der Edelkastanie.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=468004",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.lebensgeschichten.org\">Benjamin Gimmel,</a> <a href=\"//commons.wikimedia.org/wiki/User:BenHur\" title=\"User:BenHur\">BenHur</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "walnut": {
+  "file": "Walnuts_-_whole_and_open_with_halved_kernel.jpg",
+  "page": "Walnut",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=98723321",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Iifar\" title=\"User:Iifar\">Ivar Leidus</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "sweet potato": {
+  "file": "Ipomoea_batatas_006.JPG",
+  "page": "Sweet potato",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=10483011",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Llez\" title=\"User:Llez\">Llez</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "leek": {
+  "file": "Daun Bawang.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=1296880",
+  "artist": "Nein Arimasen",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "plum": {
+  "file": "Maesil (prunus mume) washed and stemmed.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=54492218",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://blog.naver.com/parkyang1021/220736731007\">딸기맘양갱이</a>",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://blog.naver.com/parkyang1021/220736731007\">https://blog.naver.com/parkyang1021/220736731007</a>"
+ },
+ "fig": {
+  "file": "Ficus carica whole fruits and fruit cut open.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=7835084",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Garitzko\" title=\"User:Garitzko\">Garitzko</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "mandarin": {
+  "file": "Citrus_unshiu_20101127_c.jpg",
+  "page": "Citrus unshiu",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=12158123",
+  "artist": "<a href=\"https://ja.wikipedia.org/wiki/User:Batholith\" class=\"extiw\" title=\"ja:User:Batholith\">Batholith</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "honey": {
+  "file": "Runny_hunny.jpg",
+  "page": "Honey",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=33614",
+  "artist": "Scott Bauer, USDA ARS",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "This image was released by the <a href=\"https://en.wikipedia.org/wiki/Agricultural_Research_Service\" class=\"extiw\" title=\"en:Agricultural Research Service\">Agricultural Research Service</a>, the research agency of the <a href=\"https://en.wikipedia.org/wiki/United_States_Department_of_Agriculture\" class=\"extiw\" title=\"en:United States Department of Agriculture\">United States Department of Agriculture</a>, with the ID <a rel=\"nofollow\" class=\"external text\" data-mw-original-href=\"//www.ars.usda.gov/is/graphics/photos/K7240-6.htm\" href=\"https://www.ars.usda.gov/is/graphics/photos/K7240-6.htm\">K7240-6</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Media_created_by_the_United_States_Agricultural_Research_Service_with_known_IDs&amp;filefrom=K7240-6#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Media_created_by_the_United_States_Agricultural_Research_Service_with_known_IDs&amp;filefrom=K7240-6#mw-category-media\"><small>(next)</small></a>."
+ },
+ "salt": {
+  "generated": true
+ },
+ "sugar": {
+  "file": "Sucre_blanc_cassonade_complet_rapadura.jpg",
+  "page": "Sugar",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=1219848",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Romainbehar\" title=\"User:Romainbehar\">Romain Behar</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "pepper": {
+  "file": "Black peppers.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=118314186",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Raimiga&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Raimiga (page does not exist)\">Raimiga</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "meat": {
+  "file": "FoodMeat.jpg",
+  "page": "Meat",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=186710",
+  "artist": "<div class=\"fn value\">\nUnknown photographer</div>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://visualsonline.cancer.gov/details.cfm?imageid=2402\">https://visualsonline.cancer.gov/details.cfm?imageid=2402</a>"
+ },
+ "rice ball": {
+  "file": "小料理バルさくら_特製おにぎり.jpg",
+  "page": "Onigiri",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=61941122",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:G5aa9ha63&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:G5aa9ha63 (page does not exist)\">脇山航</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "seaweed": {
+  "file": "Nori.jpg",
+  "page": "Nori",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=740793",
+  "artist": "Alice Wiegand, (<a href=\"//commons.wikimedia.org/wiki/User:Lyzzy\" title=\"User:Lyzzy\">Lyzzy</a>)",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "lunch box": {
+  "file": "Bento_box_from_a_grocery_store.jpg",
+  "page": "Bento",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=49844259",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Dllu\" title=\"User:Dllu\">Dllu</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "peas": {
+  "file": "Doperwt_rijserwt_peulen_Pisum_sativum.jpg",
+  "page": "Pea",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=194762",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rasbak\" title=\"User:Rasbak\">Rasbak</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "bamboo shoot": {
+  "file": "VigorouslyBambooShootPushUpStoneJapaneseMousouTikuTakenoko.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=91141729",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%E3%82%B5%E3%83%95%E3%82%A3%E3%83%AB\" title=\"User:サフィル\">サフィル</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "back": {
+  "generated": true
+ },
+ "stomach": {
+  "generated": true
+ },
+ "chest": {
+  "generated": true
+ },
+ "eyebrow": {
+  "generated": true
+ },
+ "lip": {
+  "generated": true
+ },
+ "chin": {
+  "generated": true
+ },
+ "forehead": {
+  "generated": true
+ },
+ "wrist": {
+  "generated": true
+ },
+ "ankle": {
+  "generated": true
+ },
+ "thumb": {
+  "file": "Hitchhiker's thumb.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=116688994",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Alexis_Lours\" title=\"User:Alexis Lours\">Alexis Lours</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "shorts": {
+  "generated": true
+ },
+ "swimsuit": {
+  "generated": true
+ },
+ "glasses": {
+  "file": "2023_Okulary_korekcyjne.jpg",
+  "page": "Glasses",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=130814435",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Jacek_Halicki\" title=\"User:Jacek Halicki\">Jacek Halicki</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "watch": {
+  "file": "Rolex_Oyster_Perpetual_with_a_\"Jubliee\"_dial.jpg",
+  "page": "Watch",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=200681517",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Camwolf12&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Camwolf12 (page does not exist)\">Camwolf12</a>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "sleeve": {
+  "generated": true
+ },
+ "collar": {
+  "file": "Arnaud Rousseau Dress Shirt with a Modern Spread Collar.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=17621494",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ashjini&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ashjini (page does not exist)\">Ashjini</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "tie": {
+  "file": "Memphis_tie_1A.JPG",
+  "page": "Necktie",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=39221339",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Aff%C3%A4rside&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Affärside (page does not exist)\">Affärside</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "mittens": {
+  "file": "Southern_Sami_Mittens_Norway.JPG",
+  "page": "Mitten",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=8056042",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Thorguds\" title=\"User:Thorguds\">Thorguds</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span> Photo by the owner of Saamiblog"
+ },
+ "wallet": {
+  "file": "WalletMpegMan.jpg",
+  "page": "Wallet",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=1908341",
+  "artist": "The original uploader was <a href=\"https://en.wikipedia.org/wiki/User:TheArmadillo\" class=\"extiw\" title=\"wikipedia:User:TheArmadillo\">TheArmadillo</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>.. Uploaded to Commons by <a href=\"//commons.wikimedia.org/w/index.php?title=User:Koernerbroetchen&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Koernerbroetchen (page does not exist)\">Körnerbrötchen</a>.",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<bdi lang=\"en\" dir=\"ltr\">Transferred from <span class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a></span> to Commons.</bdi>"
+ },
+ "mirror": {
+  "file": "Mirror.jpg",
+  "page": "Mirror",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=1099675",
+  "artist": "Cgs",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "English Wikipedia (<a class=\"external free\" data-mw-original-href=\"http://en.wikipedia.org/wiki/Image:Mirror.jpeg\" href=\"https://en.wikipedia.org/wiki/Image:Mirror.jpeg\">http://en.wikipedia.org/wiki/Image:Mirror.jpeg</a>)"
+ },
+ "stairs": {
+  "file": "At_Victoria_and_Albert_Museum_2025_018.jpg",
+  "page": "Stairs",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=179466388",
+  "artist": "Photograph by <a href=\"//commons.wikimedia.org/wiki/User:Mike_Peel\" title=\"User:Mike Peel\">Mike Peel</a> (<a rel=\"nofollow\" class=\"external text\" href=\"https://www.mikepeel.net/\">www.mikepeel.net</a>).",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "wall": {
+  "file": "087 Red brick wall background, brick wall texture free photo with attribution.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=113567306",
+  "artist": "Marek Ślusarczyk (<a href=\"//commons.wikimedia.org/wiki/User:Tupungato\" title=\"User:Tupungato\">Tupungato</a>) <a rel=\"nofollow\" class=\"external text\" href=\"https://www.pond5.com/artist/citylife#1/2176\">Photo portfolio</a>",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "floor": {
+  "file": "Parquet_flooring_in_Musée_des_arts_décoratifs_de_Strasbourg.jpg",
+  "page": "Floor",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=19280837",
+  "artist": "Amada44",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "drawer": {
+  "file": "Drawer.agr.jpg",
+  "page": "Drawer",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=252211",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:ArnoldReinhold\" title=\"User:ArnoldReinhold\">ArnoldReinhold</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>. One of a series of common objects I photographed in the  to illustrate <a href=\"https://en.wikipedia.org/wiki/Basic_English_picture_wordlist\" class=\"extiw\" title=\"wikipedia:Basic English picture wordlist\">Wikipedia:Basic English picture wordlist</a>."
+ },
+ "shelf": {
+  "file": "Atifells_de_cuina_andalusins,_Museu_Arqueològic_Municipal_d'Alcoi.JPG",
+  "page": "Shelf (storage)",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=17831905",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Joanbanjo\" title=\"User:Joanbanjo\">Joanbanjo</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "key": {
+  "file": "Solex_99_30_padlock_with_keys_(DSCF2659).jpg",
+  "page": "Lock and key",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=65582711",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Trougnouf\" title=\"User:Trougnouf\">Trougnouf</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "broom": {
+  "file": "BroomsforSale.jpg",
+  "page": "Broom",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=9750981",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Edal\" title=\"User:Edal\">Edal</a> Anton Lefterov",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "soap": {
+  "file": "Handmade_soap_cropped_and_simplified.jpg",
+  "page": "Soap",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=90085224",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Malene_Thyssen&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Malene Thyssen (page does not exist)\">Malene Thyssen</a>, simplified by <a href=\"//commons.wikimedia.org/wiki/User:HLHJ\" title=\"User:HLHJ\">HLHJ</a>",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "credit": "Simplified version of <a href=\"//commons.wikimedia.org/wiki/File:Handmade_soap.jpg\" title=\"File:Handmade soap.jpg\">File:Handmade soap.jpg</a>"
+ },
+ "toothbrush": {
+  "file": "Toothbrush_20050716_004.jpg",
+  "page": "Toothbrush",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=228100",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bergsten\" title=\"User:Bergsten\">Jonas Bergsten</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "Photo taken by <a href=\"//commons.wikimedia.org/wiki/User:Bergsten\" title=\"User:Bergsten\">Jonas Bergsten</a> using a <a href=\"https://en.wikipedia.org/wiki/Canon_PowerShot_G\" class=\"extiw\" title=\"en:Canon PowerShot G\">Canon PowerShot G3</a>."
+ },
+ "comb": {
+  "file": "Plastic_comb,_2015-06-07.jpg",
+  "page": "Comb",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=40796541",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Crisco_1492\" title=\"User:Crisco 1492\">Crisco 1492</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "vacuum cleaner": {
+  "file": "Numatic_Henry_vacuum_cleaner_(3308986870)_(cropped).jpg",
+  "page": "Vacuum cleaner",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=113988156",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/80075387@N00\">Tnarik Innael</a> from London",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/tnarik/3308986870/\">os presento a Henry</a>"
+ },
+ "washing machine": {
+  "file": "LG_드럼세탁기와_식기세척기,_영국서_물사용_효율_최우수_제품_수상.jpg",
+  "page": "Washing machine",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=17803075",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/32985045@N08\">LG전자</a>",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/lge/6474402879/\">LG 드럼세탁기와 식기세척기, 영국서 물사용 효율 최우수 제품 수상</a>"
+ },
+ "garden": {
+  "file": "Brooklyn_Botanic_Garden_New_York_May_2015_010.jpg",
+  "page": "Garden",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=40172305",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:King_of_Hearts\" title=\"User:King of Hearts\">King of Hearts</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "pot": {
+  "file": "All-Clad Copper Core pots.jpeg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=127392417",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/49889671@N03\">Didriks</a> from Cambridge, MA, USA",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/dinnerseries/14411031561/\">All-Clad Copper Core</a>"
+ },
+ "fan": {
+  "file": "Hatari_18_inch_fan.jpg",
+  "page": "Fan (machine)",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=151177457",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Peachyo&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Peachyo (page does not exist)\">Peachyo</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "blackboard": {
+  "file": "Homer_E_Newell_NASA.jpg",
+  "page": "Blackboard",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=70737709",
+  "artist": "Unknown author<span style=\"display: none;\">Unknown author</span>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20180711023906/https://airandspace.si.edu/sites/default/files/styles/slideshow_xlg/public/images/collection-objects/record-images/NASM-SI-88-13366.jpg\">NASM-SI-88-13366</a>, National Air and Space Museum, Smithsonian Institution; records from Newell's time at NASA"
+ },
+ "stapler": {
+  "file": "2017_Zszywacz_biurowy.jpg",
+  "page": "Stapler",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=64007778",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Jacek_Halicki\" title=\"User:Jacek Halicki\">Jacek Halicki</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "pencil case": {
+  "file": "Skolni_penal.jpg",
+  "page": "Pencil case",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3926181",
+  "artist": "Honza Groh",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "pencil sharpener": {
+  "file": "Sharpener_with_Pencil.jpg",
+  "page": "Pencil sharpener",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=9677296",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:AlexanderKlink\" title=\"User:AlexanderKlink\">Alexander Klink</a>",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "paint": {
+  "file": "Multicolored_tempera_paints.jpg",
+  "page": "Paint",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=55681446",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Joyful_spherical_creature\" title=\"User:Joyful spherical creature\">Joyful spherical creature</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "dictionary": {
+  "file": "Woerterbuchstapel_Langenscheidt.jpg",
+  "page": "Dictionary",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=31355102",
+  "artist": "Langenscheidt",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "Langenscheidt"
+ },
+ "textbook": {
+  "file": "Afghan_textbooks_in_Pashto.jpg",
+  "page": "Textbook",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=26473496",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.dvidshub.net/portfolio/1083732/emily-chilson\">1st Lt. Emily Chilson</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/120px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"80\" height=\"80\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/250px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"900\" data-file-height=\"900\"></span></span>\n</td>\n<td align=\"center\">\n<p><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-USMil 1%3D110430-A-%23%23%23%23%23-010 2%3DArmy url%3Dhttp%3A%2F%2Fwww.dvidshub.net%2Fimage%2F399083%2Fnew-textbooks-delivered-5000-afghan-students-paktika-province\"> </span>\nThis image was released by the United States Army with the <a href=\"//commons.wikimedia.org/wiki/Commons:VIRIN\" title=\"Commons:VIRIN\">ID</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://www.dvidshub.net/image/399083/new-textbooks-delivered-5000-afghan-students-paktika-province\">110430-A-#####-010</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=110430-A-#####-010#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=110430-A-#####-010#mw-category-media\"><small>(next)</small></a>.<br>\n<small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/id\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/id\"><bdi class=\"language lang-id\" lang=\"id\">Bahasa Indonesia</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/jax\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/jax\"><bdi class=\"language lang-jax\" lang=\"jax\">Bahaso Jambi</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\"><bdi class=\"language lang-de-formal\" lang=\"de-formal\">Deutsch (Sie-Form)</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/es\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/eu\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/eu\"><bdi class=\"language lang-eu\" lang=\"eu\">euskara</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fa\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fa\"><bdi class=\"language lang-fa\" lang=\"fa\">فارسی</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/it\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ko\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ko\"><bdi class=\"language lang-ko\" lang=\"ko\">한국어</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nds\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nds\"><bdi class=\"language lang-nds\" lang=\"nds\">Plattdüütsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ps\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ps\"><bdi class=\"language lang-ps\" lang=\"ps\">پښتو</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pt\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pt\"><bdi class=\"language lang-pt\" lang=\"pt\">português</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ru\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sv\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sv\"><bdi class=\"language lang-sv\" lang=\"sv\">svenska</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/tr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/tr\"><bdi class=\"language lang-tr\" lang=\"tr\">Türkçe</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/uk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">简体中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">繁體中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><span class=\"mw-image-border\" typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"47\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/250px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"1235\" data-file-height=\"650\"></span></span>\n</td></tr></tbody></table>"
+ },
+ "whistle": {
+  "file": "Pea_Whistle.jpg",
+  "page": "Whistle",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=7785288",
+  "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Zephyris\" class=\"extiw\" title=\"wikipedia:User:Zephyris\">Zephyris</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<bdi lang=\"en\" dir=\"ltr\">Transferred from <span class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Mardetanha\" title=\"User:Mardetanha\">Mardetanha</a> using <a href=\"https://iw.toolforge.org/commonshelper/\" class=\"extiw\" title=\"toollabs:commonshelper/\">CommonsHelper</a>.</bdi>"
+ },
+ "jump rope": {
+  "file": "Ghanaian_kid_(skipping_rope)_06_(cropped).jpg",
+  "page": "Skipping rope",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=99590679",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Pambelle12\" title=\"User:Pambelle12\">Pambelle12</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "unicycle": {
+  "file": "Jamesunicycle.jpg",
+  "page": "Unicycle",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=176178183",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:BuckyB89&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:BuckyB89 (page does not exist)\">BuckyB89</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "envelope": {
+  "file": "Envelope_-_Boonville_Address-000.jpg",
+  "page": "Envelope",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=135820",
+  "artist": "",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": ""
+ },
+ "subway": {
+  "file": "Seoul-metro-2009-20180916-103548.jpg",
+  "page": "Rapid transit",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=81057595",
+  "artist": "<bdi><a href=\"//commons.wikimedia.org/wiki/User:LERK\" title=\"User:LERK\">LERK</a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "wheelchair": {
+  "file": "Man_in_wheelchair_with_AFO_braces_and_crutches_b.jpg",
+  "page": "Wheelchair",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=157836591",
+  "artist": "<ul><li><a href=\"//commons.wikimedia.org/wiki/File:Man_in_wheelchair_with_AFO_braces_and_crutches.jpg\" title=\"File:Man in wheelchair with AFO braces and crutches.jpg\">File:Man in wheelchair with AFO braces and crutches.jpg</a>: <a href=\"//commons.wikimedia.org/w/index.php?title=User:Pagemaker787&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Pagemaker787 (page does not exist)\">Pagemaker787</a></li>\n<li>derivative work: <a href=\"//commons.wikimedia.org/wiki/User:Georgfotoart\" title=\"User:Georgfotoart\">Georgfotoart</a></li></ul>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "This file was derived from:  <a href=\"//commons.wikimedia.org/wiki/File:Man_in_wheelchair_with_AFO_braces_and_crutches.jpg\" title=\"File:Man in wheelchair with AFO braces and crutches.jpg\">Man in wheelchair with AFO braces and crutches.jpg</a>: <span typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Man_in_wheelchair_with_AFO_braces_and_crutches.jpg\" class=\"mw-file-description\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Man_in_wheelchair_with_AFO_braces_and_crutches.jpg/60px-Man_in_wheelchair_with_AFO_braces_and_crutches.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"50\" height=\"50\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Man_in_wheelchair_with_AFO_braces_and_crutches.jpg/120px-Man_in_wheelchair_with_AFO_braces_and_crutches.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"828\" data-file-height=\"828\"></a></span><br>"
+ },
+ "stroller": {
+  "generated": true
+ },
+ "garbage truck": {
+  "file": "Eniwa seisousha noda.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=27294603",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Prosperosity\" class=\"mw-redirect\" title=\"User:Prosperosity\">Prosperosity</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "sailboat": {
+  "file": "Catalina 34 Mark II sailboat Vagabond 5765.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=110464668",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ahunt\" title=\"User:Ahunt\">Ahunt</a>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "submarine": {
+  "file": "US_Navy_040730-N-1234E-002_PCU_Virginia_(SSN_774)_returns_to_the_General_Dynamics_Electric_Boat_shipyard.jpg",
+  "page": "Submarine",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=8224242",
+  "artist": "U.S. Navy photo by General Dynamics Electric Boat",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Seal_of_the_United_States_Department_of_the_Navy.svg/120px-Seal_of_the_United_States_Department_of_the_Navy.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"80\" height=\"80\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Seal_of_the_United_States_Department_of_the_Navy.svg/250px-Seal_of_the_United_States_Department_of_the_Navy.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"889\" data-file-height=\"889\"></span></span>\n</td>\n<td align=\"center\">\n<p><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-USMil 1%3D040730-N-1234E-002 2%3DNavy url%3Dhttp%3A%2F%2Fwww.navy.mil%2Fview_image.asp%3Fid%3D16778\"> </span>\nThis image was released by the United States Navy with the <a href=\"//commons.wikimedia.org/wiki/Commons:VIRIN\" title=\"Commons:VIRIN\">ID</a> <a rel=\"nofollow\" class=\"external text\" href=\"http://www.navy.mil/view_image.asp?id=16778\">040730-N-1234E-002</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Navy_with_known_IDs&amp;filefrom=040730-N-1234E-002#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Navy_with_known_IDs&amp;filefrom=040730-N-1234E-002#mw-category-media\"><small>(next)</small></a>.<br>\n<small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/id\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/id\"><bdi class=\"language lang-id\" lang=\"id\">Bahasa Indonesia</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/jax\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/jax\"><bdi class=\"language lang-jax\" lang=\"jax\">Bahaso Jambi</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\"><bdi class=\"language lang-de-formal\" lang=\"de-formal\">Deutsch (Sie-Form)</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/es\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/eu\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/eu\"><bdi class=\"language lang-eu\" lang=\"eu\">euskara</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fa\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fa\"><bdi class=\"language lang-fa\" lang=\"fa\">فارسی</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/it\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ko\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ko\"><bdi class=\"language lang-ko\" lang=\"ko\">한국어</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nds\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nds\"><bdi class=\"language lang-nds\" lang=\"nds\">Plattdüütsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ps\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ps\"><bdi class=\"language lang-ps\" lang=\"ps\">پښتو</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pt\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pt\"><bdi class=\"language lang-pt\" lang=\"pt\">português</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ru\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sv\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sv\"><bdi class=\"language lang-sv\" lang=\"sv\">svenska</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/tr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/tr\"><bdi class=\"language lang-tr\" lang=\"tr\">Türkçe</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/uk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">简体中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">繁體中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><span class=\"mw-image-border\" typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"47\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/250px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"1235\" data-file-height=\"650\"></span></span>\n</td></tr></tbody></table>"
+ },
+ "hot-air balloon": {
+  "file": "2006_Ojiya_balloon_festival_011.jpg",
+  "page": "Hot air balloon",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=692415",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Kropsoq\" title=\"User:Kropsoq\">Kropsoq</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "photo taken by <a href=\"//commons.wikimedia.org/wiki/User:Kropsoq\" title=\"User:Kropsoq\">Kropsoq</a>"
+ },
+ "island": {
+  "file": "Pigeon Island or Kabutar Tekdi, Narcondam Island, Andaman Sea.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=91869567",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rohitjahnavi\" title=\"User:Rohitjahnavi\">Rohitjahnavi</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "lake": {
+  "file": "Lake_Idro_Italy_2005-08-16.jpg",
+  "page": "Lake",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=276267",
+  "artist": "No machine-readable author provided. <a href=\"//commons.wikimedia.org/wiki/User:Marius~commonswiki\" title=\"User:Marius~commonswiki\">Marius~commonswiki</a> assumed (based on copyright claims).",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "No machine-readable source provided. Own work assumed (based on copyright claims)."
+ },
+ "volcano": {
+  "file": "Augustine_volcano_Jan_24_2006_-_Cyrus_Read.jpg",
+  "page": "Volcano",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=49613336",
+  "artist": "<p>Cyrus Read\nGeophysicist\nUSGS, Alaska Volcano Observatory\n</p>\ncread@usgs.gov",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.usgs.gov/atom/15347\">https://www.usgs.gov/atom/15347</a>"
+ },
+ "waterfall": {
+  "file": "Cascada_Dynjandi,_Vestfirðir,_Islandia,_2014-08-14,_DD_136-138_HDR.JPG",
+  "page": "Waterfall",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=36612630",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "cave": {
+  "file": "Lechuguilla_Cave_Pearlsian_Gulf.jpg",
+  "page": "Cave",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=2027473",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Dave_Bunnell\" title=\"User:Dave Bunnell\">Dave Bunnell / Under Earth Images</a>",
+  "license": "CC BY-SA 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "credit": "<a class=\"external free\" data-mw-original-href=\"http://en.wikipedia.org/wiki/Image:Lechuguilla_Cave_Pearlsian_Gulf.jpg\" href=\"https://en.wikipedia.org/wiki/Image:Lechuguilla_Cave_Pearlsian_Gulf.jpg\">http://en.wikipedia.org/wiki/Image:Lechuguilla_Cave_Pearlsian_Gulf.jpg</a>"
+ },
+ "sand": {
+  "file": "Libya_4608_Idehan_Ubari_Dunes_Luca_Galuzzi_2007.jpg",
+  "page": "Sand",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=2147276",
+  "artist": "Luca Galuzzi (<a href=\"//commons.wikimedia.org/wiki/User:Lucag\" title=\"User:Lucag\">Lucag</a>)",
+  "license": "CC BY-SA 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "credit": "Photo taken by (<a href=\"//commons.wikimedia.org/wiki/User:Lucag\" title=\"User:Lucag\">Luca Galuzzi</a>) * <a rel=\"nofollow\" class=\"external free\" href=\"http://www.galuzzi.it\">http://www.galuzzi.it</a>"
+ },
+ "lightning": {
+  "file": "Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg",
+  "page": "Lightning",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=42048641",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/108892623@N02\">Maxime Raynal</a> from France",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/108892623@N02/15869524586/\">Orage PLN</a>"
+ },
+ "ice": {
+  "file": "Ice_Block,_Canal_Park,_Duluth_(32752478892).jpg",
+  "page": "Ice",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=70211094",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/38315261@N00\">Sharon Mollerus</a>",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/clairity/32752478892/\">Ice Block, Canal Park, Duluth</a>"
+ },
+ "rectangle": {
+  "generated": true
+ },
+ "oval": {
+  "generated": true
+ },
+ "cube": {
+  "generated": true
+ },
+ "cone": {
+  "generated": true
+ },
+ "crescent": {
+  "generated": true
+ },
+ "police station": {
+  "file": "NYPD_Bx_42nd_Precinct_IMG_3248_HLG.jpg",
+  "page": "Police station",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=68355600",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:HugoHelp\" title=\"User:HugoHelp\">Hugo L. González</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "fire station": {
+  "file": "FDNY_eng264_328_Ladder_134_20190214_135053~2.jpg",
+  "page": "Fire station",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=76600124",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:CaptJayRuffins\" title=\"User:CaptJayRuffins\">CaptJayRuffins</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "shrine": {
+  "file": "Plum_trees_Kitano_Tenmangu.jpg",
+  "page": "Shinto shrine",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=34245216",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Japanexperterna.se\" title=\"User:Japanexperterna.se\">Japanexperterna.se</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "temple": {
+  "file": "160211_Higashi_Honganji_Kyoto_Japan06s3.jpg",
+  "page": "Buddhist temples in Japan",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=55530250",
+  "artist": "<a href=\"https://ja.wikipedia.org/wiki/user:663highland\" class=\"extiw\" title=\"ja:user:663highland\">663highland</a>",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "bakery": {
+  "file": "Bread at a Massachusetts bakery.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=100159404",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kurt_Kaiser&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kurt Kaiser (page does not exist)\">Kurt Kaiser</a>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "bookstore": {
+  "file": "Libraria_Carturesti_Carusel_-_Interior_ziua.jpg",
+  "page": "Bookselling",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=39648177",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Stratoreaper&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Stratoreaper (page does not exist)\">Mihai Petre</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\">Self-photographed</span>"
+ },
+ "airport": {
+  "file": "Jet bridge at Haneda Airport.JPG",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3783204",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%E6%9C%AC%E5%B1%8B&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:本屋 (page does not exist)\">本屋</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%E6%9C%AC%E5%B1%8B&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:本屋 (page does not exist)\">本屋</a>'s file (self-made)"
+ },
+ "crosswalk": {
+  "file": "Broadway_(9075158922).jpg",
+  "page": "Pedestrian crossing",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=40525600",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/60582647@N00\">Matias Garabedian</a> from Montreal, Canada",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/mateeas/9075158922/\">Broadway</a>"
+ },
+ "aquarium": {
+  "file": "Male_whale_shark_at_Georgia_Aquarium.jpg",
+  "page": "Public aquarium",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3511009",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Zacwolf&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Zacwolf (page does not exist)\">Zac Wolf</a>",
+  "license": "CC BY-SA 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  }
 }
