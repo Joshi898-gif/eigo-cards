@@ -356,7 +356,7 @@ $("#btnStart").onclick=()=>startRound(0);
 
 /* ---------- quiz ---------- */
 let SES=null,autoT=null;
-function startRound(cat){const q=buildRound(cat);if(!q.length){toast("ことばが ありません");return}SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(),start:Date.now()};go("quiz");showQ()}
+function startRound(cat){const q=buildRound(cat);if(!q.length){toast("ことばが ありません");return}SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(),start:Date.now()};prepare(q[0]);go("quiz");showQ()}
 function showQ(){
   clearTimeout(autoT);const it=SES.q[SES.i],w=it.w;SES.t0=Date.now();
   if(!SES.words.includes(w))SES.words.push(w);
@@ -364,14 +364,16 @@ function showQ(){
   const hideWord=st(w.id).b>=2&&!it.retry;
   const qw=$("#qWord");qw.textContent=hideWord?"きいて えらぼう":w.en;qw.className="qword en"+(hideWord?" hide":"");
   $("#feedback").textContent="";$("#feedback").className="feedback";$("#nextBtn").hidden=true;
-  let others=W.filter(x=>x.cat===w.cat&&x.id!==w.id&&x.ja!==w.ja);shuffle(others);if(others.length<3){const more=shuffle(W.filter(x=>x.cat!==w.cat&&x.id!==w.id));others=others.concat(more)}
-  const opts=shuffle([w,...others.slice(0,3)]);
+  const opts=it.opts||(it.opts=makeOpts(w));
   const c=$("#choices");c.innerHTML="";
   for(const o of opts){const b=document.createElement("button");b.className="choice";b.dataset.id=o.id;b.innerHTML=`<div class="cimg"><img src="${imgSrc(o)}" alt="" onerror="this.replaceWith(document.createTextNode('${esc(o.ja)}'))"></div><div class="lab"></div>`;b.onclick=()=>answer(o,b);c.appendChild(b)}
   $("#qSpeak").classList.remove("need");
   play(w,$("#qSpeak"));
-  const nx=SES.q[SES.i+1];if(nx)preload(nx.w);
+  prepare(SES.q[SES.i+1]);prepare(SES.q[SES.i+2]);
 }
+function makeOpts(w){let others=W.filter(x=>x.cat===w.cat&&x.id!==w.id&&x.ja!==w.ja);shuffle(others);if(others.length<3){const more=shuffle(W.filter(x=>x.cat!==w.cat&&x.id!==w.id));others=others.concat(more)}return shuffle([w,...others.slice(0,3)])}
+const IMGCACHE={};
+function prepare(it){if(!it)return;it.opts=it.opts||makeOpts(it.w);for(const o of it.opts){if(!IMGCACHE[o.id]){const im=new Image();im.decoding="async";im.src=imgSrc(o);IMGCACHE[o.id]=im}}preload(it.w)}
 $("#qSpeak").onclick=()=>play(SES.q[SES.i].w,$("#qSpeak"));
 function answer(o,btn){
   const it=SES.q[SES.i],w=it.w;const ok=o.id===w.id;
