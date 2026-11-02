@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>えいごクイズ 300</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* layout: one-column quiz app on warm paper; the big speaker and the four photo tiles are the whole screen */
+:root{
+  --paper:#FFF8E7; --card:#FFFFFF; --ink:#27304A; --muted:#6E7690; --line:#EADFC6;
+  --sky:#2F6FED; --sun:#FFC53D; --leaf:#2EAE6E; --berry:#F2567E; --lilac:#8C6FE6;
+  --shadow:0 10px 30px rgba(39,48,74,.10);
+  --f-ja:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Yu Gothic","Meiryo",system-ui,sans-serif;
+  --f-en:"Fredoka","M PLUS Rounded 1c",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#1A1F36; --card:#262D4F; --ink:#F4EFE2; --muted:#AEB4C8; --line:#3A4268;
+  --sky:#5B8DFF; --sun:#FFD166; --leaf:#48C98B; --berry:#FF7AA0; --lilac:#A78BFA;
+  --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#1A1F36; --card:#262D4F; --ink:#F4EFE2; --muted:#AEB4C8; --line:#3A4268;
+  --sky:#5B8DFF; --sun:#FFD166; --leaf:#48C98B; --berry:#FF7AA0; --lilac:#A78BFA;
+  --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark;
+}
+html{height:100%}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:var(--f-ja);font-size:17px;line-height:1.5;overscroll-behavior:none;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 28px}
+.en{font-family:var(--f-en);letter-spacing:.01em}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-action:manipulation;padding:0}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+img{max-width:100%}
+[hidden]{display:none!important}
+.app{max-width:760px;margin:0 auto;display:flex;flex-direction:column}
+.screen{display:none;flex-direction:column;min-height:0}
+.screen.on{display:flex}
+.topbar{display:flex;align-items:center;gap:10px;margin-bottom:12px;min-height:48px}
+.topbar .spacer{flex:1}
+.iconbtn{width:52px;height:52px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);display:grid;place-items:center;font-size:24px;flex:none}
+.iconbtn.small{width:44px;height:44px;border-radius:14px;font-size:20px}
+.title{font-size:22px;font-weight:800}
+.pill{padding:7px 12px;border-radius:99px;background:var(--card);box-shadow:var(--shadow);font-size:14px;font-weight:700;white-space:nowrap}
+.bigbtn{display:flex;align-items:center;gap:14px;width:100%;padding:18px 20px;border-radius:26px;background:var(--card);box-shadow:var(--shadow);font-size:22px;font-weight:800;text-align:left;min-height:84px;transition:transform .08s}
+.bigbtn:active{transform:scale(.97)}
+.bigbtn .ico{font-size:40px;width:56px;text-align:center;flex:none}
+.bigbtn.sky{background:var(--sky);color:#fff}
+.bigbtn.sun{background:var(--sun);color:#3A2A00}
+.bigbtn small{display:block;font-size:14px;font-weight:500;opacity:.85}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0 18px}
+.stat{background:var(--card);border-radius:22px;padding:12px 10px;box-shadow:var(--shadow);text-align:center}
+.stat b{display:block;font-size:30px;line-height:1.1;font-weight:800;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cat{background:var(--card);border-radius:22px;padding:14px 12px;box-shadow:var(--shadow);text-align:center;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:700;font-size:15px;transition:transform .08s;border:3px solid transparent}
+.cat:active{transform:scale(.96)}
+.cat.done{border-color:var(--leaf)}
+.cat .ico{font-size:44px;line-height:1}
+.cat .bar{width:100%;height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:6px;position:relative}
+.cat .bar i{position:absolute;left:0;top:0;height:100%;border-radius:99px}
+.cat .bar .seen{background:var(--sky);opacity:.45}.cat .bar .got{background:var(--leaf)}
+.cat .n{font-size:12px;color:var(--muted);font-weight:500}
+.h{font-size:18px;font-weight:800;margin:18px 0 10px}
+.stack{display:flex;flex-direction:column;gap:12px;width:100%}
+.sub{color:var(--muted);font-weight:700;text-align:center;font-size:15px}
+/* quiz */
+.progress{flex:1;height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--sky);border-radius:99px;transition:width .3s}
+.stage{display:flex;flex-direction:column;align-items:center;gap:12px}
+.qhead{display:flex;align-items:center;justify-content:center;gap:16px;min-height:100px;width:100%}
+.speakbig{width:96px;height:96px;border-radius:50%;background:var(--sky);color:#fff;font-size:44px;display:grid;place-items:center;box-shadow:0 8px 20px rgba(47,111,237,.35);transition:transform .08s;flex:none}
+.speakbig:active{transform:scale(.94)}
+.speakbig.playing{animation:pulse .8s infinite}
+.speakbig.need{animation:pulse 1s infinite;box-shadow:0 0 0 8px color-mix(in srgb,var(--sun) 60%,transparent)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.qword{font-size:clamp(36px,9vmin,64px);font-weight:700;line-height:1.1;text-align:center;min-width:120px}
+.qword.hide{font-size:22px;color:var(--muted);font-weight:700}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,560px)}
+.choice{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:8px;display:flex;flex-direction:column;align-items:center;gap:4px;border:4px solid transparent;transition:transform .08s,border-color .2s,background .2s;font-weight:700;font-size:17px;overflow:hidden}
+.choice:active{transform:scale(.96)}
+.choice .cimg{width:100%;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:var(--line);display:grid;place-items:center;font-size:22px;font-weight:800}
+.choice .cimg img{width:100%;height:100%;object-fit:cover;display:block}
+.choice .lab{min-height:24px;color:var(--muted)}
+.choice.right{border-color:var(--leaf);background:color-mix(in srgb,var(--leaf) 18%,var(--card))}
+.choice.wrong{border-color:var(--berry);background:color-mix(in srgb,var(--berry) 18%,var(--card))}
+.choice[disabled]{opacity:.5}.choice.right[disabled],.choice.wrong[disabled]{opacity:1}
+.feedback{min-height:36px;font-size:22px;font-weight:800;text-align:center}
+.feedback.ok{color:var(--leaf)}.feedback.ng{color:var(--berry)}
+.act{padding:14px 10px;border-radius:22px;font-size:19px;font-weight:800;min-height:64px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);transition:transform .08s;width:min(100%,560px)}
+.act:active{transform:scale(.96)}
+.act.next{background:var(--sky);color:#fff}
+/* result */
+.result{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding-top:20px}
+.result .big{font-size:84px;line-height:1}
+.result h2{margin:0;font-size:30px;font-weight:800;text-wrap:balance}
+.stars{font-size:40px;letter-spacing:4px}
+.result p{margin:0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:560px}
+.chip{background:var(--card);border-radius:14px;padding:6px 10px;font-size:15px;box-shadow:var(--shadow);display:flex;align-items:center;gap:6px}
+.chip img{width:28px;height:28px;border-radius:8px;object-fit:cover}
+.chip.ng{border:2px solid var(--berry)}
+/* book */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.filters button{padding:7px 12px;border-radius:99px;background:var(--card);box-shadow:var(--shadow);font-size:14px;font-weight:700}
+.filters button.on{background:var(--ink);color:var(--paper)}
+.book{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:8px}
+.bk{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);text-align:center;padding-bottom:10px;border:4px solid transparent;transition:transform .08s}
+.bk:active{transform:scale(.96)}
+.bk.playing{border-color:var(--sun)}
+.bk.got{border-color:var(--leaf)}
+.bk img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:6px}
+.bk .e{font-weight:700;font-size:19px;line-height:1.1}
+.bk .j{font-size:13px;color:var(--muted)}
+/* parent */
+.gate{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding-top:30px}
+.gate .q{font-size:40px;font-weight:800}
+.pad{display:grid;grid-template-columns:repeat(3,76px);gap:10px}
+.pad button{height:64px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);font-size:26px;font-weight:700}
+.pad .del{color:var(--berry)}
+.answer{font-size:36px;font-weight:800;min-height:48px;letter-spacing:6px}
+.tabs{display:flex;gap:6px;background:var(--card);padding:6px;border-radius:18px;box-shadow:var(--shadow);margin-bottom:14px;overflow-x:auto}
+.tabs button{flex:1;padding:10px 6px;border-radius:13px;font-weight:700;font-size:14px;white-space:nowrap}
+.tabs button.on{background:var(--sky);color:#fff}
+.panel{display:none}.panel.on{display:block}
+.grid4{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.kpi{background:var(--card);border-radius:18px;padding:12px 14px;box-shadow:var(--shadow)}
+.kpi b{display:block;font-size:26px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--muted)}
+.catrow{display:grid;grid-template-columns:36px 1fr 70px;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.catrow .bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden;position:relative}
+.catrow .bar i{position:absolute;left:0;top:0;height:100%;border-radius:99px}
+.catrow .pct{text-align:right;font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+.s1{background:color-mix(in srgb,var(--sky) 45%,var(--card))}.s4{background:var(--leaf)}
+input[type=search],input[type=text],select{width:100%;padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-size:16px;font-family:inherit}
+.wrap{overflow-x:auto;background:var(--card);border-radius:18px;box-shadow:var(--shadow);min-width:0}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--muted);font-weight:700;font-size:13px}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.badge{display:inline-block;padding:3px 9px;border-radius:99px;font-size:12px;font-weight:700;color:#fff}
+.badge.b0{background:var(--muted)}.badge.b1{background:var(--sky)}.badge.b2{background:var(--leaf)}
+.setting{background:var(--card);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:12px}
+.setting label{display:block;font-weight:700;margin-bottom:6px}
+.setting .desc{font-size:13px;color:var(--muted);margin-top:4px}
+.setting input[type=range]{width:100%}
+.btn{padding:12px 18px;border-radius:14px;font-weight:700;background:var(--sky);color:#fff;box-shadow:var(--shadow)}
+.btn.ghost{background:var(--card);color:var(--ink)}
+.btn.danger{background:var(--berry)}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;align-items:center}
+textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);padding:10px;font-family:ui-monospace,Menlo,monospace;font-size:12px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-weight:700;opacity:0;transition:opacity .25s;pointer-events:none;z-index:60;max-width:90vw;text-align:center}
+.toast.on{opacity:1}
+.empty{text-align:center;color:var(--muted);padding:20px 10px}
+.credits li{font-size:13px;color:var(--muted);margin-bottom:6px;overflow-wrap:anywhere}
+.credits li b{color:var(--ink)}
+@media (prefers-reduced-motion: reduce){.speakbig.playing,.speakbig.need{animation:none}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- HOME -->
+<section class="screen on" id="s-home">
+  <div class="topbar">
+    <div class="title">🔊 えいごクイズ 300</div>
+    <div class="spacer"></div>
+    <div id="childName" class="pill"></div>
+    <button class="iconbtn small" id="toParent" aria-label="おうちのひとのページ">👪</button>
+  </div>
+  <div class="stack">
+    <button class="bigbtn sky" id="btnStart"><span class="ico">🎧</span><span>クイズ スタート<small id="startSub">きいて えらぼう</small></span></button>
+    <button class="bigbtn" id="btnBook"><span class="ico">📖</span><span>ずかん<small>300こ ぜんぶ みられるよ。タップで こえが でるよ</small></span></button>
+  </div>
+  <div class="row3">
+    <div class="stat"><b id="stToday">0</b><span>きょう といた かず</span></div>
+    <div class="stat"><b id="stRate">—</b><span>きょうの せいかい</span></div>
+    <div class="stat"><b id="stGot">0</b><span>おぼえた ことば</span></div>
+  </div>
+  <div class="h">なにの クイズに する？</div>
+  <div class="cats" id="catGrid"></div>
+  <p class="sub" style="margin-top:14px">えいごを きいて、おなじ しゃしんを えらぼう</p>
+</section>
+
+<!-- QUIZ -->
+<section class="screen" id="s-quiz">
+  <div class="topbar"><button class="iconbtn small" data-go="home" aria-label="ホームへもどる">🏠</button><div class="progress"><i id="bar"></i></div><div id="count" class="pill">1/10</div></div>
+  <div class="stage">
+    <div class="qhead"><button class="speakbig" id="qSpeak" aria-label="えいごをきく">🔊</button><div class="qword en" id="qWord"></div></div>
+    <div class="choices" id="choices"></div>
+    <div class="feedback" id="feedback"></div>
+    <button class="act next" id="nextBtn" hidden>つぎへ ▶</button>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result">
+  <div class="result">
+    <div class="big" id="rEmoji">🎉</div>
+    <h2 id="rTitle">よくできました！</h2>
+    <div class="stars" id="rStars"></div>
+    <p id="rText"></p>
+    <div class="chips" id="rChips"></div>
+    <div class="stack" style="margin-top:10px;max-width:520px">
+      <button class="bigbtn sky" id="rAgain"><span class="ico">🔁</span><span id="rAgainTxt">つぎの クイズ</span></button>
+      <button class="bigbtn" data-go="home"><span class="ico">🏠</span><span>ホームへもどる</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="screen" id="s-book">
+  <div class="topbar"><button class="iconbtn small" data-go="home" aria-label="ホームへもどる">🏠</button><div class="title">📖 ずかん</div><div class="spacer"></div><div class="pill" id="bookCount"></div></div>
+  <div class="filters" id="bookCats"></div>
+  <div class="book" id="bookGrid"></div>
+</section>
+
+<!-- GATE -->
+<section class="screen" id="s-gate">
+  <div class="topbar"><button class="iconbtn small" data-go="home" aria-label="ホームへもどる">🏠</button><div class="title">おうちのひと かくにん</div></div>
+  <div class="gate">
+    <p style="color:var(--muted);margin:0">こたえを おしてください</p>
+    <div class="q" id="gateQ">7 + 5 = ?</div>
+    <div class="answer" id="gateA">&nbsp;</div>
+    <div class="pad" id="gatePad"></div>
+  </div>
+</section>
+
+<!-- PARENT -->
+<section class="screen" id="s-parent">
+  <div class="topbar"><button class="iconbtn small" data-go="home" aria-label="ホームへもどる">🏠</button><div class="title">保護者ページ</div><div class="spacer"></div><select id="childSel" style="width:auto"></select></div>
+  <div class="tabs">
+    <button class="on" data-tab="dash">学習状況</button><button data-tab="words">単語一覧</button><button data-tab="settings">設定</button><button data-tab="data">データ</button><button data-tab="credits">写真の出典</button>
+  </div>
+  <div class="panel on" id="p-dash">
+    <div class="grid4" id="kpis"></div>
+    <div class="h">カテゴリー別の進み具合 <span style="font-size:13px;color:var(--muted);font-weight:500">緑＝おぼえた、青＝練習中</span></div>
+    <div id="catProgress"></div>
+    <div class="h">まちがえやすい単語</div>
+    <div class="chips" id="weakChips" style="justify-content:flex-start"></div>
+    <div class="h">最近のクイズ</div>
+    <div class="wrap"><table id="sessTable"><thead><tr><th>日時</th><th>内容</th><th>問題数</th><th>正解</th><th>正答率</th></tr></thead><tbody></tbody></table></div>
+    <div class="setting" style="margin-top:14px"><label>この構成のねらい</label><div class="desc">英語を聞いて写真を選ぶ四択だけで進みます。正解した語は 1日→3日→7日→14日→30日 と間隔をあけて出し直し、間違えた語は同じ回の後半でもう一度出して翌日にも出します。覚えが進んだ語は英語の文字を隠して音だけで出題します。1回は10問（設定で5〜20問）です。</div></div>
+  </div>
+  <div class="panel" id="p-words">
+    <input type="search" id="wq" placeholder="英語・日本語で検索">
+    <div class="filters" id="wfilters"><button class="on" data-f="all">すべて</button><button data-f="due">今日の復習</button><button data-f="b0">未出題</button><button data-f="b1">練習中</button><button data-f="b2">おぼえた</button></div>
+    <div class="filters"><span style="font-size:13px;color:var(--muted);align-self:center">カテゴリー</span><select id="wcat" style="width:auto"></select></div>
+    <div class="wrap"><table id="wordTable"><thead><tr><th>写真</th><th>英語</th><th>日本語</th><th>状態</th><th>正解/回答</th><th>次回</th></tr></thead><tbody></tbody></table></div>
+    <p style="font-size:13px;color:var(--muted)">行をタップすると音声を確認できます。</p>
+  </div>
+  <div class="panel" id="p-settings">
+    <div class="setting"><label>子どものプロフィール</label>
+      <div class="btnrow"><input type="text" id="newChild" placeholder="なまえ（例：はな）" style="flex:1;min-width:160px"><button class="btn" id="addChild">追加</button><button class="btn ghost" id="renameChild">名前を変更</button></div>
+      <div class="desc">学習履歴は子どもごとに分けて保存されます。切り替えは右上のメニューから。</div></div>
+    <div class="setting"><label>1回の問題数：<span id="perLabel">10</span>問</label><input type="range" id="per" min="5" max="20" step="1"><div class="desc">10問で2〜3分です。終わったら「つぎの クイズ」で何回でも続けられます。</div></div>
+    <div class="setting"><label>音声の確認</label><div class="btnrow"><button class="btn ghost" id="testAudio">🔊 音声を試す</button></div><div id="audioOut" class="desc" style="margin-top:8px;font-weight:700"></div></div>
+  </div>
+  <div class="panel" id="p-data">
+    <div class="setting"><label>学習データの書き出し（CSV）</label><div class="btnrow"><button class="btn" id="exportCsv">CSVを表示</button><button class="btn ghost" id="copyOut">コピー</button></div><textarea id="outBox" readonly placeholder="ここに表示されます"></textarea></div>
+    <div class="setting"><label>バックアップ・復元（JSON）</label><div class="desc">「バックアップを表示」で出た文字を保存しておくと、別の端末やブラウザで「復元」できます。</div>
+      <div class="btnrow"><button class="btn" id="exportJson">バックアップを表示</button><button class="btn ghost" id="importJson">貼り付けた内容で復元</button></div><textarea id="jsonBox" placeholder="復元するときは、ここにバックアップの文字を貼り付けてから「復元」を押してください"></textarea></div>
+    <div class="setting"><label>このプロフィールの学習履歴を消す</label><div class="desc">取り消せません。</div><div class="btnrow"><button class="btn danger" id="resetChild">学習履歴を全部消す</button><button class="btn ghost" id="resetConfirm" hidden>本当に消す</button></div></div>
+    <p style="font-size:13px;color:var(--muted)">データはこの端末・このブラウザの中だけに保存されます。広告や外部への送信はありません。</p>
+  </div>
+  <div class="panel" id="p-credits">
+    <p style="font-size:14px;color:var(--muted)">写真はウィキメディア・コモンズおよびウィキペディアの、クリエイティブ・コモンズまたはパブリックドメインの作品です。色と形の絵はこのアプリ用に作成しました。音声は Microsoft のニューラル音声合成（Jenny）で作成しました。</p>
+    <ul class="credits" id="creditList"><li class="empty">読み込み中…</li></ul>
+  </div>
+</section>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- data ---------- */
+const RAW=[[1,"dog","いぬ","dog"],[1,"cat","ねこ","cat"],[1,"rabbit","うさぎ","rabbit"],[1,"hamster","ハムスター","hamster"],[1,"mouse","ねずみ","mouse"],[1,"cow","うし","cow"],[1,"horse","うま","horse"],[1,"pig","ぶた","pig"],[1,"sheep","ひつじ","sheep"],[1,"goat","やぎ","goat"],[1,"deer","しか","deer"],[1,"wild boar","いのしし","wild_boar"],[1,"fox","きつね","fox"],[1,"raccoon dog","たぬき","raccoon_dog"],[1,"bear","くま","bear"],[1,"lion","ライオン","lion"],[1,"tiger","トラ","tiger"],[1,"elephant","ゾウ","elephant"],[1,"giraffe","キリン","giraffe"],[1,"zebra","シマウマ","zebra"],[1,"rhino","サイ","rhino"],[1,"hippo","カバ","hippo"],[1,"gorilla","ゴリラ","gorilla"],[1,"chimpanzee","チンパンジー","chimpanzee"],[1,"orangutan","オランウータン","orangutan"],[1,"monkey","サル","monkey"],[1,"panda","パンダ","panda"],[1,"koala","コアラ","koala"],[1,"kangaroo","カンガルー","kangaroo"],[1,"camel","ラクダ","camel"],[1,"leopard","ヒョウ","leopard"],[1,"cheetah","チーター","cheetah"],[1,"wolf","オオカミ","wolf"],[1,"squirrel","リス","squirrel"],[1,"bat","コウモリ","bat"],[1,"whale","クジラ","whale"],[1,"dolphin","イルカ","dolphin"],[1,"orca","シャチ","orca"],[1,"seal","アザラシ","seal"],[1,"sea lion","アシカ","sea_lion"],[1,"sparrow","スズメ","sparrow"],[1,"pigeon","ハト","pigeon"],[1,"crow","カラス","crow"],[1,"swallow","ツバメ","swallow"],[1,"chicken","ニワトリ","chicken"],[1,"chick","ヒヨコ","chick"],[1,"duck","アヒル","duck"],[1,"swan","ハクチョウ","swan"],[1,"penguin","ペンギン","penguin"],[1,"owl","フクロウ","owl"],[1,"eagle","ワシ","eagle"],[1,"hawk","タカ","hawk"],[1,"ostrich","ダチョウ","ostrich"],[1,"flamingo","フラミンゴ","flamingo"],[1,"parrot","オウム","parrot"],[1,"snake","ヘビ","snake"],[1,"lizard","トカゲ","lizard"],[1,"turtle","カメ","turtle"],[1,"crocodile","ワニ","crocodile"],[1,"chameleon","カメレオン","chameleon"],[1,"frog","カエル","frog"],[1,"tadpole","オタマジャクシ","tadpole"],[1,"newt","イモリ","newt"],[1,"goldfish","キンギョ","goldfish"],[1,"medaka","メダカ","medaka"],[1,"carp","コイ","carp"],[1,"tuna","マグロ","tuna"],[1,"salmon","サケ","salmon"],[1,"saury","サンマ","saury"],[1,"horse mackerel","アジ","horse_mackerel"],[1,"sardine","イワシ","sardine"],[1,"shark","サメ","shark"],[1,"stingray","エイ","stingray"],[1,"eel","ウナギ","eel"],[1,"seahorse","タツノオトシゴ","seahorse"],[1,"octopus","タコ","octopus"],[1,"squid","イカ","squid"],[1,"crab","カニ","crab"],[1,"shrimp","エビ","shrimp"],[1,"jellyfish","クラゲ","jellyfish"],[1,"starfish","ヒトデ","starfish"],[1,"sea urchin","ウニ","sea_urchin"],[1,"clam","アサリ","clam"],[1,"sea otter","ラッコ","sea_otter"],[1,"sea turtle","ウミガメ","sea_turtle"],[1,"rhinoceros beetle","カブトムシ","rhinoceros_beetle"],[1,"stag beetle","クワガタ","stag_beetle"],[1,"butterfly","チョウ","butterfly"],[1,"dragonfly","トンボ","dragonfly"],[1,"cicada","セミ","cicada"],[1,"grasshopper","バッタ","grasshopper"],[1,"praying mantis","カマキリ","praying_mantis"],[1,"ladybug","テントウムシ","ladybug"],[1,"firefly","ホタル","firefly"],[1,"ant","アリ","ant"],[1,"bee","ハチ","bee"],[1,"mosquito","カ","mosquito"],[1,"fly","ハエ","fly"],[1,"spider","クモ","spider"],[1,"pill bug","ダンゴムシ","pill_bug"],[2,"apple","りんご","apple"],[2,"banana","バナナ","banana"],[2,"orange","オレンジ","orange"],[2,"grape","ぶどう","grape"],[2,"strawberry","いちご","strawberry"],[2,"peach","もも","peach"],[2,"watermelon","すいか","watermelon"],[2,"melon","メロン","melon"],[2,"pear","なし","pear"],[2,"cherry","さくらんぼ","cherry"],[2,"lemon","レモン","lemon"],[2,"pineapple","パイナップル","pineapple"],[2,"kiwi","キウイ","kiwi"],[2,"persimmon","かき","persimmon"],[2,"tomato","トマト","tomato"],[2,"cucumber","きゅうり","cucumber"],[2,"carrot","にんじん","carrot"],[2,"potato","じゃがいも","potato"],[2,"onion","たまねぎ","onion"],[2,"corn","とうもろこし","corn"],[2,"pumpkin","かぼちゃ","pumpkin"],[2,"cabbage","キャベツ","cabbage"],[2,"mushroom","きのこ","mushroom"],[2,"eggplant","なす","eggplant"],[2,"rice","ごはん","rice"],[2,"bread","パン","bread"],[2,"egg","たまご","egg"],[2,"milk","ぎゅうにゅう","milk"],[2,"cheese","チーズ","cheese"],[2,"butter","バター","butter"],[2,"yogurt","ヨーグルト","yogurt"],[2,"juice","ジュース","juice"],[2,"tea","おちゃ","tea"],[2,"water","みず","water"],[2,"coffee","コーヒー","coffee"],[2,"soup","スープ","soup"],[2,"salad","サラダ","salad"],[2,"pizza","ピザ","pizza"],[2,"hamburger","ハンバーガー","hamburger"],[2,"sandwich","サンドイッチ","sandwich"],[2,"spaghetti","スパゲッティ","spaghetti"],[2,"curry","カレー","curry"],[2,"sushi","すし","sushi"],[2,"noodles","ラーメン","noodles"],[2,"cake","ケーキ","cake"],[2,"cookie","クッキー","cookie"],[2,"chocolate","チョコレート","chocolate"],[2,"ice cream","アイスクリーム","ice_cream"],[2,"candy","あめ","candy"],[2,"donut","ドーナツ","donut"],[3,"head","あたま","head"],[3,"hair","かみのけ","hair"],[3,"face","かお","face"],[3,"eye","め","eye"],[3,"ear","みみ","ear"],[3,"nose","はな","nose"],[3,"mouth","くち","mouth"],[3,"tooth","は","tooth"],[3,"tongue","した","tongue"],[3,"neck","くび","neck"],[3,"shoulder","かた","shoulder"],[3,"arm","うで","arm"],[3,"elbow","ひじ","elbow"],[3,"hand","て","hand"],[3,"finger","ゆび","finger"],[3,"leg","あし","leg"],[3,"knee","ひざ","knee"],[3,"foot","あしのうら・あし","foot"],[3,"toe","あしのゆび","toe"],[3,"cheek","ほっぺ","cheek"],[4,"shirt","シャツ","shirt"],[4,"T-shirt","Tシャツ","t_shirt"],[4,"pants","ズボン","pants"],[4,"skirt","スカート","skirt"],[4,"dress","ワンピース","dress"],[4,"jacket","ジャケット","jacket"],[4,"coat","コート","coat"],[4,"sweater","セーター","sweater"],[4,"socks","くつした","socks"],[4,"shoes","くつ","shoes"],[4,"boots","ながぐつ・ブーツ","boots"],[4,"hat","ぼうし","hat"],[4,"cap","キャップ","cap"],[4,"gloves","てぶくろ","gloves"],[4,"scarf","マフラー","scarf"],[5,"house","いえ","house"],[5,"door","ドア","door"],[5,"window","まど","window"],[5,"roof","やね","roof"],[5,"kitchen","だいどころ","kitchen"],[5,"bathroom","おふろ","bathroom"],[5,"toilet","トイレ","toilet"],[5,"bed","ベッド","bed"],[5,"pillow","まくら","pillow"],[5,"blanket","もうふ","blanket"],[5,"table","テーブル","table"],[5,"chair","いす","chair"],[5,"sofa","ソファ","sofa"],[5,"desk","つくえ","desk"],[5,"lamp","ランプ","lamp"],[5,"clock","とけい","clock"],[5,"television","テレビ","television"],[5,"telephone","でんわ","telephone"],[5,"computer","パソコン","computer"],[5,"refrigerator","れいぞうこ","refrigerator"],[5,"cup","コップ","cup"],[5,"glass","グラス","glass"],[5,"plate","おさら","plate"],[5,"bowl","おわん","bowl"],[5,"spoon","スプーン","spoon"],[5,"fork","フォーク","fork"],[5,"knife","ナイフ","knife"],[5,"chopsticks","おはし","chopsticks"],[5,"towel","タオル","towel"],[5,"umbrella","かさ","umbrella"],[6,"school","がっこう","school"],[6,"classroom","きょうしつ","classroom"],[6,"teacher","せんせい","teacher"],[6,"student","せいと","student"],[6,"book","ほん","book"],[6,"notebook","ノート","notebook"],[6,"pencil","えんぴつ","pencil"],[6,"eraser","けしごむ","eraser"],[6,"pen","ペン","pen"],[6,"ruler","じょうぎ","ruler"],[6,"scissors","はさみ","scissors"],[6,"glue","のり","glue"],[6,"crayon","クレヨン","crayon"],[6,"paper","かみ","paper"],[6,"backpack","ランドセル","backpack"],[6,"piano","ピアノ","piano"],[6,"ball","ボール","ball"],[6,"map","ちず","map"],[6,"globe","ちきゅうぎ","globe"],[6,"flag","はた","flag"],[7,"car","くるま","car"],[7,"bus","バス","bus"],[7,"truck","トラック","truck"],[7,"taxi","タクシー","taxi"],[7,"train","でんしゃ","train"],[7,"bullet train","しんかんせん","bullet_train"],[7,"bicycle","じてんしゃ","bicycle"],[7,"motorcycle","バイク","motorcycle"],[7,"airplane","ひこうき","airplane"],[7,"helicopter","ヘリコプター","helicopter"],[7,"ship","ふね","ship"],[7,"rocket","ロケット","rocket"],[7,"fire engine","しょうぼうしゃ","fire_engine"],[7,"ambulance","きゅうきゅうしゃ","ambulance"],[7,"police car","パトカー","police_car"],[8,"sun","たいよう","sun"],[8,"moon","つき","moon"],[8,"star","ほし","star"],[8,"sky","そら","sky"],[8,"cloud","くも","cloud"],[8,"rain","あめ（てんき）","rain"],[8,"snow","ゆき","snow"],[8,"wind","かぜ","wind"],[8,"rainbow","にじ","rainbow"],[8,"mountain","やま","mountain"],[8,"river","かわ","river"],[8,"sea","うみ","sea"],[8,"beach","はまべ","beach"],[8,"forest","もり","forest"],[8,"tree","き","tree"],[8,"flower","はな（しょくぶつ）","flower"],[8,"grass","くさ","grass"],[8,"leaf","はっぱ","leaf"],[8,"rock","いわ","rock"],[8,"fire","ひ","fire"],[9,"red","あか","red"],[9,"blue","あお","blue"],[9,"yellow","きいろ","yellow"],[9,"green","みどり","green"],[9,"purple","むらさき","purple"],[9,"pink","ピンク","pink"],[9,"brown","ちゃいろ","brown"],[9,"black","くろ","black"],[9,"white","しろ","white"],[9,"gray","はいいろ","gray"],[9,"circle","まる","circle"],[9,"triangle","さんかく","triangle"],[9,"square","しかく","square"],[9,"heart","ハート","heart"],[9,"diamond","ひしがた","diamond"],[10,"park","こうえん","park"],[10,"station","えき","station"],[10,"hospital","びょういん","hospital"],[10,"post office","ゆうびんきょく","post_office"],[10,"supermarket","スーパー","supermarket"],[10,"restaurant","レストラン","restaurant"],[10,"library","としょかん","library"],[10,"zoo","どうぶつえん","zoo"],[10,"bridge","はし","bridge"],[10,"road","どうろ","road"],[10,"traffic light","しんごう","traffic_light"],[10,"convenience store","コンビニ","convenience_store"],[10,"playground","あそびば","playground"],[10,"castle","おしろ","castle"],[10,"tower","タワー","tower"]];
+const CATS=[["どうぶつ","🐶"],["たべもの・のみもの","🍎"],["からだ","👀"],["ふく・みにつけるもの","👕"],["いえの なか","🏠"],["がっこう","✏️"],["のりもの","🚗"],["しぜん・てんき","🌈"],["いろ・かたち","🎨"],["まち","🏙️"]];
+const W=RAW.map((r,i)=>({id:i+1,cat:r[0],en:r[1],ja:r[2],s:r[3]}));
+const BYID=Object.fromEntries(W.map(w=>[w.id,w]));
+const DAY=86400000, BOX=[0,1,3,7,14,30];
+const KEY="eigo-quiz300-v1";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const imgSrc=w=>`img/${w.s}.jpg`, audSrc=w=>`audio/${w.s}.mp3`;
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+/* ---------- storage ---------- */
+function defaultDB(){return {children:[{id:"c1",name:"こども"}],active:"c1",settings:{per:10},progress:{c1:{}},sessions:{c1:[]},days:{c1:{}}}}
+function load(){try{const r=localStorage.getItem(KEY);if(!r)return defaultDB();const d=JSON.parse(r);if(!d.children||!d.active)return defaultDB();d.settings=Object.assign({per:10},d.settings||{});d.progress??={};d.sessions??={};d.days??={};for(const c of d.children){d.progress[c.id]??={};d.sessions[c.id]??=[];d.days[c.id]??={};}return d;}catch(e){return defaultDB()}}
+let DB=load();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){toast("保存できませんでした")}}
+const P=()=>DB.progress[DB.active], S=()=>DB.sessions[DB.active], DAYS=()=>DB.days[DB.active];
+const child=()=>DB.children.find(c=>c.id===DB.active)||DB.children[0];
+const dkey=t=>{const d=new Date(t||Date.now());return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`};
+function startOfDay(t){const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()}
+
+/* ---------- memory engine (Leitner boxes with expanding intervals) ---------- */
+function st(id){return P()[id]||(P()[id]={b:0,due:0,a:0,c:0,seen:0,last:0,miss:0})}
+const isDue=(s,now)=>s.seen>0&&s.due<=now;
+const got=s=>s.seen>0&&s.b>=4;
+const stateOf=s=>!s.seen?0:got(s)?2:1;
+const STNAME=["未出題","練習中","おぼえた"];
+function grade(w,ok,retry){const s=st(w.id),now=Date.now();s.seen++;s.a++;s.last=now;
+  if(ok){s.c++;if(!retry){s.b=Math.min(5,s.b+1);s.due=s.b===1?startOfDay(now)+DAY:now+BOX[s.b]*DAY}}
+  else{s.miss++;s.b=0;s.due=startOfDay(now)+DAY}
+  const d=DAYS();const o=d[dkey()]||(d[dkey()]={n:0,c:0});o.n++;if(ok)o.c++;save()}
+function buildRound(cat){
+  const n=DB.settings.per,now=Date.now();const pool=W.filter(w=>!cat||w.cat===cat);
+  const due=pool.filter(w=>isDue(st(w.id),now)).sort((a,b)=>st(a.id).due-st(b.id).due).slice(0,n);
+  const out=[...due];
+  let fresh=pool.filter(w=>!st(w.id).seen);if(!cat)fresh=shuffle(fresh);
+  out.push(...fresh.slice(0,n-out.length));
+  if(out.length<n){const rest=shuffle(pool.filter(w=>!out.includes(w)));out.push(...rest.slice(0,n-out.length))}
+  return shuffle(out).map(w=>({w,retry:false}));
+}
+
+/* ---------- audio ---------- */
+const player=new Audio();player.preload="auto";let unlocked=false,playingBtn=null,preloader=null;
+function unlock(){if(unlocked)return;unlocked=true;try{player.muted=true;player.src=audSrc(W[0]);player.play().then(()=>{player.pause();player.muted=false}).catch(()=>{player.muted=false})}catch(e){}}
+document.addEventListener("pointerdown",unlock,{capture:true});
+function flash(btn){if(playingBtn)playingBtn.classList.remove("playing");playingBtn=btn;if(btn){btn.classList.add("playing");setTimeout(()=>btn.classList.remove("playing"),1800)}}
+function preload(w){try{preloader=new Audio(audSrc(w));preloader.preload="auto";preloader.load()}catch(e){}}
+function play(w,btn){
+  flash(btn);
+  try{player.pause();player.muted=false;player.src=audSrc(w);
+    player.onended=()=>{if(playingBtn)playingBtn.classList.remove("playing")};
+    player.onerror=()=>tts(w.en);
+    const p=player.play();if(p&&p.catch)p.catch(()=>{if(btn)btn.classList.add("need");tts(w.en)});
+    if(btn)player.onplaying=()=>btn.classList.remove("need");
+  }catch(e){tts(w.en)}
+}
+function tts(text){if(!("speechSynthesis" in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>/en[-_]US/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+
+/* ---------- nav ---------- */
+function go(id){$$(".screen").forEach(s=>s.classList.remove("on"));$("#s-"+id).classList.add("on");window.scrollTo(0,0);if(id==="home")renderHome();if(id!=="quiz"){try{player.pause()}catch(e){}}}
+$$("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2400)}
+
+/* ---------- home ---------- */
+function renderHome(){
+  $("#childName").textContent="👤 "+child().name;
+  const now=Date.now();const due=W.filter(w=>isDue(st(w.id),now)).length;
+  $("#startSub").textContent=due?`ふくしゅう ${due}こ から はじまるよ`:"きいて えらぼう（10もん）";
+  const td=DAYS()[dkey()]||{};$("#stToday").textContent=td.n||0;$("#stRate").textContent=td.n?Math.round(td.c/td.n*100)+"%":"—";
+  $("#stGot").textContent=W.filter(w=>got(st(w.id))).length;
+  const g=$("#catGrid");g.innerHTML="";
+  CATS.forEach((c,i)=>{const cat=i+1;const ws=W.filter(w=>w.cat===cat);const seen=ws.filter(w=>st(w.id).seen).length,gt=ws.filter(w=>got(st(w.id))).length;
+    const b=document.createElement("button");b.className="cat"+(gt===ws.length?" done":"");b.innerHTML=`<div class="ico">${c[1]}</div><div>${c[0]}</div><div class="bar"><i class="seen" style="width:${Math.round(seen/ws.length*100)}%"></i><i class="got" style="width:${Math.round(gt/ws.length*100)}%"></i></div><div class="n">${gt}/${ws.length} おぼえた</div>`;
+    b.onclick=()=>startRound(cat);g.appendChild(b)});
+}
+$("#btnStart").onclick=()=>startRound(0);
+
+/* ---------- quiz ---------- */
+let SES=null,autoT=null;
+function startRound(cat){const q=buildRound(cat);if(!q.length){toast("ことばが ありません");return}SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(),start:Date.now()};go("quiz");showQ()}
+function showQ(){
+  clearTimeout(autoT);const it=SES.q[SES.i],w=it.w;SES.t0=Date.now();
+  if(!SES.words.includes(w))SES.words.push(w);
+  $("#bar").style.width=(SES.i/SES.q.length*100)+"%";$("#count").textContent=`${SES.i+1}/${SES.q.length}`;
+  const hideWord=st(w.id).b>=2&&!it.retry;
+  const qw=$("#qWord");qw.textContent=hideWord?"きいて えらぼう":w.en;qw.className="qword en"+(hideWord?" hide":"");
+  $("#feedback").textContent="";$("#feedback").className="feedback";$("#nextBtn").hidden=true;
+  let others=W.filter(x=>x.cat===w.cat&&x.id!==w.id&&x.ja!==w.ja);shuffle(others);if(others.length<3){const more=shuffle(W.filter(x=>x.cat!==w.cat&&x.id!==w.id));others=others.concat(more)}
+  const opts=shuffle([w,...others.slice(0,3)]);
+  const c=$("#choices");c.innerHTML="";
+  for(const o of opts){const b=document.createElement("button");b.className="choice";b.dataset.id=o.id;b.innerHTML=`<div class="cimg"><img src="${imgSrc(o)}" alt="" onerror="this.replaceWith(document.createTextNode('${esc(o.ja)}'))"></div><div class="lab"></div>`;b.onclick=()=>answer(o,b);c.appendChild(b)}
+  $("#qSpeak").classList.remove("need");
+  play(w,$("#qSpeak"));
+  const nx=SES.q[SES.i+1];if(nx)preload(nx.w);
+}
+$("#qSpeak").onclick=()=>play(SES.q[SES.i].w,$("#qSpeak"));
+function answer(o,btn){
+  const it=SES.q[SES.i],w=it.w;const ok=o.id===w.id;
+  $$("#choices .choice").forEach(b=>{b.disabled=true;b.querySelector(".lab").textContent=BYID[+b.dataset.id].ja;if(b.dataset.id==String(w.id))b.classList.add("right")});
+  if(!ok)btn.classList.add("wrong");
+  $("#qWord").textContent=w.en;$("#qWord").className="qword en";
+  const f=$("#feedback");f.textContent=ok?shuffle(["せいかい！","すごい！ あたり！","やったね！"])[0]:"おしい！ こたえは「"+w.ja+"」だよ";f.className="feedback "+(ok?"ok":"ng");
+  grade(w,ok,it.retry);SES.total++;if(ok)SES.correct++;else SES.wrong.add(w.id);
+  if(!ok&&!it.retry&&!SES.retried.has(w.id)){SES.retried.add(w.id);const pos=Math.min(SES.q.length,SES.i+2+Math.floor(Math.random()*2));SES.q.splice(pos,0,{w,retry:true});$("#count").textContent=`${SES.i+1}/${SES.q.length}`}
+  if(ok){autoT=setTimeout(nextQ,900)}else{play(w,$("#qSpeak"));$("#nextBtn").hidden=false;autoT=setTimeout(nextQ,2600)}
+}
+function nextQ(){clearTimeout(autoT);if(!SES||!$("#s-quiz").classList.contains("on"))return;SES.i++;if(SES.i<SES.q.length)showQ();else finish()}
+$("#nextBtn").onclick=nextQ;
+
+/* ---------- result ---------- */
+function finish(){
+  const rate=Math.round(SES.correct/SES.total*100);
+  S().push({t:Date.now(),cat:SES.cat,n:SES.total,c:SES.correct});if(S().length>500)S().splice(0,S().length-500);save();
+  go("result");
+  const stars=rate>=90?3:rate>=60?2:1;
+  $("#rStars").textContent="⭐".repeat(stars)+"☆".repeat(3-stars);
+  $("#rEmoji").textContent=stars===3?"🎉":stars===2?"😊":"💪";
+  $("#rTitle").textContent=stars===3?"すごい！ よくできました！":stars===2?"いいかんじ！":"がんばったね！";
+  $("#rText").textContent=`${SES.total}もん中 ${SES.correct}もん せいかい（${rate}％）`;
+  const ch=$("#rChips");ch.innerHTML="";
+  for(const w of SES.words){ch.insertAdjacentHTML("beforeend",`<span class="chip${SES.wrong.has(w.id)?" ng":""}"><img src="${imgSrc(w)}" alt=""><span class="en">${esc(w.en)}</span></span>`)}
+  $("#rAgainTxt").textContent=SES.wrong.size?"まちがえたのを もういちど":"つぎの クイズ";
+  const cat=SES.cat;
+  $("#rAgain").onclick=()=>{if(SES.wrong.size){const ws=[...SES.wrong].map(id=>BYID[id]);const q=shuffle(ws).map(w=>({w,retry:true}));SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(ws.map(w=>w.id)),start:Date.now()};go("quiz");showQ()}else startRound(cat)};
+}
+
+/* ---------- picture book ---------- */
+let bookCat=0;
+function renderBook(){
+  const ws=W.filter(w=>!bookCat||w.cat===bookCat);
+  $("#bookCount").textContent=`${ws.length}こ`;
+  $("#bookCats").innerHTML=`<button class="${bookCat===0?"on":""}" data-c="0">ぜんぶ 300</button>`+CATS.map((c,i)=>`<button class="${bookCat===i+1?"on":""}" data-c="${i+1}">${c[1]} ${c[0]}</button>`).join("");
+  $$("#bookCats button").forEach(b=>b.onclick=()=>{bookCat=+b.dataset.c;renderBook();window.scrollTo(0,0)});
+  $("#bookGrid").innerHTML=ws.map(w=>`<button class="bk${got(st(w.id))?" got":""}" data-id="${w.id}"><img src="${imgSrc(w)}" alt="" loading="lazy"><div class="e en">${esc(w.en)}</div><div class="j">${esc(w.ja)}</div></button>`).join("");
+  $$("#bookGrid .bk").forEach(b=>b.onclick=()=>{$$("#bookGrid .bk.playing").forEach(x=>x.classList.remove("playing"));b.classList.add("playing");setTimeout(()=>b.classList.remove("playing"),1500);play(BYID[+b.dataset.id],null)});
+}
+$("#btnBook").onclick=()=>{go("book");renderBook()};
+
+/* ---------- parent gate ---------- */
+let gate={a:0,b:0,in:""};
+$("#toParent").onclick=()=>{gate.a=3+Math.floor(Math.random()*7);gate.b=2+Math.floor(Math.random()*8);gate.in="";$("#gateQ").textContent=`${gate.a} + ${gate.b} = ?`;$("#gateA").innerHTML="&nbsp;";go("gate")};
+(function(){const p=$("#gatePad");["1","2","3","4","5","6","7","8","9","←","0","OK"].forEach(k=>{const b=document.createElement("button");b.textContent=k;if(k==="←")b.className="del";b.onclick=()=>{if(k==="←")gate.in=gate.in.slice(0,-1);else if(k==="OK"){if(+gate.in===gate.a+gate.b){openParent()}else{toast("ちがいます");gate.in=""}}else if(gate.in.length<2)gate.in+=k;$("#gateA").textContent=gate.in||" "};p.appendChild(b)})})();
+
+/* ---------- parent page ---------- */
+let wf="all",wcat=0;
+function openParent(){go("parent");renderChildSel();renderDash();renderWords();renderSettings();loadCredits()}
+$$(".tabs button").forEach(b=>b.onclick=()=>{$$(".tabs button").forEach(x=>x.classList.remove("on"));b.classList.add("on");$$(".panel").forEach(p=>p.classList.remove("on"));$("#p-"+b.dataset.tab).classList.add("on")});
+function renderChildSel(){const s=$("#childSel");s.innerHTML=DB.children.map(c=>`<option value="${c.id}"${c.id===DB.active?" selected":""}>${esc(c.name)}</option>`).join("")}
+$("#childSel").onchange=e=>{DB.active=e.target.value;save();renderDash();renderWords()};
+function fmt(t){if(!t)return"—";const d=new Date(t);return`${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`}
+function fmtD(t){if(!t)return"—";const today=startOfDay(Date.now());const dd=startOfDay(t);if(dd<=today)return"今日";if(dd===today+DAY)return"明日";const d=new Date(t);return`${d.getMonth()+1}/${d.getDate()}`}
+function streak(){const d=DAYS();let n=0,t=startOfDay(Date.now());if(!(d[dkey(t)]||{}).n)t-=DAY;while(true){const o=d[dkey(t)];if(o&&o.n){n++;t-=DAY}else break}return n}
+function renderDash(){
+  const now=Date.now();const rows=W.map(w=>({w,s:st(w.id)}));
+  const seen=rows.filter(x=>x.s.seen).length,gt=rows.filter(x=>got(x.s)).length,dueT=rows.filter(x=>isDue(x.s,now)).length,dueW=rows.filter(x=>x.s.seen&&x.s.due>now&&x.s.due<=now+7*DAY).length;
+  const a=rows.reduce((n,x)=>n+x.s.a,0),c=rows.reduce((n,x)=>n+x.s.c,0);
+  const kp=[[seen,"出題した単語"],[gt,"おぼえた単語"],[dueT,"今日の復習"],[dueW,"7日以内の復習"],[a,"総回答数"],[a?Math.round(c/a*100)+"%":"—","全体の正答率"],[streak(),"連続日数"],[S().length,"クイズ回数"]];
+  $("#kpis").innerHTML=kp.map(([v,l])=>`<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join("");
+  $("#catProgress").innerHTML=CATS.map((cc,i)=>{const cat=i+1;const cs=rows.filter(x=>x.w.cat===cat);const m=cs.filter(x=>got(x.s)).length,l=cs.filter(x=>x.s.seen&&!got(x.s)).length;const at=cs.reduce((n,x)=>n+x.s.a,0),ct=cs.reduce((n,x)=>n+x.s.c,0);
+    return `<div class="catrow"><div style="font-size:26px">${cc[1]}</div><div><div style="font-size:14px;font-weight:700">${cc[0]}</div><div class="bar"><i class="s1" style="width:${Math.round((m+l)/cs.length*100)}%"></i><i class="s4" style="width:${Math.round(m/cs.length*100)}%"></i></div></div><div class="pct">${at?Math.round(ct/at*100)+"%":"—"}<div style="font-size:11px;color:var(--muted);font-weight:500">${m}/${cs.length}語</div></div></div>`}).join("");
+  const weak=rows.filter(x=>x.s.miss>=2).sort((p,q)=>q.s.miss-p.s.miss).slice(0,24);
+  $("#weakChips").innerHTML=weak.length?weak.map(x=>`<span class="chip ng"><img src="${imgSrc(x.w)}" alt=""><span class="en">${esc(x.w.en)}</span><span style="color:var(--muted);font-size:13px">×${x.s.miss}</span></span>`).join(""):'<span class="empty">まだありません</span>';
+  const tb=$("#sessTable tbody");const ss=[...S()].reverse().slice(0,15);
+  tb.innerHTML=ss.length?ss.map(s=>`<tr><td>${fmt(s.t)}</td><td>${s.cat?CATS[s.cat-1][0]:"ぜんぶ"}</td><td class="num">${s.n}</td><td class="num">${s.c}</td><td class="num">${Math.round(s.c/s.n*100)}%</td></tr>`).join(""):'<tr><td colspan="5" class="empty">まだクイズをしていません</td></tr>';
+}
+$("#wq").oninput=renderWords;$$("#wfilters button").forEach(b=>b.onclick=()=>{$$("#wfilters button").forEach(x=>x.classList.remove("on"));b.classList.add("on");wf=b.dataset.f;renderWords()});
+$("#wcat").innerHTML='<option value="0">すべて</option>'+CATS.map((c,i)=>`<option value="${i+1}">${c[1]} ${c[0]}</option>`).join("");$("#wcat").onchange=e=>{wcat=+e.target.value;renderWords()};
+function renderWords(){
+  const q=$("#wq").value.trim().toLowerCase();const now=Date.now();
+  let rows=W.map(w=>({w,s:st(w.id),k:stateOf(st(w.id))}));
+  if(wcat)rows=rows.filter(x=>x.w.cat===wcat);
+  if(wf==="due")rows=rows.filter(x=>isDue(x.s,now));else if(wf!=="all")rows=rows.filter(x=>"b"+x.k===wf);
+  if(q)rows=rows.filter(x=>x.w.en.toLowerCase().includes(q)||x.w.ja.includes(q));
+  $("#wordTable tbody").innerHTML=rows.map(x=>`<tr data-id="${x.w.id}" style="cursor:pointer"><td><img src="${imgSrc(x.w)}" alt="" style="width:44px;height:33px;object-fit:cover;border-radius:8px;vertical-align:middle"></td><td class="en" style="font-weight:600">${esc(x.w.en)}</td><td>${esc(x.w.ja)}</td><td><span class="badge b${x.k}">${STNAME[x.k]}</span></td><td class="num">${x.s.c}/${x.s.a}</td><td>${x.s.seen?fmtD(x.s.due):"—"}</td></tr>`).join("")||'<tr><td colspan="6" class="empty">該当する単語がありません</td></tr>';
+  $$("#wordTable tr[data-id]").forEach(tr=>tr.onclick=()=>play(BYID[+tr.dataset.id],null));
+}
+function renderSettings(){$("#per").value=DB.settings.per;$("#perLabel").textContent=DB.settings.per}
+$("#per").oninput=e=>{DB.settings.per=+e.target.value;$("#perLabel").textContent=e.target.value;save()};
+$("#addChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n)return;const id="c"+Date.now();DB.children.push({id,name:n});DB.progress[id]={};DB.sessions[id]=[];DB.days[id]={};DB.active=id;$("#newChild").value="";save();renderChildSel();renderDash();renderWords();toast(n+" を追加しました")};
+$("#renameChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n){toast("新しい名前を入力してください");return}child().name=n;$("#newChild").value="";save();renderChildSel();toast("名前を変更しました")};
+$("#testAudio").onclick=()=>{play(W[0],null);$("#audioOut").textContent="「dog」が聞こえれば正常です。聞こえない場合は端末の音量とサイレントモード（iPhoneは側面のスイッチ）を確認してください。"};
+function csv(){const rows=[["英語","日本語","カテゴリー","状態","正解","回答","間違い","次回"]];for(const w of W){const s=st(w.id);rows.push([w.en,w.ja,CATS[w.cat-1][0],STNAME[stateOf(s)],s.c,s.a,s.miss,s.seen?dkey(s.due):""])}return rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n")}
+$("#exportCsv").onclick=()=>{$("#outBox").value=csv()};
+$("#copyOut").onclick=()=>{const t=$("#outBox");if(!t.value)t.value=csv();navigator.clipboard?.writeText(t.value).then(()=>toast("コピーしました")).catch(()=>{t.select();toast("選択しました。コピーしてください")})};
+$("#exportJson").onclick=()=>{$("#jsonBox").value=JSON.stringify(DB)};
+$("#importJson").onclick=()=>{try{const d=JSON.parse($("#jsonBox").value);if(!d.children||!d.progress)throw 0;localStorage.setItem(KEY,JSON.stringify(d));DB=load();renderChildSel();renderDash();renderWords();renderSettings();toast("復元しました")}catch(e){toast("復元できませんでした。内容を確認してください")}};
+$("#resetChild").onclick=()=>{$("#resetConfirm").hidden=false;toast("「本当に消す」を押すと消えます")};
+$("#resetConfirm").onclick=()=>{DB.progress[DB.active]={};DB.sessions[DB.active]=[];DB.days[DB.active]={};save();$("#resetConfirm").hidden=true;renderDash();renderWords();toast("消しました")};
+let creditsLoaded=false;
+async function loadCredits(){if(creditsLoaded)return;try{const r=await fetch("credits.json");const m=await r.json();creditsLoaded=true;const strip=h=>{const d=document.createElement("div");d.innerHTML=h||"";return d.textContent.trim()};
+  $("#creditList").innerHTML=W.map(w=>{const c=m[w.en];if(!c||c.error)return `<li><b>${esc(w.en)}</b>（${esc(w.ja)}）：出典情報なし</li>`;if(c.generated)return `<li><b>${esc(w.en)}</b>（${esc(w.ja)}）：このアプリ用に作成</li>`;
+    return `<li><b>${esc(w.en)}</b>（${esc(w.ja)}）：<a href="${esc(c.desc||"#")}" target="_blank" rel="noopener">${esc(c.file)}</a> ／ ${esc(strip(c.artist))||"作者不明"} ／ ${c.licenseUrl?`<a href="${esc(c.licenseUrl)}" target="_blank" rel="noopener">${esc(c.license)}</a>`:esc(c.license||"")}</li>`}).join("")}
+  catch(e){$("#creditList").innerHTML='<li class="empty">出典ファイル（credits.json）を読み込めませんでした</li>'}}
+
+renderHome();
+</script>
+</body>
+</html>
