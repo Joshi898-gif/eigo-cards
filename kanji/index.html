@@ -290,7 +290,7 @@ function renderHome(){
   const ps=pool();let nw=0,dn=0;for(const c of ps){const s=peek(c.id);if(s.ex)continue;if(!s.seen)nw++;else if(s.b>=6)dn++}
   $("#tDue").textContent=dueList().length;$("#tNew").textContent=nw;$("#tDone").textContent=dn;$("#tStreak").textContent=streak();
   const grades=[...new Set(CARDS.map(c=>c.g))].sort();
-  $("#gradeSeg").innerHTML=grades.map(g=>`<button data-g="${g}" class="${DB.settings.grades.includes(g)?"on":""}">${GRADE_NAME[g]}（${CARDS.filter(c=>c.g===g).length}まい）</button>`).join("")+`<button disabled title="これから追加します">小3〜中3 じゅんび中</button>`;
+  $("#gradeSeg").innerHTML=grades.map(g=>`<button data-g="${g}" class="${DB.settings.grades.includes(g)?"on":""}">${GRADE_NAME[g]}（${CARDS.filter(c=>c.g===g).length}まい）</button>`).join("")+`<button disabled title="これから追加します">小3〜 じゅんび中</button>`;
   $$("#gradeSeg button[data-g]").forEach(b=>b.onclick=()=>{const g=+b.dataset.g,gs=DB.settings.grades;const i=gs.indexOf(g);if(i>=0){if(gs.length>1)gs.splice(i,1)}else gs.push(g);save();renderHome()});
   $$("#modeSeg button").forEach(b=>{b.classList.toggle("on",b.dataset.m===DB.settings.mode);b.onclick=()=>{DB.settings.mode=b.dataset.m;save();renderHome()}});
   $("#modeNote").textContent=MODE_NOTE[DB.settings.mode];
