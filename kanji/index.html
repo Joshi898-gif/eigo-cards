@@ -194,7 +194,7 @@ input[type=text]{border:1.5px solid var(--line);border-radius:10px;padding:8px 1
   </div>
   <div class="panel note">
     <b>このアプリについて</b><br>
-    小学2年の漢字160字・252枚。例文・解説・覚え方は Claude が作り、読みは辞書データ JMdict（EDRDG、CC BY-SA 4.0）と照らし合わせて確認しました。音声は Microsoft Edge の音声合成（ja-JP-NanamiNeural、en-US-JennyNeural）で作りました。<br>
+    <span id="aboutCount"></span>例文・解説・覚え方は Claude が作り、読みは辞書データ JMdict（EDRDG、CC BY-SA 4.0）と照らし合わせて確認しました。学年は文部科学省の学年別漢字配当表に、中学の分け方は KANJIDIC2（EDRDG）の使用頻度によります。音声は Microsoft Edge の音声合成（ja-JP-NanamiNeural、en-US-JennyNeural）で作りました。<br>
     復習の間かく：できた → 1日・3日・7日・14日・30日 → おぼえた（90日ごとに確認）。わからない → 箱1にもどり、同じ回の4問あとと10分後にもう一度。
   </div>
 </section>
@@ -205,7 +205,7 @@ input[type=text]{border:1.5px solid var(--line);border-radius:10px;padding:8px 1
 <script>
 "use strict";
 const KEY="kanji-cards-v1",DAY=864e5,MIN=6e4,IV=[0,1,3,7,14,30,90],BACKLOG=50;
-const GRADE_NAME={1:"小1",2:"小2",3:"小3",4:"小4",5:"小5",6:"小6",7:"中1",8:"中2",9:"中3"};
+const GRADE_NAME={1:"小1",2:"小2",3:"小3",4:"小4",5:"小5",6:"小6",7:"中1",8:"中2",9:"中3",10:"高校"};
 const MODE_NOTE={choice:"太字の言葉の読みを、4つからえらびます。",flip:"頭の中で読んでから、めくって自分で○×をつけます。いちばん速い。",write:"読みを見て、正しい漢字をえらびます。同じ読みの言葉の練習になります。",mix:"3つのこたえかたが、まざって出ます。"};
 let CARDS=[],BYID={},DB,SES=null,LISTF="all";
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -215,9 +215,9 @@ const sod=t=>{const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()};
 const dkey=(t=Date.now())=>{const d=new Date(t);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
 
 /* ---------- 記録 ---------- */
-function defaultDB(){return{users:[{id:"u1",name:"わたし"}],active:"u1",settings:{mode:"choice",per:10,auto:1,grades:[2]},prog:{u1:{}},days:{u1:{}}}}
+function defaultDB(){return{users:[{id:"u1",name:"わたし"}],active:"u1",settings:{mode:"choice",per:10,auto:1,grades:[1,2]},prog:{u1:{}},days:{u1:{}}}}
 function load(){try{const r=localStorage.getItem(KEY);if(!r)return defaultDB();const d=JSON.parse(r);if(!d.users||!d.users.length)return defaultDB();
-  d.settings=Object.assign({mode:"choice",per:10,auto:1,grades:[2]},d.settings||{});d.prog=d.prog||{};d.days=d.days||{};
+  d.settings=Object.assign({mode:"choice",per:10,auto:1,grades:[1,2]},d.settings||{});d.prog=d.prog||{};d.days=d.days||{};
   for(const u of d.users){d.prog[u.id]=d.prog[u.id]||{};d.days[u.id]=d.days[u.id]||{}}
   if(!d.users.find(u=>u.id===d.active))d.active=d.users[0].id;return d}catch(e){return defaultDB()}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){toast("この端末に保存できませんでした")}}
@@ -289,8 +289,9 @@ function renderHome(){
   const u=DB.users.find(u=>u.id===DB.active);$("#userName").textContent=u.name;
   const ps=pool();let nw=0,dn=0;for(const c of ps){const s=peek(c.id);if(s.ex)continue;if(!s.seen)nw++;else if(s.b>=6)dn++}
   $("#tDue").textContent=dueList().length;$("#tNew").textContent=nw;$("#tDone").textContent=dn;$("#tStreak").textContent=streak();
-  const grades=[...new Set(CARDS.map(c=>c.g))].sort();
-  $("#gradeSeg").innerHTML=grades.map(g=>`<button data-g="${g}" class="${DB.settings.grades.includes(g)?"on":""}">${GRADE_NAME[g]}（${CARDS.filter(c=>c.g===g).length}まい）</button>`).join("")+`<button disabled title="これから追加します">小3〜 じゅんび中</button>`;
+  const grades=[...new Set(CARDS.map(c=>c.g))].sort((a,b)=>a-b);
+  $("#gradeSeg").innerHTML=grades.map(g=>`<button data-g="${g}" class="${DB.settings.grades.includes(g)?"on":""}">${GRADE_NAME[g]}（${CARDS.filter(c=>c.g===g).length}）</button>`).join("")+`<button data-all="1" title="ぜんぶの学年をえらぶ">ぜんぶ</button>`;
+  $('#gradeSeg button[data-all]').onclick=()=>{DB.settings.grades=[...grades];save();renderHome()};
   $$("#gradeSeg button[data-g]").forEach(b=>b.onclick=()=>{const g=+b.dataset.g,gs=DB.settings.grades;const i=gs.indexOf(g);if(i>=0){if(gs.length>1)gs.splice(i,1)}else gs.push(g);save();renderHome()});
   $$("#modeSeg button").forEach(b=>{b.classList.toggle("on",b.dataset.m===DB.settings.mode);b.onclick=()=>{DB.settings.mode=b.dataset.m;save();renderHome()}});
   $("#modeNote").textContent=MODE_NOTE[DB.settings.mode];
@@ -379,7 +380,7 @@ const FILTERS=[["all","ぜんぶ"],["new","まだ"],["learn","練習中"],["done
 function renderList(){
   $("#filters").innerHTML=FILTERS.map(([k,n])=>{const cnt=k==="all"?CARDS.length:CARDS.filter(c=>stateOf(peek(c.id))===k).length;return`<button data-f="${k}" class="${LISTF===k?"on":""}">${n}（${cnt}）</button>`}).join("");
   $$("#filters button").forEach(b=>b.onclick=()=>{LISTF=b.dataset.f;renderList()});
-  const grades=[...new Set(CARDS.map(c=>c.g))].sort();
+  const grades=[...new Set(CARDS.map(c=>c.g))].sort((a,b)=>a-b);
   $("#bulk").innerHTML=grades.map(g=>`<button class="small" data-bx="${g}">${GRADE_NAME[g]}をぜんぶ除外</button><button class="small" data-br="${g}">${GRADE_NAME[g]}をぜんぶもどす</button>`).join("");
   $$("[data-bx]").forEach(b=>b.onclick=()=>{if(!confirm(GRADE_NAME[b.dataset.bx]+"のカードをぜんぶ除外しますか？"))return;CARDS.filter(c=>c.g==+b.dataset.bx).forEach(c=>{st(c.id).ex=1});save();renderList()});
   $$("[data-br]").forEach(b=>b.onclick=()=>{CARDS.filter(c=>c.g==+b.dataset.br&&peek(c.id).ex).forEach(c=>setEx(c.id,false));renderList()});
@@ -412,6 +413,7 @@ $("#resetBtn").onclick=()=>{const u=DB.users.find(u=>u.id===DB.active);if(!confi
   DB=load();
   try{const r=await fetch("cards.json",{cache:"no-cache"});CARDS=await r.json()}catch(e){$("#loading").textContent="カードを読みこめませんでした。ページを読みなおしてください。";return}
   for(const c of CARDS)BYID[c.id]=c;
+  const gs=[...new Set(CARDS.map(c=>c.g))].sort((a,b)=>a-b);$("#aboutCount").textContent=`${gs.map(g=>GRADE_NAME[g]).join("・")}の漢字${new Set(CARDS.map(c=>c.k)).size}字・${CARDS.length}枚。`;
   $("#loading").remove();go("home");
 })();
 </script>
