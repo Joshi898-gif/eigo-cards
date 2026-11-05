@@ -72,13 +72,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "sheep": {
-  "file": "Flock_of_sheep.jpg",
-  "page": "Sheep",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=16818",
-  "artist": "Keith Weller",
+  "file": "Sheep Corriedale from Rokkosan Pasture1 DSCN6656 20090504.JPG",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=23174630",
+  "artist": "Ogiyoshisan",
   "license": "Public domain",
   "licenseUrl": "",
-  "credit": "<a rel=\"nofollow\" class=\"external free\" data-mw-original-href=\"http://www.ars.usda.gov/is/graphics/photos/apr12/k4166-5.htm\" href=\"https://www.ars.usda.gov/is/graphics/photos/apr12/k4166-5.htm\">http://www.ars.usda.gov/is/graphics/photos/apr12/k4166-5.htm</a> (Image Number K4166-5)"
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "goat": {
   "file": "Hausziege_04.jpg",
@@ -540,12 +540,12 @@
   "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/rod_waddington/53400541248/\">https://www.flickr.com/photos/rod_waddington/53400541248/</a>"
  },
  "frog": {
-  "file": "Tree_frog2.jpg",
-  "page": "Japanese tree frog",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=4593224",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%E6%B1%A0%E7%94%B0%E6%AD%A3%E6%A8%B9\" title=\"User:池田正樹\">池田正樹</a> (<a href=\"//commons.wikimedia.org/wiki/User_talk:%E6%B1%A0%E7%94%B0%E6%AD%A3%E6%A8%B9\" title=\"User talk:池田正樹\"><span class=\"signature-talk\">talk</span></a>)masaki ikeda",
-  "license": "Public domain",
-  "licenseUrl": "",
+  "file": "BennyTrapp Hyla intermedia Italien.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=18800796",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Benny_Trapp\" title=\"User:Benny Trapp\">Benny Trapp</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "tadpole": {
@@ -774,13 +774,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"\">own work by the original uploader</span> (<span lang=\"en\" dir=\"ltr\">Original text: <i><bdi lang=\"\"><a href=\"https://ja.wikipedia.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Gombe\" class=\"extiw\" title=\"ja:利用者:Gombe\">Gombe</a>撮影</bdi></i></span>)<br>"
  },
  "stag beetle": {
-  "file": "Lucanus maculifemoratus taiwanus (27399831431).jpg",
+  "file": "Prosopocoilus Mudigere.jpg",
   "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=75499736",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/37180297@N08\">LiCheng Shih</a>",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/papilioshih/27399831431/\">_DSK6378 Lucanus maculifemoratus taiwanus</a>"
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=20391767",
+  "artist": "L. Shyamal",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "butterfly": {
   "file": "Fesoj_-_Papilio_machaon_(by).jpg",
@@ -954,12 +954,12 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "watermelon": {
-  "file": "Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg",
-  "page": "Watermelon",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=9534738",
-  "artist": "Fred Hsu (<a href=\"https://en.wikipedia.org/wiki/User:Fred_Hsu\" class=\"extiw\" title=\"wikipedia:User:Fred Hsu\">Wikipedia:User:Fred Hsu</a> on <a class=\"external text\" data-mw-original-href=\"http://en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a>)",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "file": "Fresh watermelon slices.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=182075858",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Aerous\" title=\"User:Aerous\">Aerous</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "melon": {
@@ -1080,13 +1080,13 @@
   "credit": "<p>photo taken by \n</p>\n<div class=\"mw-heading mw-heading2\"><h2 id=\"Source\">Source</h2></div>\n<p>From: <a rel=\"nofollow\" class=\"external free\" href=\"http://geekphilosopher.com/bkg/vegCornYellow.htm\">http://geekphilosopher.com/bkg/vegCornYellow.htm</a> - website says 'USDA photo'\n</p>\n<table class=\"messagebox\" style=\"border:2px solid #ddd; clear: both; margin: 0.5em auto; text-align: center; width: 100%\" lang=\"en\">\n<tbody><tr>\n<td class=\"noresize\" style=\"padding:2px 0 2px 0.9em\"><span typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Extracted_image_icon.svg\" class=\"mw-file-description\"><img alt=\"Image extraction process\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Extracted_image_icon.svg/60px-Extracted_image_icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"48\" height=\"69\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Extracted_image_icon.svg/120px-Extracted_image_icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"420\" data-file-height=\"600\"></a></span>\n</td>\n<td style=\"padding:0.25em 0.9em; width:100%\">This image has an <b>extracted file</b>: <a href=\"//commons.wikimedia.org/wiki/File:VegCorn_(cropped).jpg\" title=\"File:VegCorn (cropped).jpg\">VegCorn (cropped).jpg</a>.\n</td>\n<td style=\"padding:2px 0.9em 2px 0; min-width:48px\"><div class=\"wpImageAnnotatorControl wpImageAnnotatorOff\"><span typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:VegCorn_(cropped).jpg\" class=\"mw-file-description\" title=\"lang=en\"><img alt=\"lang=en\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/VegCorn_%28cropped%29.jpg/250px-VegCorn_%28cropped%29.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"124\" height=\"90\" class=\"mw-file-element\" data-file-width=\"576\" data-file-height=\"418\"></a></span>\n</div>\n</td></tr></tbody></table>\nTransfered from <a class=\"external text\" data-mw-original-href=\"http://en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a>, Moved to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Yelm\" title=\"User:Yelm\">Yelm</a>"
  },
  "pumpkin": {
-  "file": "Kabocha.jpg",
-  "page": "Kabocha",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=782652",
-  "artist": "<a href=\"https://ja.wikipedia.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Cota\" class=\"extiw\" title=\"ja:利用者:Cota\">Cota</a>",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "credit": "<a href=\"https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:Kabocha.jpg\" class=\"extiw\" title=\"ja:ファイル:Kabocha.jpg\">Kabocha.jpg</a> (transferred by <a href=\"//commons.wikimedia.org/wiki/User:Eugene_van_der_Pijll\" title=\"User:Eugene van der Pijll\">Eugene van der Pijll</a>)"
+  "file": "DFC 4374 Freshly cut kabocha squash revealing its vibrant orange flesh and seeds ready for market or the kitchen.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=189031335",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/PattayaPatrol/\">PattayaPatrol</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/194424926@N05/55045983253\">Flickr</a>"
  },
  "cabbage": {
   "file": "Cabbage on farm.jpg",
@@ -1440,13 +1440,7 @@
   "credit": "<a href=\"https://en.wikipedia.org/wiki/Private_collection\" class=\"extiw\" title=\"en:Private collection\">Private collection</a><div style=\"display: none;\">institution QS:P195,somevalue,P3831,Q768717</div>"
  },
  "finger": {
-  "file": "Human_fingers_both_sides_2.jpg",
-  "page": "Finger",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=107116955",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Sciencia58\" title=\"User:Sciencia58\">Sciencia58</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "generated": true
  },
  "leg": {
   "generated": true
@@ -1563,13 +1557,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "shoes": {
-  "file": "Skor_från_1700-_till_1960-talet_-_Nordiska_Museet_-_NMA.0056302.jpg",
-  "page": "Shoe",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=29476300",
-  "artist": "",
-  "license": "CC BY 3.0 no",
-  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/no/deed.en",
-  "credit": "<bdi><a href=\"https://www.wikidata.org/wiki/Q30302310\" class=\"extiw\" title=\"d:Q30302310\">Birgit Brånvall</a></bdi>"
+  "file": "2023 Adidas Yeezy 350 V2 EF2905 (1).jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=137337566",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Jacek_Halicki\" title=\"User:Jacek Halicki\">Jacek Halicki</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "boots": {
   "file": "Cliff_Climbers_Combat_boot_Shoes_Blast.png",
@@ -1635,21 +1629,21 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "window": {
-  "file": "Atua_Kosua_shrine4.jpg",
-  "page": "Window",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=51889126",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Shahadusadik\" title=\"User:Shahadusadik\">Shahadusadik</a>",
+  "file": "Basement window of Manor House, Kingsdown, Bristol - DSC 9217.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=193246933",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Plasmium\" title=\"User:Plasmium\">Tadeusz Hare</a>",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "roof": {
-  "file": "Tak_-_Ystad-2022.jpg",
-  "page": "Roof",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=117423077",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Jonnmann\" title=\"User:Jonnmann\">Foto: Jonn Leffmann</a>",
-  "license": "CC BY 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "file": "Ceramic tile roof in Germany, 2012.JPG",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=19741294",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:High_Contrast\" title=\"User:High Contrast\">High Contrast</a>",
+  "license": "CC BY 3.0 de",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/de/deed.en",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "kitchen": {
@@ -1899,13 +1893,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "teacher": {
-  "file": "A classroom at the American High School in Herzliya (FL45740754).jpg",
+  "file": "Classe-merikanjaka.jpg",
   "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=141968461",
-  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q123250780\" class=\"extiw\" title=\"d:Q123250780\"><span title=\"photographer of the Israel Press and Photo Agency\">IPPA photographer</span></a></bdi>",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "credit": "This file is available from <a href=\"https://www.wikidata.org/wiki/Q30526831\" class=\"extiw\" title=\"d:Q30526831\">Dan Hadani collection</a> of the <a href=\"https://en.wikipedia.org/wiki/en:National_Library_of_Israel\" class=\"extiw\" title=\"w:en:National Library of Israel\"><span title=\"national library in Israel\">National Library of Israel</span></a>. link to the source:<br><span style=\"font-size:larger\"><b><a rel=\"nofollow\" class=\"external text\" href=\"https://www.nli.org.il/en/images/NNL_ARCHIVE_AL990040217560205171/NLI\">A classroom at the American High School in Herzliya.</a></b></span>"
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=9655673",
+  "artist": "vonjy madagascar",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "mon pc"
  },
  "student": {
   "file": "Ensign William Kamm playing games with students from the Inouzawa Elementary School during a community service project 2013-05-17.jpg",
@@ -2079,10 +2073,10 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "train": {
-  "file": "Поезд_на_фоне_горы_Шатрище._Воронежская_область.jpg",
-  "page": "Train",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=59408612",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9_%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D1%81%D0%BA%D0%B8%D0%B9\" title=\"User:Алексей Задонский\">Алексей Задонский</a>",
+  "file": "E233系0番台 T23編成.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=45340343",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:ECICYV&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ECICYV (page does not exist)\">ECICYV</a>",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
@@ -2178,12 +2172,12 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "sun": {
-  "file": "The_Sun_in_white_light.jpg",
-  "page": "Sun",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=94650721",
-  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:MotloAstro&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:MotloAstro (page does not exist)\">Matúš Motlo</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "青空の中の太陽.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=182161366",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Naninumeno\" title=\"User:Naninumeno\">Naninumeno</a>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "moon": {
@@ -2235,13 +2229,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span> : <a rel=\"nofollow\" class=\"external free\" href=\"http://bahnbilder.ch/picture/7697\">http://bahnbilder.ch/picture/7697</a>."
  },
  "wind": {
-  "file": "No wind today - geograph.org.uk - 629037.jpg",
+  "file": "Coconut Trees blowing in the wind-1and (4270243814).jpg",
   "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=13166762",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/profile/196\">Richard Webb</a>",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=73355776",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/34534185@N00\">Sheba_Also 43,000 photos</a>",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "credit": "From <a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/photo/629037\">geograph.org.uk</a>"
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/shebalso/4270243814/\">https://www.flickr.com/photos/shebalso/4270243814/</a>"
  },
  "rainbow": {
   "file": "Double-alaskan-rainbow.jpg",
@@ -2289,13 +2283,13 @@
   "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/dansapples/9530477943/\">https://www.flickr.com/photos/dansapples/9530477943/</a>"
  },
  "forest": {
-  "file": "Aerial_view_of_the_Amazon_Rainforest.jpg",
-  "page": "Forest",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=18572902",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/44577875@N08\">lubasi</a>",
-  "license": "CC BY-SA 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/lubasi/4909683043/\">Catedral Verde - Floresta Amazonica</a>"
+  "file": "Forest path in Spring Forest Cemetery 1.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=141953988",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Engineerchange\" title=\"User:Engineerchange\">Engineerchange</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "tree": {
   "file": "Usamljeni_jasen_-_panoramio_(cropped).jpg",
@@ -2460,19 +2454,19 @@
   "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/37996599088@N01/1625328\">Flickr</a>"
  },
  "zoo": {
-  "file": "Dudley Zoo entrance - geograph.org.uk - 5108853.jpg",
+  "file": "ELEPHANTS AT DUBLIN ZOO -PHOENIX PARK--128876 (34037146993).jpg",
   "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=134347316",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/profile/43368\">David P Howard</a> <span class=\"mw-valign-text-top noprint\" typeof=\"mw:File/Frameless\"><a href=\"//commons.wikimedia.org/wiki/File:Dudley_Zoo_entrance_-_geograph.org.uk_-_5108853.jpg#P170\" title=\"Edit this at Structured Data on Commons\"><img alt=\"Edit this at Structured Data on Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"10\" height=\"10\" class=\"mw-file-element\" data-file-width=\"20\" data-file-height=\"20\"></a></span>",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=104020718",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/80824546@N00\">William Murphy</a> from Dublin, Ireland",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/photo/5108853\">Geograph Britain and Ireland</a> <span class=\"mw-valign-text-top noprint\" typeof=\"mw:File/Frameless\"><a href=\"//commons.wikimedia.org/wiki/File:Dudley_Zoo_entrance_-_geograph.org.uk_-_5108853.jpg#P7482\" title=\"Edit this at Structured Data on Commons\"><img alt=\"Edit this at Structured Data on Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"10\" height=\"10\" class=\"mw-file-element\" data-file-width=\"20\" data-file-height=\"20\"></a></span>"
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/infomatique/34037146993/\">ELEPHANTS AT DUBLIN ZOO [PHOENIX PARK]-128876</a>"
  },
  "bridge": {
-  "file": "Minneapolis April 2025 33 (Stone Arch Bridge and Mississippi River).jpg",
+  "file": "20100724 Iwakuni 5235.jpg",
   "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=164798335",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Michael_Barera\" title=\"User:Michael Barera\">Michael Barera</a>",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=11154163",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Jakubhal\" title=\"User:Jakubhal\">Jakub Hałun</a>",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
@@ -2826,21 +2820,21 @@
   "credit": "<bdi lang=\"en\" dir=\"ltr\">Transferred from <span class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a></span> to Commons.</bdi>"
  },
  "mirror": {
-  "file": "Mirror.jpg",
-  "page": "Mirror",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=1099675",
-  "artist": "Cgs",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "credit": "English Wikipedia (<a class=\"external free\" data-mw-original-href=\"http://en.wikipedia.org/wiki/Image:Mirror.jpeg\" href=\"https://en.wikipedia.org/wiki/Image:Mirror.jpeg\">http://en.wikipedia.org/wiki/Image:Mirror.jpeg</a>)"
+  "file": "Hand mirror.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=37326234",
+  "artist": "<div class=\"fn value\">\nDavid Ring</div>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "credit": "Drawing made by David Ring, commissioned by Europeana Fashion, scanned by team of MoMu – Fashion Museum Province of Antwerp"
  },
  "stairs": {
-  "file": "At_Victoria_and_Albert_Museum_2025_018.jpg",
-  "page": "Stairs",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=179466388",
-  "artist": "Photograph by <a href=\"//commons.wikimedia.org/wiki/User:Mike_Peel\" title=\"User:Mike Peel\">Mike Peel</a> (<a rel=\"nofollow\" class=\"external text\" href=\"https://www.mikepeel.net/\">www.mikepeel.net</a>).",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "HK Wan Chai Stone Nullah Lane Blue House Wooden Stairs.JPG",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=3686987",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Bluehse&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Bluehse (page does not exist)\">Bluehse</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "wall": {
@@ -2970,13 +2964,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "blackboard": {
-  "file": "Homer_E_Newell_NASA.jpg",
-  "page": "Blackboard",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=70737709",
-  "artist": "Unknown author<span style=\"display: none;\">Unknown author</span>",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20180711023906/https://airandspace.si.edu/sites/default/files/styles/slideshow_xlg/public/images/collection-objects/record-images/NASM-SI-88-13366.jpg\">NASM-SI-88-13366</a>, National Air and Space Museum, Smithsonian Institution; records from Newell's time at NASA"
+  "file": "Chemistry-related rear blackboard art at a classroom of Beijing 101 Middle School (20111201165624).jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=109106875",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:N509FZ\" title=\"User:N509FZ\">N509FZ</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "stapler": {
   "file": "2017_Zszywacz_biurowy.jpg",
@@ -3231,12 +3225,12 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "shrine": {
-  "file": "Plum_trees_Kitano_Tenmangu.jpg",
-  "page": "Shinto shrine",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=34245216",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Japanexperterna.se\" title=\"User:Japanexperterna.se\">Japanexperterna.se</a>",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "file": "Matshubara Shrine in Odawara city.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=155672615",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%E3%83%96%E3%83%AB%E3%83%BC%E3%83%8E%E3%83%BB%E3%83%97%E3%83%A9%E3%82%B9&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ブルーノ・プラス (page does not exist)\">ブルーノ・プラス</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "temple": {
