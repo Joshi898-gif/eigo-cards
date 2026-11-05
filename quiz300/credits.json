@@ -405,13 +405,13 @@
   "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/29465285@N00/2137186793/\">Friends</a>"
  },
  "chick": {
-  "file": "Kleiber_Flug.jpg",
-  "page": "Bird",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=19149015",
-  "artist": "C. Robiller / naturlichter.de (<a href=\"https://de.wikipedia.org/wiki/User:Hyla_meridionalis\" class=\"extiw\" title=\"de:User:Hyla meridionalis\">Hyla meridionalis</a>)",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "credit": "<span class=\"int-own-work\">Self-photographed</span>"
+  "file": "Pekin hen with seven chicks, March 2021 03.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=101140860",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Calistemon\" title=\"User:Calistemon\">Calistemon</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "duck": {
   "file": "American Pekin Duck.jpg",
@@ -549,22 +549,22 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "tadpole": {
-  "file": "RanaTemporariaLarva2.jpg",
-  "page": "Tadpole",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=8716417",
-  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Viridiflavus&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Viridiflavus (page does not exist)\">Viridiflavus</a>",
+  "file": "Giant Burrowing Frog (Heleioporus australiacus) tadpole.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=2659570",
+  "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Tnarg_12345\" class=\"extiw\" title=\"wikipedia:User:Tnarg 12345\">Tnarg 12345</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
   "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "<span class=\"int-own-work\" lang=\"\">own work by the original uploader</span>"
  },
  "newt": {
-  "file": "Cynops_pyrrhogaster_sasayamae_female.jpg",
-  "page": "Japanese fire-bellied newt",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=9990190",
-  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wuchthans&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wuchthans (page does not exist)\">Wuchthans</a>",
+  "file": "Chinese Fire Bellied Newts 2.JPG",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=2538800",
+  "artist": "Original uploader was <a href=\"//commons.wikimedia.org/w/index.php?title=Commons:User:Dobromila&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Commons:User:Dobromila (page does not exist)\">Dobromila</a> at <a class=\"external text\" data-mw-original-href=\"http://commons.wikipedia.org\" href=\"https://commons.wikipedia.org\">commons.wikipedia</a>",
   "license": "Public domain",
   "licenseUrl": "",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "credit": "Originally from <a class=\"external text\" data-mw-original-href=\"http://commons.wikipedia.org\" href=\"https://commons.wikipedia.org\">commons.wikipedia</a>; description page is/was <a class=\"external text\" data-mw-original-href=\"http://commons.wikimedia.org/w/index.php?title=Image%3AChinese_Fire_Bellied_Newts.JPG\" href=\"https://commons.wikimedia.org/w/index.php?title=Image%3AChinese_Fire_Bellied_Newts.JPG\">here</a>."
  },
  "goldfish": {
   "file": "Gold_fish1.jpg",
@@ -1350,31 +1350,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "head": {
-  "file": "Gracyn Shinyei - 2013.jpg",
-  "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=52489969",
-  "artist": "Pink Monkey Studios",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "credit": "Pink Monkey Studios"
+  "generated": true
  },
  "hair": {
-  "file": "Woman with curly hair 2.jpg",
-  "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=84883343",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/37071064@N00\">theritters</a> from San Diego, United States",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/theritters/865383889/\">IMG_1067.JPG</a>"
+  "generated": true
  },
  "face": {
-  "file": "Human_faces.jpg",
-  "page": "Face",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=135721990",
-  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Autisticeditor_20&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Autisticeditor 20 (page does not exist)\">Autisticeditor 20</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "Own work based on: <a href=\"//commons.wikimedia.org/wiki/File:Front_view_of_a_woman.jpg\" title=\"File:Front view of a woman.jpg\">Front view of a woman.jpg</a> and <a href=\"//commons.wikimedia.org/wiki/File:Anterior_view_of_human_male,_retouched.jpg\" title=\"File:Anterior view of human male, retouched.jpg\">Anterior view of human male, retouched.jpg</a>"
+  "generated": true
  },
  "eye": {
   "file": "Human_eye_with_blood_vessels.jpg",
@@ -1434,13 +1416,7 @@
   "generated": true
  },
  "shoulder": {
-  "file": "Left_shoulder.jpg",
-  "page": "Shoulder",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=50456613",
-  "artist": "Genusfotografen (Tomas Gunnarsson) / Wikimedia",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "<a href=\"https://en.wikipedia.org/wiki/Private_collection\" class=\"extiw\" title=\"en:Private collection\">Private collection</a><div style=\"display: none;\">institution QS:P195,somevalue,P3831,Q768717</div>"
+  "generated": true
  },
  "arm": {
   "file": "Extended_arm.jpg",
@@ -1473,13 +1449,7 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "leg": {
-  "file": "Akaoni and Amber's legs standing under the table 20230730.jpg",
-  "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=135272588",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Solomon203\" title=\"User:Solomon203\">Solomon203</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "generated": true
  },
  "knee": {
   "file": "Human_knees.jpg",
@@ -1566,13 +1536,13 @@
   "credit": "<p>Original text : <i>self-made</i><br>\n<bdi lang=\"en\" dir=\"ltr\">Transferred from <span class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a></span> to Commons using <a href=\"https://iw.toolforge.org/commonshelper/\" class=\"extiw\" title=\"toollabs:commonshelper/\">CommonsHelper</a>.</bdi>\n</p>\n<style data-mw-deduplicate=\"TemplateStyles:r1254222110\">.mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(--border-color-progressive,#6485d1);background-color:var(--background-color-neutral-subtle,#fbfcff);color:var(--color-base,#202122);box-sizing:border-box;border-inline-start-width:8px}.mw-parser-output .messagebox.mbox-small{font-size:88%;line-height:1.25em}.mw-parser-output .mbox-warning,.mw-parser-output .mbox-speedy{border:2px solid var(--border-color-error,#b22222);background:var(--background-color-error-subtle,#ffdbdb);border-inline-start-width:8px}.mw-parser-output .mbox-serious,.mw-parser-output .mbox-delete,.mw-parser-output .mbox-stop{border:2px solid var(--border-color-error,#b22222);border-inline-start-width:8px}.mw-parser-output .mbox-issue,.mw-parser-output .mbox-content{border:2px solid #f28500;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-query,.mw-parser-output .mbox-style{border:2px solid #f4c430;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-shit{border:2px solid #960;border-inline-start-width:8px}.mw-parser-output .mbox-license{border:2px solid #88a;border-inline-start-width:initial}.mw-parser-output .mbox-legal{border:2px solid var(--border-color-notice,#666);background:var(--background-color-base,#fff);border-inline-start-width:8px}.mw-parser-output .mbox-honor{border:2px solid #ca3;background:var(--background-color-warning-subtle,#fcf4db);border-inline-start-width:8px}.mw-parser-output .mbox-growth{border:2px solid #8d4;background:var(--background-color-success-subtle,#d5fdf4);border-inline-start-width:8px}.mw-parser-output .mbox-move{border:2px solid #93c;border-inline-start-width:8px}.mw-parser-output .mbox-protection,.mw-parser-output .mbox-message{border:2px solid var(--border-color-base,#aaa);border-inline-start-width:8px}.mw-parser-output .messagebox .mbox-text{border:none;padding:0.25em 0.9em;width:100%}.mw-parser-output .messagebox .mbox-image{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0.9em;padding-inline-end:0;text-align:center}.mw-parser-output .messagebox .mbox-imageright{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0;padding-inline-end:0.9em;text-align:center}.mw-parser-output .messagebox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .messagebox .mbox-invalid-type{text-align:center}@media(min-width:720px){.mw-parser-output .messagebox{margin:4px 10%}.mw-parser-output .messagebox.mbox-small{clear:right;float:right;margin:4px 0 4px 1em;width:238px}}body.skin--responsive .mw-parser-output table.messagebox img{max-width:none!important}</style><table class=\"plainlinks messagebox mbox-notice\" role=\"presentation\"><tbody><tr><td class=\"mbox-image\"></td><td class=\"mbox-text\">This photograph was submitted to Wikimedia Commons by \"<b><a rel=\"nofollow\" class=\"external text\" href=\"http://willmurray.name/\">Will Murray</a> (<a href=\"//commons.wikimedia.org/wiki/User:Willscrlt\" title=\"User:Willscrlt\">Willscrlt</a>)</b>\".</td></tr></tbody></table>"
  },
  "coat": {
-  "file": "FalatJulian.PortretAntoniegoWodzickiego.1900.ws.jpg",
-  "page": "Coat",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=131428",
-  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Julian_Fa%C5%82at\" class=\"extiw\" title=\"w:en:Julian Fałat\"><span title=\"Polish painter, watercolorist (1853–1929)\">Julian Fałat</span></a></bdi>",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.pinakoteka.zascianek.pl/Falat/Images/Antoni_Wodzicki.jpg\">www.pinakoteka.zascianek.pl</a>"
+  "file": "Hammond Slides Child in the Cold.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=65930917",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/Category:Thomas_Taylor_Hammond\" title=\"Category:Thomas Taylor Hammond\">Thomas Taylor Hammond (1920-1993)</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "University of Virginia Center for Russian, East European, and Eurasian Studies (<a rel=\"nofollow\" class=\"external text\" href=\"http://www.virginia.edu/creees\">www.virginia.edu/creees</a>)"
  },
  "sweater": {
   "file": "Selburose-sweater.jpg",
@@ -1728,13 +1698,7 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "blanket": {
-  "file": "Lautrec_in_bed_1893.jpg",
-  "page": "Blanket",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=109394",
-  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Henri_de_Toulouse-Lautrec\" class=\"extiw\" title=\"w:en:Henri de Toulouse-Lautrec\"><span title=\"French painter and illustrator (1864–1901)\">Henri de Toulouse-Lautrec</span></a></bdi>",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "credit": "Unknown source<span style=\"display: none;\">Unknown source</span>"
+  "generated": true
  },
  "table": {
   "file": "Beautiful_Baroque_gilded_table_from_the_Cinquantenaire_Museum_(Bruxelles,_Belgium).jpg",
@@ -1782,10 +1746,10 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "clock": {
-  "file": "Pendulum_clock_by_Jacob_Kock,_antique_furniture_photography,_IMG_0931_edit.jpg",
-  "page": "Clock",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=23131866",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Christoph_Braun\" title=\"User:Christoph Braun\">Christoph Braun</a>",
+  "file": "Antique Wooden SEC Wall Clock.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=148932036",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Amitbalani&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Amitbalani (page does not exist)\">Amitbalani</a>",
   "license": "CC0",
   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
@@ -1917,22 +1881,22 @@
   "credit": "This file is from the collection of the Musées de la Haute-Saône  and has been published on Wikimedia Commons as part of a cooperation project with <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Wikim%C3%A9dia_France\" title=\"Special:MyLanguage/Commons:Wikimédia France\">Wikimédia France</a>."
  },
  "school": {
-  "file": "Школа_№2_г._Краснотурьинска.jpg",
-  "page": "School",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=201258831",
-  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:S._Kleinmichel&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:S. Kleinmichel (page does not exist)\">S. Kleinmichel</a>",
+  "file": "Ichinoseki city Muronenishi elementary school building 202404.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=147963792",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%E3%81%A8%E3%82%89%E3%82%82%E3%82%93192\" title=\"User:とらもん192\">とらもん192</a>",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "classroom": {
-  "file": "Elementary_classroom_in_Alaska.jpg",
-  "page": "Classroom",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=18415233",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59432011@N00\">Liz</a>",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "credit": "<a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a>: <a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/59432011@N00/1471223658\">Teams and overview</a>"
+  "file": "Hitane Elementary School classroom 1.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=17150776",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Douglaspperkins\" title=\"User:Douglaspperkins\">Douglas P Perkins</a>",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "teacher": {
   "file": "A classroom at the American High School in Herzliya (FL45740754).jpg",
@@ -1944,13 +1908,13 @@
   "credit": "This file is available from <a href=\"https://www.wikidata.org/wiki/Q30526831\" class=\"extiw\" title=\"d:Q30526831\">Dan Hadani collection</a> of the <a href=\"https://en.wikipedia.org/wiki/en:National_Library_of_Israel\" class=\"extiw\" title=\"w:en:National Library of Israel\"><span title=\"national library in Israel\">National Library of Israel</span></a>. link to the source:<br><span style=\"font-size:larger\"><b><a rel=\"nofollow\" class=\"external text\" href=\"https://www.nli.org.il/en/images/NNL_ARCHIVE_AL990040217560205171/NLI\">A classroom at the American High School in Herzliya.</a></b></span>"
  },
  "student": {
-  "file": "High_school_students,_SAS_Pudong.jpg",
-  "page": "Student",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=64559598",
-  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mettevanderheide&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mettevanderheide (page does not exist)\">Mettevanderheide</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "file": "Ensign William Kamm playing games with students from the Inouzawa Elementary School during a community service project 2013-05-17.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=147705928",
+  "artist": "COMSEVENTHFLT",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/us7thfleet/8755682337/\">https://www.flickr.com/photos/us7thfleet/8755682337/</a>"
  },
  "book": {
   "file": "Gutenberg_Bible,_Lenox_Copy,_New_York_Public_Library,_2009._Pic_01.jpg",
@@ -1998,13 +1962,7 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "ruler": {
-  "file": "Diverse·Maßstäbe,15.365.jpg",
-  "page": "Ruler",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=49860290",
-  "artist": "Geof",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "credit": "fotogr. Geof April 2006"
+  "generated": true
  },
  "scissors": {
   "file": "Standard_household_scissors.jpg",
@@ -2103,12 +2061,12 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "truck": {
-  "file": "2001_Ford_F-250_Super_Duty_XL_regular_cab_flatbed,_front_left,_05-17-2025.jpg",
-  "page": "Truck",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=165477081",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MercurySable99\" title=\"User:MercurySable99\">MercurySable99</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "6th generation ISUZU ELF front view.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=30929163",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Tokumeigakarinoaoshima\" title=\"User:Tokumeigakarinoaoshima\">Tokumeigakarinoaoshima</a>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "taxi": {
@@ -2466,12 +2424,12 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "post office": {
-  "file": "EdithburghPostOffice.JPG",
-  "page": "Post office",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=8987787",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mattinbgn\" title=\"User:Mattinbgn\">Mattinbgn</a>",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "file": "Former Tonoi Post Office Building - historic post box and entrance.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=202742706",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Huugo&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Huugo (page does not exist)\">Huugo</a>",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "supermarket": {
@@ -2721,13 +2679,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "meat": {
-  "file": "FoodMeat.jpg",
-  "page": "Meat",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=186710",
-  "artist": "<div class=\"fn value\">\nUnknown photographer</div>",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://visualsonline.cancer.gov/details.cfm?imageid=2402\">https://visualsonline.cancer.gov/details.cfm?imageid=2402</a>"
+  "file": "Raw beef steak, 2011.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=59142864",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/90859240@N00/\">Jellaluna</a>",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/90859240@N00/5695243258/\">114-365 Steak Senora</a> auf flickr"
  },
  "rice ball": {
   "file": "小料理バルさくら_特製おにぎり.jpg",
@@ -2766,10 +2724,10 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "bamboo shoot": {
-  "file": "VigorouslyBambooShootPushUpStoneJapaneseMousouTikuTakenoko.jpg",
+  "file": "2017 0419 Thanin market bamboo shoots.jpg",
   "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=91141729",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%E3%82%B5%E3%83%95%E3%82%A3%E3%83%AB\" title=\"User:サフィル\">サフィル</a>",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=66343345",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Takeaway\" title=\"User:Takeaway\">Takeaway</a>",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
@@ -2838,13 +2796,7 @@
   "generated": true
  },
  "collar": {
-  "file": "Arnaud Rousseau Dress Shirt with a Modern Spread Collar.jpg",
-  "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=17621494",
-  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ashjini&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ashjini (page does not exist)\">Ashjini</a>",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "generated": true
  },
  "tie": {
   "file": "Memphis_tie_1A.JPG",
@@ -3306,13 +3258,13 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "bookstore": {
-  "file": "Libraria_Carturesti_Carusel_-_Interior_ziua.jpg",
-  "page": "Bookselling",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=39648177",
-  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Stratoreaper&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Stratoreaper (page does not exist)\">Mihai Petre</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "<span class=\"int-own-work\">Self-photographed</span>"
+  "file": "008 Anime and manga bookshop in Japan - bookstore in Kyoto, Japan.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=112453523",
+  "artist": "Marek Ślusarczyk (<a href=\"//commons.wikimedia.org/wiki/User:Tupungato\" title=\"User:Tupungato\">Tupungato</a>)",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "airport": {
   "file": "Jet bridge at Haneda Airport.JPG",
