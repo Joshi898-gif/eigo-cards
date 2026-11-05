@@ -76,6 +76,15 @@ h2{font-size:18px;margin:18px 0 8px}
 .sound{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
 .sbtn{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:6px 12px;font-size:13px}
 .sbtn.playing{border-color:var(--indigo);background:var(--indigo-soft)}
+.sound.front{margin:2px 0 8px}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;z-index:50}
+.sheet[hidden]{display:none}
+.sheetBox{background:var(--card);width:100%;max-width:520px;border-radius:18px 18px 0 0;padding:18px 16px 28px;max-height:85vh;overflow:auto}
+.sheetBox h2{margin:0;font-size:20px}
+.ulist{display:grid;gap:8px;margin-top:12px}
+.ulist button{border:2px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;font-size:18px;font-weight:700;text-align:left}
+.ulist button.on{border-color:var(--indigo);background:var(--indigo-soft)}
+.ulist small{display:block;font-weight:400;font-size:12px;color:var(--sub);margin-top:2px}
 .sec{margin-top:14px}
 .sec h3{font-size:12px;letter-spacing:.06em;color:var(--indigo);margin:0 0 4px;display:flex;gap:6px;align-items:center}
 .sec h3::before{content:"";width:4px;height:13px;background:var(--indigo);border-radius:2px}
@@ -175,7 +184,7 @@ input[type=text]{border:1.5px solid var(--line);border-radius:10px;padding:8px 1
 <section id="s-settings" class="screen">
   <div class="qtop"><button class="home" data-go="home">🏠 ホーム</button><h1 style="margin:0 0 0 4px;font-size:18px">せってい</h1></div>
   <div class="panel">
-    <p class="label">つかう人（記録は人ごとに分かれます）</p>
+    <p class="label">つかう人（記録・学年・せっていは人ごとに分かれます）</p>
     <div class="seg" id="userSeg"></div>
     <div style="display:flex;gap:8px;margin-top:10px"><input type="text" id="newUser" placeholder="名前を入れて追加"><button class="small" id="addUser">追加</button></div>
     <div style="display:flex;gap:8px;margin-top:8px"><button class="small" id="renameUser">名前をかえる</button><button class="small danger" id="delUser">この人を消す</button></div>
@@ -183,8 +192,10 @@ input[type=text]{border:1.5px solid var(--line);border-radius:10px;padding:8px 1
   <div class="panel">
     <p class="label">1回に足す新しいカード</p>
     <div class="seg" id="perSeg"><button data-v="5">5まい</button><button data-v="10">10まい</button><button data-v="20">20まい</button></div>
-    <p class="label" style="margin-top:12px">こたえを見たとき、読みを声で読む</p>
-    <div class="seg" id="autoSeg"><button data-v="1">読む</button><button data-v="0">読まない</button></div>
+    <p class="label" style="margin-top:12px">こたえを見たとき、声で読む</p>
+    <div class="seg" id="readSeg"><button data-v="2">読み・例文（日本語）と いみ・つかいかた（英語）</button><button data-v="1">読みだけ</button><button data-v="0">読まない</button></div>
+    <p class="label" style="margin-top:12px">問題を出したとき、例文を日本語で読む<br><small style="font-weight:400;color:var(--sub)">4たく・めくるでは、答えの読みが聞こえてしまいます</small></p>
+    <div class="seg" id="readQSeg"><button data-v="1">読む</button><button data-v="0">読まない</button></div>
   </div>
   <div class="panel">
     <p class="label">記録の書き出し・読み込み（ほかの端末へうつすとき）</p>
@@ -194,12 +205,15 @@ input[type=text]{border:1.5px solid var(--line);border-radius:10px;padding:8px 1
   </div>
   <div class="panel note">
     <b>このアプリについて</b><br>
-    <span id="aboutCount"></span>例文・解説・覚え方は Claude が作り、読みは辞書データ JMdict（EDRDG、CC BY-SA 4.0）と照らし合わせて確認しました。学年は文部科学省の学年別漢字配当表に、中学の分け方は KANJIDIC2（EDRDG）の使用頻度によります。音声は Microsoft Edge の音声合成（ja-JP-NanamiNeural、en-US-JennyNeural）で作りました。<br>
+    <span id="aboutCount"></span>例文・解説・覚え方は Claude が作り、読みは辞書データ JMdict（EDRDG、CC BY-SA 4.0）と照らし合わせて確認しました。学年は文部科学省の学年別漢字配当表に、中学の分け方は KANJIDIC2（EDRDG）の使用頻度によります。音声は Microsoft Edge の音声合成で作りました（日本語 ja-JP-NanamiNeural、英語 en-US-JennyNeural と en-US-AvaMultilingualNeural）。<br>
     復習の間かく：できた → 1日・3日・7日・14日・30日 → おぼえた（90日ごとに確認）。わからない → 箱1にもどり、同じ回の4問あとと10分後にもう一度。
   </div>
 </section>
 
 </div>
+<div class="sheet" id="userSheet" hidden><div class="sheetBox"><h2 id="sheetTitle">だれがつかう？</h2><p class="note" style="margin:6px 0 0">記録は人ごとに分かれます。自分の名前をえらんでね。</p><div class="ulist" id="uList"></div>
+  <div style="display:flex;gap:8px;margin-top:12px"><input type="text" id="sheetNew" placeholder="名前を入れて追加" style="flex:1"><button class="small" id="sheetAdd">追加</button></div>
+  <button class="link" style="width:100%;margin-top:10px" id="sheetClose">とじる</button></div></div>
 <div class="toast" id="toast"><span id="toastMsg"></span><button id="toastBtn" hidden></button></div>
 
 <script>
@@ -215,11 +229,14 @@ const sod=t=>{const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()};
 const dkey=(t=Date.now())=>{const d=new Date(t);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
 
 /* ---------- 記録 ---------- */
-function defaultDB(){return{users:[{id:"u1",name:"わたし"}],active:"u1",settings:{mode:"choice",per:10,auto:1,grades:[1,2]},prog:{u1:{}},days:{u1:{}}}}
+const DEF_S={mode:"choice",per:10,read:2,readQ:0,grades:[1,2]};
+const newS=o=>Object.assign(JSON.parse(JSON.stringify(DEF_S)),o||{});
+function defaultDB(){return{users:[{id:"u1",name:"わたし",s:newS()}],active:"u1",prog:{u1:{}},days:{u1:{}}}}
 function load(){try{const r=localStorage.getItem(KEY);if(!r)return defaultDB();const d=JSON.parse(r);if(!d.users||!d.users.length)return defaultDB();
-  d.settings=Object.assign({mode:"choice",per:10,auto:1,grades:[1,2]},d.settings||{});d.prog=d.prog||{};d.days=d.days||{};
-  for(const u of d.users){d.prog[u.id]=d.prog[u.id]||{};d.days[u.id]=d.days[u.id]||{}}
-  if(!d.users.find(u=>u.id===d.active))d.active=d.users[0].id;return d}catch(e){return defaultDB()}}
+  const old=d.settings||{};d.prog=d.prog||{};d.days=d.days||{};
+  for(const u of d.users){u.s=newS(Object.assign({mode:old.mode,per:old.per,grades:old.grades},u.s||{}));if(!Array.isArray(u.s.grades)||!u.s.grades.length)u.s.grades=[1,2];d.prog[u.id]=d.prog[u.id]||{};d.days[u.id]=d.days[u.id]||{}}
+  delete d.settings;if(!d.users.find(u=>u.id===d.active))d.active=d.users[0].id;return d}catch(e){return defaultDB()}}
+const S=()=>DB.users.find(u=>u.id===DB.active).s;
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){toast("この端末に保存できませんでした")}}
 const P=()=>DB.prog[DB.active],DAYS=()=>DB.days[DB.active];
 const EMPTY=Object.freeze({b:0,due:0,a:0,c:0,miss:0,seen:0,last:0,ex:0});
@@ -241,12 +258,12 @@ function grade(c,kind,retry){
 function setEx(id,v){const s=st(id);if(v){s.ex=1}else{s.ex=0;if(s.seen){s.b=1;s.due=Date.now()}}save()}
 
 /* ---------- 出す順番 ---------- */
-const pool=()=>CARDS.filter(c=>DB.settings.grades.includes(c.g));
+const pool=()=>CARDS.filter(c=>S().grades.includes(c.g));
 function dueList(now=Date.now()){return pool().filter(c=>{const s=peek(c.id);return!s.ex&&s.seen&&s.due<=now}).sort((a,b)=>peek(a.id).due-peek(b.id).due)}
 const newList=()=>pool().filter(c=>{const s=peek(c.id);return!s.ex&&!s.seen});
-function pickMode(){const m=DB.settings.mode;return m==="mix"?["choice","flip","write"][Math.floor(Math.random()*3)]:m}
+function pickMode(){const m=S().mode;return m==="mix"?["choice","flip","write"][Math.floor(Math.random()*3)]:m}
 function batch(skip,forceNew){
-  const per=DB.settings.per,due=dueList().filter(c=>!skip.has(c.id));const out=due.slice(0,per);
+  const per=S().per,due=dueList().filter(c=>!skip.has(c.id));const out=due.slice(0,per);
   const backlog=dueList().length>BACKLOG;
   if(out.length<per&&(!backlog||forceNew)){out.push(...newList().filter(c=>!skip.has(c.id)).slice(0,per-out.length))}
   else if(backlog&&SES&&!SES.toldBacklog){SES.toldBacklog=1;setTimeout(()=>toast("復習がたまっているので、新しいカードはお休みします"),400)}
@@ -257,8 +274,17 @@ function skipSet(){const s=new Set();if(!SES)return s;for(let i=Math.max(0,SES.i
 function refill(force){if(SES.q.length-SES.i>2&&!force)return;const add=batch(skipSet(),force);SES.q.push(...add);return add.length}
 
 /* ---------- 音声 ---------- */
-const player=new Audio();player.preload="auto";let playingBtn=null;
-function play(src,btn){try{player.pause();player.src=src;player.currentTime=0;const p=player.play();if(p&&p.catch)p.catch(()=>{});if(playingBtn)playingBtn.classList.remove("playing");playingBtn=btn||null;if(btn){btn.classList.add("playing");player.onended=()=>btn.classList.remove("playing")}}catch(e){}}
+const player=new Audio();player.preload="auto";let playingBtn=null,seqId=0;
+function stopPlay(){seqId++;try{player.pause()}catch(e){}if(playingBtn){playingBtn.classList.remove("playing");playingBtn=null}}
+function play(src,btn){playSeq([[src,btn]])}
+/* 何本かつづけて読む（読み → 例文 → English …）。次の操作で止まる */
+function playSeq(list){stopPlay();const my=seqId;let i=0;
+  const step=()=>{if(my!==seqId||i>=list.length)return;const[src,btn]=list[i++];
+    try{player.src=src;player.currentTime=0;if(btn){btn.classList.add("playing");playingBtn=btn}
+      player.onended=()=>{if(btn)btn.classList.remove("playing");if(playingBtn===btn)playingBtn=null;setTimeout(step,300)};
+      player.onerror=()=>{if(btn)btn.classList.remove("playing");setTimeout(step,0)};
+      const p=player.play();if(p&&p.catch)p.catch(()=>{if(btn)btn.classList.remove("playing")})}catch(e){}};
+  step()}
 const aud=(c,k)=>"audio/"+c.a+"_"+k+".mp3";
 
 /* ---------- ローマ字（英語で学ぶ人むけ） ---------- */
@@ -279,7 +305,7 @@ function parts(ps,opt={}){return ps.map(p=>{if(p.target){if(opt.hideTarget)retur
   if(p.r)return`<ruby>${esc(p.t)}<rt>${esc(p.r)}</rt></ruby>`;return esc(p.t)}).join("")}
 const hasKanji=s=>/[㐀-鿿]/.test(s);
 function go(id){$$(".screen").forEach(s=>s.classList.remove("on"));$("#s-"+id).classList.add("on");window.scrollTo(0,0);
-  if(id==="home")renderHome();if(id==="list")renderList();if(id==="settings")renderSettings();if(id!=="quiz"){try{player.pause()}catch(e){}}}
+  if(id==="home")renderHome();if(id==="list")renderList();if(id==="settings")renderSettings();if(id!=="quiz")stopPlay()}
 $$("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
 let toastT;function toast(msg,label,fn,ms){const t=$("#toast");$("#toastMsg").textContent=msg;const b=$("#toastBtn");if(label){b.hidden=false;b.textContent=label;b.onclick=()=>{t.classList.remove("on");fn()}}else b.hidden=true;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),ms||(label?5000:2600))}
 
@@ -290,14 +316,14 @@ function renderHome(){
   const ps=pool();let nw=0,dn=0;for(const c of ps){const s=peek(c.id);if(s.ex)continue;if(!s.seen)nw++;else if(s.b>=6)dn++}
   $("#tDue").textContent=dueList().length;$("#tNew").textContent=nw;$("#tDone").textContent=dn;$("#tStreak").textContent=streak();
   const grades=[...new Set(CARDS.map(c=>c.g))].sort((a,b)=>a-b);
-  $("#gradeSeg").innerHTML=grades.map(g=>`<button data-g="${g}" class="${DB.settings.grades.includes(g)?"on":""}">${GRADE_NAME[g]}（${CARDS.filter(c=>c.g===g).length}）</button>`).join("")+`<button data-all="1" title="ぜんぶの学年をえらぶ">ぜんぶ</button>`;
-  $('#gradeSeg button[data-all]').onclick=()=>{DB.settings.grades=[...grades];save();renderHome()};
-  $$("#gradeSeg button[data-g]").forEach(b=>b.onclick=()=>{const g=+b.dataset.g,gs=DB.settings.grades;const i=gs.indexOf(g);if(i>=0){if(gs.length>1)gs.splice(i,1)}else gs.push(g);save();renderHome()});
-  $$("#modeSeg button").forEach(b=>{b.classList.toggle("on",b.dataset.m===DB.settings.mode);b.onclick=()=>{DB.settings.mode=b.dataset.m;save();renderHome()}});
-  $("#modeNote").textContent=MODE_NOTE[DB.settings.mode];
-  const due=dueList().length;$("#startNote").textContent=due?`復習 ${due}まい から出します`:nw?`新しいカードを ${Math.min(nw,DB.settings.per)}まいずつ出します`:"きょうの分はおわりです。またあした！";
+  $("#gradeSeg").innerHTML=grades.map(g=>`<button data-g="${g}" class="${S().grades.includes(g)?"on":""}">${GRADE_NAME[g]}（${CARDS.filter(c=>c.g===g).length}）</button>`).join("")+`<button data-all="1" title="ぜんぶの学年をえらぶ">ぜんぶ</button>`;
+  $('#gradeSeg button[data-all]').onclick=()=>{S().grades=[...grades];save();renderHome()};
+  $$("#gradeSeg button[data-g]").forEach(b=>b.onclick=()=>{const g=+b.dataset.g,gs=S().grades;const i=gs.indexOf(g);if(i>=0){if(gs.length>1)gs.splice(i,1)}else gs.push(g);save();renderHome()});
+  $$("#modeSeg button").forEach(b=>{b.classList.toggle("on",b.dataset.m===S().mode);b.onclick=()=>{S().mode=b.dataset.m;save();renderHome()}});
+  $("#modeNote").textContent=MODE_NOTE[S().mode];
+  const due=dueList().length;$("#startNote").textContent=due?`復習 ${due}まい から出します`:nw?`新しいカードを ${Math.min(nw,S().per)}まいずつ出します`:"きょうの分はおわりです。またあした！";
 }
-$("#userChip").onclick=()=>go("settings");
+$("#userChip").onclick=()=>openSheet(false);
 $("#toList").onclick=()=>go("list");$("#toSettings").onclick=()=>go("settings");
 $("#startBtn").onclick=()=>startSession(false);
 
@@ -308,7 +334,7 @@ function updateTop(){$("#count").textContent=`⭕ ${SES.ok}／${SES.n}`;$("#bar"
 function frontHTML(it){
   const c=it.c,s=peek(c.id),st0=stateOf(s);
   const meta=`<div class="qmeta"><span><span class="badge b-${st0}">${boxName(s)}</span> ${GRADE_NAME[c.g]}</span><button class="know" id="knowBtn" title="知っている言葉は、もう出しません">知ってる → 除外</button></div>`;
-  const sent=`<div class="sent" id="sent">${parts(c.s,{hideTarget:it.mode==="write",reading:c.r})}</div>`;
+  const sent=`<div class="sent" id="sent">${parts(c.s,{hideTarget:it.mode==="write",reading:c.r})}</div><div class="sound front"><button class="sbtn" id="qSound">🔊 例文を聞く</button></div>`;
   let ask,body;
   if(it.mode==="flip"){ask="太字の言葉の読みは？ 頭の中で読んでから、めくろう。";body=`<button class="flip" id="flipBtn">めくる</button>`}
   else if(it.mode==="choice"){ask="太字の言葉の読みは？";it.opts=it.opts||shuffle([c.r,...c.x]);body=`<div class="opts">${it.opts.map((o,i)=>`<button class="opt" data-i="${i}">${esc(o)}</button>`).join("")}</div><button class="idk" id="idkBtn">わからない</button>`}
@@ -319,6 +345,7 @@ function showQ(){
   if(SES.i>=SES.q.length){refill(false);if(SES.i>=SES.q.length){showDone();return}}
   const it=SES.q[SES.i];$("#qArea").innerHTML=frontHTML(it);updateTop();window.scrollTo(0,0);
   $("#knowBtn").onclick=()=>knowIt(it);
+  $("#qSound").onclick=()=>play(aud(it.c,"s"),$("#qSound"));if(S().readQ)play(aud(it.c,"s"),$("#qSound"));else stopPlay();
   if(it.mode==="flip"){$("#flipBtn").onclick=()=>reveal(it,null)}
   else{$$(".opt").forEach(b=>b.onclick=()=>choose(it,+b.dataset.i,b));$("#idkBtn").onclick=()=>choose(it,-1,null)}
 }
@@ -339,7 +366,7 @@ function backHTML(it,ok){
   else{btns=`<div class="grades four"><button class="gb g-idk" data-k="idk">わからない<small>すぐ もう一度</small></button><button class="gb g-hard" data-k="hard">むずかしい<small>あした</small></button><button class="gb g-ok" data-k="ok">できた<small>${nextLabel(c)}</small></button><button class="gb g-know" data-k="know">知ってる<small>もう出さない</small></button></div>`}
   return `${res}<div class="back">
     <div class="head"><span class="word">${esc(c.w)}</span><span class="yomi">${esc(c.r)}</span><span class="roma">${esc(romaji(c.r))}</span></div>
-    <div class="sound"><button class="sbtn" data-a="w">🔊 よみ</button><button class="sbtn" data-a="s">🔊 例文</button><button class="sbtn" data-a="e">🔊 English</button></div>
+    <div class="sound"><button class="sbtn" data-a="w">🔊 よみ</button><button class="sbtn" data-a="s">🔊 例文</button><button class="sbtn" data-a="e">🔊 いみ（English）</button><button class="sbtn" data-a="c">🔊 つかいかた（English）</button><button class="sbtn" data-a="t">🔊 おぼえかた（English）</button></div>
     <div class="sec meaning"><h3>いみ　Meaning</h3><p class="en">${esc(c.me)}</p><p class="ja">${parts(c.mj)}</p></div>
     <div class="sec"><h3>どんなときにつかう？　How it's used</h3><p class="en">${esc(c.ce)}</p><p class="ja">${parts(c.cj)}</p></div>
     ${syn}
@@ -351,8 +378,9 @@ function reveal(it,ok){
   const c=it.c;$("#sent").innerHTML=parts(c.s,{rubyTarget:true,reading:c.r});
   if(it.mode==="flip")$("#front").innerHTML="";
   $("#backArea").innerHTML=backHTML(it,ok);
-  $$(".sbtn").forEach(b=>b.onclick=()=>play(aud(c,b.dataset.a),b));
-  if(DB.settings.auto)play(aud(c,"w"),$('.sbtn[data-a="w"]'));
+  $$(".back .sbtn").forEach(b=>b.onclick=()=>play(aud(c,b.dataset.a),b));
+  const sb=k=>[aud(c,k),$('.back .sbtn[data-a="'+k+'"]')],rd=S().read;
+  if(rd===2)playSeq([sb("w"),sb("s"),sb("e"),sb("c")]);else if(rd===1)play(...sb("w"));else stopPlay();
   if(ok===false){grade(c,"idk",it.retry);count(false);scheduleRetry(it);$("#nextBtn").onclick=next}
   else $$(".gb").forEach(b=>b.onclick=()=>{const k=b.dataset.k;if(k==="know"){knowIt(it,true);return}grade(c,k,it.retry);count(k!=="idk");if(k==="idk")scheduleRetry(it);next()});
   setTimeout(()=>{const g=$(".grades");if(g&&g.getBoundingClientRect().top>innerHeight)$(".back").scrollIntoView({behavior:"smooth",block:"start"})},60);
@@ -366,7 +394,7 @@ function knowIt(it,afterReveal){
   next();
 }
 function showDone(){
-  const nw=newList().length;$("#qArea").innerHTML=`<div class="qcard done"><div style="font-size:44px">🎉</div><h2>きょうの分はおわり！</h2><p class="note">${SES.n?`${SES.n}問 といて、${SES.ok}問 できました。`:""}復習のカードは、わすれるころにまた出てきます。</p>${nw?`<button class="big" id="moreBtn">新しいカードを ${Math.min(nw,DB.settings.per)}まい やる</button>`:""}<button class="link" style="width:100%;margin-top:8px" data-go2="home">🏠 ホームへ</button></div>`;
+  const nw=newList().length;$("#qArea").innerHTML=`<div class="qcard done"><div style="font-size:44px">🎉</div><h2>きょうの分はおわり！</h2><p class="note">${SES.n?`${SES.n}問 といて、${SES.ok}問 できました。`:""}復習のカードは、わすれるころにまた出てきます。</p>${nw?`<button class="big" id="moreBtn">新しいカードを ${Math.min(nw,S().per)}まい やる</button>`:""}<button class="link" style="width:100%;margin-top:8px" data-go2="home">🏠 ホームへ</button></div>`;
   updateTop();if(nw)$("#moreBtn").onclick=()=>{const n=refill(true);if(n)showQ();else showDone()};$('[data-go2="home"]').onclick=()=>go("home");
 }
 $("#quitBtn").onclick=()=>go("home");
@@ -397,10 +425,22 @@ function renderList(){
 function renderSettings(){
   $("#userSeg").innerHTML=DB.users.map(u=>`<button data-u="${u.id}" class="${u.id===DB.active?"on":""}">${esc(u.name)}</button>`).join("");
   $$("#userSeg button").forEach(b=>b.onclick=()=>{DB.active=b.dataset.u;save();renderSettings()});
-  $$("#perSeg button").forEach(b=>{b.classList.toggle("on",+b.dataset.v===DB.settings.per);b.onclick=()=>{DB.settings.per=+b.dataset.v;save();renderSettings()}});
-  $$("#autoSeg button").forEach(b=>{b.classList.toggle("on",+b.dataset.v===+DB.settings.auto);b.onclick=()=>{DB.settings.auto=+b.dataset.v;save();renderSettings()}});
+  $$("#perSeg button").forEach(b=>{b.classList.toggle("on",+b.dataset.v===S().per);b.onclick=()=>{S().per=+b.dataset.v;save();renderSettings()}});
+  $$("#readSeg button").forEach(b=>{b.classList.toggle("on",+b.dataset.v===+S().read);b.onclick=()=>{S().read=+b.dataset.v;save();renderSettings()}});
+  $$("#readQSeg button").forEach(b=>{b.classList.toggle("on",+b.dataset.v===+S().readQ);b.onclick=()=>{S().readQ=+b.dataset.v;save();renderSettings()}});
 }
-$("#addUser").onclick=()=>{const n=$("#newUser").value.trim();if(!n)return;const id="u"+Date.now().toString(36);DB.users.push({id,name:n});DB.prog[id]={};DB.days[id]={};DB.active=id;$("#newUser").value="";save();renderSettings();toast(n+" さんを追加しました")};
+function addUser(n){n=(n||"").trim();if(!n)return;if(DB.users.find(u=>u.name===n)){toast("同じ名前の人がいます");return}const id="u"+Date.now().toString(36);DB.users.push({id,name:n,s:newS()});DB.prog[id]={};DB.days[id]={};DB.active=id;DB.picked=1;save();toast(n+" さんを追加しました");return id}
+$("#addUser").onclick=()=>{if(addUser($("#newUser").value)){$("#newUser").value="";renderSettings()}};
+function openSheet(first){$("#sheetTitle").textContent=first?"だれがつかう？":"つかう人をかえる";
+  $("#uList").innerHTML=DB.users.map(u=>{const pr=Object.values(DB.prog[u.id]||{});const dn=pr.filter(x=>!x.ex&&x.b>=6).length,lr=pr.filter(x=>x.seen&&!x.ex&&x.b<6).length;
+    return`<button data-u="${u.id}" class="${u.id===DB.active?"on":""}">👤 ${esc(u.name)}<small>${(u.s.grades||[]).map(g=>GRADE_NAME[g]).join("・")}　おぼえた ${dn}まい・練習中 ${lr}まい</small></button>`}).join("");
+  $$("#uList button").forEach(b=>b.onclick=()=>{DB.active=b.dataset.u;DB.picked=1;save();closeSheet();renderHome();toast(DB.users.find(u=>u.id===DB.active).name+" さんでつかいます")});
+  $("#sheetNew").value="";$("#userSheet").hidden=false}
+function closeSheet(){$("#userSheet").hidden=true}
+$("#sheetAdd").onclick=()=>{if(addUser($("#sheetNew").value)){closeSheet();renderHome()}};
+$("#sheetNew").onkeydown=e=>{if(e.key==="Enter")$("#sheetAdd").click()};
+$("#sheetClose").onclick=()=>{DB.picked=1;save();closeSheet()};
+$("#userSheet").onclick=e=>{if(e.target===$("#userSheet"))$("#sheetClose").click()};
 $("#renameUser").onclick=()=>{const u=DB.users.find(u=>u.id===DB.active);const n=prompt("新しい名前",u.name);if(n&&n.trim()){u.name=n.trim();save();renderSettings()}};
 $("#delUser").onclick=()=>{if(DB.users.length<2){toast("さいごの一人は消せません");return}const u=DB.users.find(u=>u.id===DB.active);if(!confirm(u.name+" さんと、その記録を消しますか？"))return;DB.users=DB.users.filter(x=>x.id!==u.id);delete DB.prog[u.id];delete DB.days[u.id];DB.active=DB.users[0].id;save();renderSettings()};
 $("#exportBtn").onclick=()=>{$("#jsonBox").value=JSON.stringify(DB);toast("書き出しました。コピーして、ほかの端末で読み込めます")};
@@ -414,7 +454,7 @@ $("#resetBtn").onclick=()=>{const u=DB.users.find(u=>u.id===DB.active);if(!confi
   try{const r=await fetch("cards.json",{cache:"no-cache"});CARDS=await r.json()}catch(e){$("#loading").textContent="カードを読みこめませんでした。ページを読みなおしてください。";return}
   for(const c of CARDS)BYID[c.id]=c;
   const gs=[...new Set(CARDS.map(c=>c.g))].sort((a,b)=>a-b);$("#aboutCount").textContent=`${gs.map(g=>GRADE_NAME[g]).join("・")}の漢字${new Set(CARDS.map(c=>c.k)).size}字・${CARDS.length}枚。`;
-  $("#loading").remove();go("home");
+  $("#loading").remove();go("home");if(!DB.picked)openSheet(true);
 })();
 </script>
 </body>
