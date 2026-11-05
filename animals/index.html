@@ -226,7 +226,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
   <div class="stack">
     <button class="bigbtn sky" id="btnToday"><span class="ico">🌟</span><span>きょうの れんしゅう<small id="todaySub"></small></span></button>
     <button class="bigbtn sun" id="btnMore" hidden><span class="ico">🎲</span><span>もっと あそぶ<small>おぼえた どうぶつで クイズ</small></span></button>
-    <button class="bigbtn" id="btnBook"><span class="ico">📖</span><span>どうぶつ ずかん<small>100ぴき ぜんぶ みられるよ。タップで こえが でるよ</small></span></button>
+    <button class="bigbtn" id="btnBook"><span class="ico">📖</span><span>どうぶつ ずかん<small id="bookSub">ぜんぶ みられるよ。タップで こえが でるよ</small></span></button>
   </div>
   <div class="row3">
     <div class="stat"><b id="stDone">0</b><span>きょう やった かず</span></div>
@@ -311,7 +311,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
   </div>
   <div class="panel on" id="p-dash">
     <div class="grid4" id="kpis"></div>
-    <div class="h">記憶の強さ（100語の内訳）</div>
+    <div class="h">記憶の強さ（<span id="strTotal"></span>語の内訳）</div>
     <div class="strength" id="strengthBar"></div>
     <div class="legend"><span><i class="s0"></i>未学習</span><span><i class="s1"></i>おぼえはじめ（1〜3日）</span><span><i class="s2"></i>おぼえてきた（1〜2週間）</span><span><i class="s3"></i>しっかり（1〜2か月）</span><span><i class="s4"></i>定着</span></div>
     <div class="h">カテゴリー別の進み具合</div>
@@ -363,21 +363,23 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
 <script>
 /* ---------- data ---------- */
 const RAW=[
-[1,"dog","いぬ"],[1,"cat","ねこ"],[1,"rabbit","うさぎ"],[1,"hamster","ハムスター"],[1,"mouse","ねずみ"],[1,"cow","うし"],[1,"horse","うま"],[1,"pig","ぶた"],[1,"sheep","ひつじ"],[1,"goat","やぎ"],
+[1,"rabbit","うさぎ"],[1,"cow","うし"],[1,"horse","うま"],[1,"pig","ぶた"],[1,"sheep","ひつじ"],[1,"goat","やぎ"],
 [1,"deer","しか"],[1,"wild boar","いのしし"],[1,"fox","きつね"],[1,"raccoon dog","たぬき"],[1,"bear","くま"],
-[2,"lion","ライオン"],[2,"tiger","トラ"],[2,"elephant","ゾウ"],[2,"giraffe","キリン"],[2,"zebra","シマウマ"],[2,"rhino","サイ"],[2,"hippo","カバ"],[2,"gorilla","ゴリラ"],[2,"chimpanzee","チンパンジー"],[2,"orangutan","オランウータン"],
-[2,"monkey","サル"],[2,"panda","パンダ"],[2,"koala","コアラ"],[2,"kangaroo","カンガルー"],[2,"camel","ラクダ"],[2,"leopard","ヒョウ"],[2,"cheetah","チーター"],[2,"wolf","オオカミ"],[2,"squirrel","リス"],[2,"bat","コウモリ"],
+[2,"elephant","ゾウ"],[2,"giraffe","キリン"],[2,"zebra","シマウマ"],[2,"rhino","サイ"],[2,"hippo","カバ"],[2,"orangutan","オランウータン"],
+[2,"monkey","サル"],[2,"camel","ラクダ"],[2,"leopard","ヒョウ"],[2,"wolf","オオカミ"],[2,"squirrel","リス"],[2,"bat","コウモリ"],
 [3,"whale","クジラ"],[3,"dolphin","イルカ"],[3,"orca","シャチ"],[3,"seal","アザラシ"],[3,"sea lion","アシカ"],
 [4,"sparrow","スズメ"],[4,"pigeon","ハト"],[4,"crow","カラス"],[4,"swallow","ツバメ"],[4,"chicken","ニワトリ"],[4,"chick","ヒヨコ"],[4,"duck","アヒル"],[4,"swan","ハクチョウ"],[4,"penguin","ペンギン"],[4,"owl","フクロウ"],
-[4,"eagle","ワシ"],[4,"hawk","タカ"],[4,"ostrich","ダチョウ"],[4,"flamingo","フラミンゴ"],[4,"parrot","オウム"],
+[4,"eagle","ワシ"],[4,"hawk","タカ"],[4,"ostrich","ダチョウ"],[4,"parrot","オウム"],
 [5,"snake","ヘビ"],[5,"lizard","トカゲ"],[5,"turtle","カメ"],[5,"crocodile","ワニ"],[5,"chameleon","カメレオン"],[5,"frog","カエル"],[5,"tadpole","オタマジャクシ"],[5,"newt","イモリ"],
-[6,"goldfish","キンギョ"],[6,"medaka","メダカ"],[6,"carp","コイ"],[6,"tuna","マグロ"],[6,"salmon","サケ"],[6,"saury","サンマ"],[6,"horse mackerel","アジ"],[6,"sardine","イワシ"],[6,"shark","サメ"],[6,"stingray","エイ"],[6,"eel","ウナギ"],[6,"seahorse","タツノオトシゴ"],
+[6,"goldfish","キンギョ"],[6,"carp","コイ"],[6,"tuna","マグロ"],[6,"salmon","サケ"],[6,"saury","サンマ"],[6,"horse mackerel","アジ"],[6,"sardine","イワシ"],[6,"shark","サメ"],[6,"stingray","エイ"],[6,"eel","ウナギ"],[6,"seahorse","タツノオトシゴ"],
 [7,"octopus","タコ"],[7,"squid","イカ"],[7,"crab","カニ"],[7,"shrimp","エビ"],[7,"jellyfish","クラゲ"],[7,"starfish","ヒトデ"],[7,"sea urchin","ウニ"],[7,"clam","アサリ"],[7,"sea otter","ラッコ"],[7,"sea turtle","ウミガメ"],
 [8,"rhinoceros beetle","カブトムシ"],[8,"stag beetle","クワガタ"],[8,"butterfly","チョウ"],[8,"dragonfly","トンボ"],[8,"cicada","セミ"],[8,"grasshopper","バッタ"],[8,"praying mantis","カマキリ"],[8,"ladybug","テントウムシ"],[8,"firefly","ホタル"],[8,"ant","アリ"],
 [8,"bee","ハチ"],[8,"mosquito","カ"],[8,"fly","ハエ"],[8,"spider","クモ"],[8,"pill bug","ダンゴムシ"],
 ];
 const CATS=[null,{n:"みぢかな どうぶつ",i:"🐶"},{n:"どうぶつえん",i:"🦁"},{n:"うみの どうぶつ",i:"🐬"},{n:"とり",i:"🐧"},{n:"はちゅうるい・かえる",i:"🐸"},{n:"さかな",i:"🐟"},{n:"うみの いきもの",i:"🐙"},{n:"むし",i:"🦋"}];
-const W=RAW.map((r,i)=>({id:i+1,cat:r[0],en:r[1],ja:r[2],s:r[1].replace(/ /g,"_")}));
+// progress is keyed by the slug; OLD_SLUGS is the original 100-animal order, used to migrate records saved under the old number keys
+const OLD_SLUGS=["dog","cat","rabbit","hamster","mouse","cow","horse","pig","sheep","goat","deer","wild_boar","fox","raccoon_dog","bear","lion","tiger","elephant","giraffe","zebra","rhino","hippo","gorilla","chimpanzee","orangutan","monkey","panda","koala","kangaroo","camel","leopard","cheetah","wolf","squirrel","bat","whale","dolphin","orca","seal","sea_lion","sparrow","pigeon","crow","swallow","chicken","chick","duck","swan","penguin","owl","eagle","hawk","ostrich","flamingo","parrot","snake","lizard","turtle","crocodile","chameleon","frog","tadpole","newt","goldfish","medaka","carp","tuna","salmon","saury","horse_mackerel","sardine","shark","stingray","eel","seahorse","octopus","squid","crab","shrimp","jellyfish","starfish","sea_urchin","clam","sea_otter","sea_turtle","rhinoceros_beetle","stag_beetle","butterfly","dragonfly","cicada","grasshopper","praying_mantis","ladybug","firefly","ant","bee","mosquito","fly","spider","pill_bug"];
+const W=RAW.map(r=>({id:r[1].replace(/ /g,"_"),cat:r[0],en:r[1],ja:r[2],s:r[1].replace(/ /g,"_")}));
 const BYID=Object.fromEntries(W.map(w=>[w.id,w]));
 const DAY=86400000, INT=[0,1,3,7,14,30,60,120];
 const KEY="eigo-animals-v2";
@@ -407,7 +409,7 @@ function soundsOf(w){const e=w.en.toLowerCase();return Object.keys(SOUNDS).filte
 
 /* ---------- storage ---------- */
 function defaultDB(){return {v:2,children:[{id:"c1",name:"こども"}],active:"c1",settings:{newPer:5,maxReview:20,hints:true},progress:{c1:{}},sessions:{c1:[]},days:{c1:{}}}}
-function load(){try{const r=localStorage.getItem(KEY);if(!r)return defaultDB();const d=JSON.parse(r);if(!d.children||!d.active)return defaultDB();d.settings=Object.assign({newPer:5,maxReview:20,hints:true},d.settings||{});d.progress??={};d.sessions??={};d.days??={};for(const c of d.children){d.progress[c.id]??={};d.sessions[c.id]??=[];d.days[c.id]??={};}return d;}catch(e){return defaultDB()}}
+function load(){try{const r=localStorage.getItem(KEY);if(!r)return defaultDB();const d=JSON.parse(r);if(!d.children||!d.active)return defaultDB();d.settings=Object.assign({newPer:5,maxReview:20,hints:true},d.settings||{});d.progress??={};d.sessions??={};d.days??={};for(const c of d.children){d.progress[c.id]??={};d.sessions[c.id]??=[];d.days[c.id]??={};const pr=d.progress[c.id];for(const k of Object.keys(pr)){if(/^\d+$/.test(k)){const sl=OLD_SLUGS[+k-1];if(sl&&!pr[sl])pr[sl]=pr[k];delete pr[k]}}}return d;}catch(e){return defaultDB()}}
 let DB=load();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){toast("保存できませんでした")}}
 const P=()=>DB.progress[DB.active], S=()=>DB.sessions[DB.active], DAYS=()=>DB.days[DB.active];
@@ -458,7 +460,7 @@ function streak(){const d=DAYS();let n=0,t=startOfDay(Date.now());if(!(d[dkey(t)
 
 /* ---------- audio ---------- */
 const player=new Audio();let unlocked=false,playingBtn=null;
-function unlock(){if(unlocked)return;unlocked=true;try{player.muted=true;player.src=`audio/dog.mp3`;player.play().then(()=>{player.pause();player.muted=false}).catch(()=>{player.muted=false})}catch(e){}}
+function unlock(){if(unlocked)return;unlocked=true;try{player.muted=true;player.src=`audio/${W[0].s}.mp3`;player.play().then(()=>{player.pause();player.muted=false}).catch(()=>{player.muted=false})}catch(e){}}
 document.addEventListener("pointerdown",unlock,{capture:true});
 function flash(btn){if(playingBtn)playingBtn.classList.remove("playing");playingBtn=btn;if(btn){btn.classList.add("playing");setTimeout(()=>btn.classList.remove("playing"),2500)}}
 function play(w,variant,btn){
@@ -499,10 +501,10 @@ let bookCat=0;
 function renderBook(){
   const ws=W.filter(w=>!bookCat||w.cat===bookCat);
   $("#bookCount").textContent=`${ws.length}ぴき`;
-  $("#bookCats").innerHTML=`<button class="${bookCat===0?"on":""}" data-c="0">ぜんぶ 100</button>`+CATS.slice(1).map((c,i)=>`<button class="${bookCat===i+1?"on":""}" data-c="${i+1}">${c.i} ${c.n}</button>`).join("");
+  $("#bookCats").innerHTML=`<button class="${bookCat===0?"on":""}" data-c="0">ぜんぶ ${W.length}</button>`+CATS.slice(1).map((c,i)=>`<button class="${bookCat===i+1?"on":""}" data-c="${i+1}">${c.i} ${c.n}</button>`).join("");
   $$("#bookCats button").forEach(b=>b.onclick=()=>{bookCat=+b.dataset.c;renderBook();window.scrollTo(0,0)});
   $("#bookGrid").innerHTML=ws.map(w=>`<button class="bk${strength(st(w.id))>=3?" got":""}" data-id="${w.id}"><img src="${imgSrc(w)}" alt="" loading="lazy"><div class="e en">${esc(w.en)}</div><div class="j">${esc(w.ja)}</div></button>`).join("");
-  $$("#bookGrid .bk").forEach(b=>b.onclick=()=>{$$("#bookGrid .bk.playing").forEach(x=>x.classList.remove("playing"));b.classList.add("playing");setTimeout(()=>b.classList.remove("playing"),1500);play(BYID[+b.dataset.id],"",null)});
+  $$("#bookGrid .bk").forEach(b=>b.onclick=()=>{$$("#bookGrid .bk.playing").forEach(x=>x.classList.remove("playing"));b.classList.add("playing");setTimeout(()=>b.classList.remove("playing"),1500);play(BYID[b.dataset.id],"",null)});
 }
 $("#btnBook").onclick=()=>{go("book");renderBook()};
 $("#btnMore").onclick=()=>{const q=practiceQueue();if(!q.length){toast("まだ どうぶつに であっていないよ");return}runQueue(q,"practice")};
@@ -587,7 +589,7 @@ function renderPick(w){
 }
 function onPick(o,btn){
   const it=SES.q[SES.i],w=it.w;const ok=o.id===w.id;const rt=Date.now()-SES.t0;
-  $$("#choices .choice").forEach(b=>{b.disabled=true;b.querySelector(".lab").textContent=BYID[+b.dataset.id].ja;if(b.dataset.id==String(w.id))b.classList.add("right")});
+  $$("#choices .choice").forEach(b=>{b.disabled=true;b.querySelector(".lab").textContent=BYID[b.dataset.id].ja;if(b.dataset.id==String(w.id))b.classList.add("right")});
   if(!ok)btn.classList.add("wrong");
   $("#jaTxt").hidden=false;
   const f=$("#feedback");f.textContent=ok?shuffle(["せいかい！ よくできたね！","すごい！ あたり！","やったね！ せいかい！"])[0]:"おしい！ こたえは「"+w.ja+"」だよ";f.className="feedback "+(ok?"ok":"ng");
@@ -654,7 +656,7 @@ function renderWords(){
   const tb=$("#wordTable tbody");
   tb.innerHTML=rows.map(x=>{const rv=x.s.h.filter(a=>a.k==="review"||a.k==="same"),rc=rv.filter(a=>a.r).length;
     return `<tr class="clickable" data-id="${x.w.id}"><td><img src="${imgSrc(x.w)}" alt="" style="width:44px;height:33px;object-fit:contain;background:#FFFFFF;border-radius:8px;vertical-align:middle"></td><td class="en" style="font-weight:600">${esc(x.w.en)}</td><td>${esc(x.w.ja)}</td><td><span class="badge s${x.k}">${SNAME[x.k]}</span>${isLeech(x.s)?' <span class="badge leech">にがて</span>':""}</td><td class="num">${rc}/${rv.length}</td><td>${x.s.intro?fmtD(x.s.due):"—"}</td></tr>`}).join("")||'<tr><td colspan="6" class="empty">該当する単語がありません</td></tr>';
-  $$("#wordTable tr.clickable").forEach(tr=>tr.onclick=()=>openWord(+tr.dataset.id));
+  $$("#wordTable tr.clickable").forEach(tr=>tr.onclick=()=>openWord(tr.dataset.id));
 }
 function openWord(id){
   const w=BYID[id],s=st(id);const hist=s.h.slice(-24);
@@ -679,7 +681,7 @@ $("#maxReview").oninput=e=>{DB.settings.maxReview=+e.target.value;$("#revLabel")
 $("#useHints").onchange=e=>{DB.settings.hints=e.target.checked;save()};
 $("#addChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n)return;const id="c"+Date.now();DB.children.push({id,name:n});DB.progress[id]={};DB.sessions[id]=[];DB.days[id]={};DB.active=id;$("#newChild").value="";save();renderChildSel();renderDash();renderWords();toast(n+" を追加しました")};
 $("#renameChild").onclick=()=>{const n=$("#newChild").value.trim();if(!n){toast("新しい名前を入力してください");return}child().name=n;$("#newChild").value="";save();renderChildSel();toast("名前を変更しました")};
-$("#testAudio").onclick=()=>{play(W[0],"",null);$("#micTestOut").textContent="「dog」が聞こえれば音声は正常です。聞こえない場合は端末の音量とサイレントモードを確認してください。"};
+$("#testAudio").onclick=()=>{play(W[0],"",null);$("#micTestOut").textContent=`「${W[0].en}」が聞こえれば音声は正常です。聞こえない場合は端末の音量とサイレントモードを確認してください。`};
 
 /* data */
 function csv(){const rows=[["英語","日本語","カテゴリー","強さ","間隔レベル","調整","復習回数","忘れた回数","次回"]];for(const w of W){const s=st(w.id);rows.push([w.en,w.ja,CATS[w.cat].n,SNAME[strength(s)],s.lvl,s.ease,s.reps||0,s.lapses||0,s.intro?dkey(s.due):""])}return rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n")}
@@ -697,6 +699,7 @@ async function loadCredits(){if(creditsLoaded)return;try{const r=await fetch("cr
     return `<li><b>${esc(w.en)}</b>（${esc(w.ja)}）：<a href="${esc(c.desc||"#")}" target="_blank" rel="noopener">${esc(c.file)}</a> ／ ${esc(strip(c.artist))||"作者不明"} ／ ${c.licenseUrl?`<a href="${esc(c.licenseUrl)}" target="_blank" rel="noopener">${esc(c.license)}</a>`:esc(c.license||"")}</li>`}).join("")}
   catch(e){$("#creditList").innerHTML='<li class="empty">出典ファイル（credits.json）を読み込めませんでした</li>'}}
 
+$("#bookSub").textContent=`${W.length}ぴき ぜんぶ みられるよ。タップで こえが でるよ`;$("#strTotal").textContent=W.length;
 renderHome();
 </script>
 </body>
