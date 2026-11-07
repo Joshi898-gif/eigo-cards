@@ -205,7 +205,7 @@ input[type=text]{border:1.5px solid var(--line);border-radius:10px;padding:8px 1
   </div>
   <div class="panel note">
     <b>このアプリについて</b><br>
-    <span id="aboutCount"></span>例文・解説・覚え方は Claude が作り、読みは辞書データ JMdict（EDRDG、CC BY-SA 4.0）と照らし合わせて確認しました。学年は文部科学省の学年別漢字配当表に、中学の分け方は KANJIDIC2（EDRDG）の使用頻度によります。音声は Microsoft Edge の音声合成で作りました（日本語 ja-JP-NanamiNeural、英語 en-US-JennyNeural と en-US-AvaMultilingualNeural）。<br>
+    <span id="aboutCount"></span>例文・解説・覚え方は Claude が作り、読みは辞書データ JMdict（EDRDG、CC BY-SA 4.0）と照らし合わせて確認しました。学年は文部科学省の学年別漢字配当表に、中学の分け方は KANJIDIC2（EDRDG）の使用頻度によります。音声は Microsoft Edge の音声合成で作りました（日本語 ja-JP-NanamiNeural、英語 en-US-JennyNeural）。解説は英語と日本語をそれぞれの声で読みます。<br>
     復習の間かく：できた → 1日・3日・7日・14日・30日 → おぼえた（90日ごとに確認）。わからない → 箱1にもどり、同じ回の4問あとと10分後にもう一度。
   </div>
 </section>
@@ -285,7 +285,8 @@ function playSeq(list){stopPlay();const my=seqId;let i=0;
       player.onerror=()=>{if(btn)btn.classList.remove("playing");setTimeout(step,0)};
       const p=player.play();if(p&&p.catch)p.catch(()=>{if(btn)btn.classList.remove("playing")})}catch(e){}};
   step()}
-const aud=(c,k)=>"audio/"+c.a+"_"+k+".mp3";
+const AUDIO_V=3;
+const aud=(c,k)=>"audio/"+c.a+"_"+k+".mp3?v="+AUDIO_V;
 
 /* ---------- ローマ字（英語で学ぶ人むけ） ---------- */
 const R1={あ:"a",い:"i",う:"u",え:"e",お:"o",か:"ka",き:"ki",く:"ku",け:"ke",こ:"ko",さ:"sa",し:"shi",す:"su",せ:"se",そ:"so",た:"ta",ち:"chi",つ:"tsu",て:"te",と:"to",な:"na",に:"ni",ぬ:"nu",ね:"ne",の:"no",は:"ha",ひ:"hi",ふ:"fu",へ:"he",ほ:"ho",ま:"ma",み:"mi",む:"mu",め:"me",も:"mo",や:"ya",ゆ:"yu",よ:"yo",ら:"ra",り:"ri",る:"ru",れ:"re",ろ:"ro",わ:"wa",を:"o",ん:"n",が:"ga",ぎ:"gi",ぐ:"gu",げ:"ge",ご:"go",ざ:"za",じ:"ji",ず:"zu",ぜ:"ze",ぞ:"zo",だ:"da",ぢ:"ji",づ:"zu",で:"de",ど:"do",ば:"ba",び:"bi",ぶ:"bu",べ:"be",ぼ:"bo",ぱ:"pa",ぴ:"pi",ぷ:"pu",ぺ:"pe",ぽ:"po",ぁ:"a",ぃ:"i",ぅ:"u",ぇ:"e",ぉ:"o",ゔ:"vu"};
