@@ -206,7 +206,7 @@ input[type=text]{border:1.5px solid var(--line);border-radius:10px;padding:8px 1
   <div class="panel note">
     <b>このアプリについて</b><br>
     <span id="aboutCount"></span>例文・解説・覚え方は Claude が作り、読みは辞書データ JMdict（EDRDG、CC BY-SA 4.0）と照らし合わせて確認しました。学年は文部科学省の学年別漢字配当表に、中学の分け方は KANJIDIC2（EDRDG）の使用頻度によります。音声は Microsoft Edge の音声合成で作りました（日本語 ja-JP-NanamiNeural、英語 en-US-JennyNeural）。解説は英語と日本語をそれぞれの声で読みます。<br>
-    復習の間かく：できた → 1日・3日・7日・14日・30日 → おぼえた（90日ごとに確認）。わからない → 箱1にもどり、同じ回の4問あとと10分後にもう一度。
+    復習の間かく：できた → 1日・3日・7日・14日・30日 → おぼえた（90日ごとに確認）。「知ってる」で除外した言葉も「おぼえた」に数えます。わからない → 箱1にもどり、同じ回の4問あとと10分後にもう一度。
   </div>
 </section>
 
@@ -314,7 +314,7 @@ let toastT;function toast(msg,label,fn,ms){const t=$("#toast");$("#toastMsg").te
 function streak(){const d=DAYS();let n=0,t=sod(Date.now());if(!(d[dkey(t)]||{}).n)t-=DAY;while((d[dkey(t)]||{}).n){n++;t-=DAY}return n}
 function renderHome(){
   const u=DB.users.find(u=>u.id===DB.active);$("#userName").textContent=u.name;
-  const ps=pool();let nw=0,dn=0;for(const c of ps){const s=peek(c.id);if(s.ex)continue;if(!s.seen)nw++;else if(s.b>=6)dn++}
+  const ps=pool();let nw=0,dn=0;for(const c of ps){const s=peek(c.id);if(s.ex||s.b>=6){dn++;continue}if(!s.seen)nw++}/* 「知ってる」で除外した言葉も、おぼえたに数える */
   $("#tDue").textContent=dueList().length;$("#tNew").textContent=nw;$("#tDone").textContent=dn;$("#tStreak").textContent=streak();
   const grades=[...new Set(CARDS.map(c=>c.g))].sort((a,b)=>a-b);
   $("#gradeSeg").innerHTML=grades.map(g=>`<button data-g="${g}" class="${S().grades.includes(g)?"on":""}">${GRADE_NAME[g]}（${CARDS.filter(c=>c.g===g).length}）</button>`).join("")+`<button data-all="1" title="ぜんぶの学年をえらぶ">ぜんぶ</button>`;
@@ -433,7 +433,7 @@ function renderSettings(){
 function addUser(n){n=(n||"").trim();if(!n)return;if(DB.users.find(u=>u.name===n)){toast("同じ名前の人がいます");return}const id="u"+Date.now().toString(36);DB.users.push({id,name:n,s:newS()});DB.prog[id]={};DB.days[id]={};DB.active=id;DB.picked=1;save();toast(n+" さんを追加しました");return id}
 $("#addUser").onclick=()=>{if(addUser($("#newUser").value)){$("#newUser").value="";renderSettings()}};
 function openSheet(first){$("#sheetTitle").textContent=first?"だれがつかう？":"つかう人をかえる";
-  $("#uList").innerHTML=DB.users.map(u=>{const pr=Object.values(DB.prog[u.id]||{});const dn=pr.filter(x=>!x.ex&&x.b>=6).length,lr=pr.filter(x=>x.seen&&!x.ex&&x.b<6).length;
+  $("#uList").innerHTML=DB.users.map(u=>{const pr=Object.values(DB.prog[u.id]||{});const dn=pr.filter(x=>x.ex||x.b>=6).length,lr=pr.filter(x=>x.seen&&!x.ex&&x.b<6).length;
     return`<button data-u="${u.id}" class="${u.id===DB.active?"on":""}">👤 ${esc(u.name)}<small>${(u.s.grades||[]).map(g=>GRADE_NAME[g]).join("・")}　おぼえた ${dn}まい・練習中 ${lr}まい</small></button>`}).join("");
   $$("#uList button").forEach(b=>b.onclick=()=>{DB.active=b.dataset.u;DB.picked=1;save();closeSheet();renderHome();toast(DB.users.find(u=>u.id===DB.active).name+" さんでつかいます")});
   $("#sheetNew").value="";$("#userSheet").hidden=false}
