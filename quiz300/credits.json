@@ -405,13 +405,7 @@
   "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/29465285@N00/2137186793/\">Friends</a>"
  },
  "chick": {
-  "file": "Pekin hen with seven chicks, March 2021 03.jpg",
-  "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=101140860",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Calistemon\" title=\"User:Calistemon\">Calistemon</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "generated": true
  },
  "duck": {
   "file": "American Pekin Duck.jpg",
@@ -459,12 +453,12 @@
   "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/andymorffew/26075320352/\">About to Launch</a>"
  },
  "hawk": {
-  "file": "Northern_Goshawk_ad_M2.jpg",
-  "page": "Eurasian goshawk",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=1062838",
-  "artist": "Norbert Kenntner, Berlin",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "file": "Immature Red-tailed Hawk DSC 0095.NEF.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/File:Immature_Red-tailed_Hawk_DSC_0095.NEF.jpg",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tracie_Hall&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tracie Hall (page does not exist)\">Tracie Hall</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "ostrich": {
@@ -588,13 +582,7 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "tuna": {
-  "file": "Pacific_bluefin_tuna.jpg",
-  "page": "Pacific bluefin tuna",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=19132968",
-  "artist": "aes256",
-  "license": "CC BY 2.1 jp",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.1/jp/deed.en",
-  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://photozou.jp/photo/photo_only/296250/118149451\">http://photozou.jp/photo/photo_only/296250/118149451</a>"
+  "generated": true
  },
  "salmon": {
   "file": "Dog_Salmon_Breeding_Male.jpg",
@@ -613,24 +601,6 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
- },
- "horse mackerel": {
-  "file": "MaAji.jpg",
-  "page": "Japanese jack mackerel",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=556819",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Izuzuki\" title=\"User:Izuzuki\">Izuzuki</a>",
-  "license": "CC BY 2.5",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.izuzuki.com/\">http://www.izuzuki.com/</a>"
- },
- "sardine": {
-  "file": "Japan_fish,_South_American_pilchard_(Sardinops_sagax)_(15579000828).jpg",
-  "page": "Sardinops",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=39169501",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/89279812@N07\">harum.koh</a> from Kobe city, Japan",
-  "license": "CC BY-SA 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/harumkoh/15579000828/\">Japan fish, South American pilchard (Sardinops sagax)</a>"
  },
  "shark": {
   "generated": true
@@ -3273,6 +3243,15 @@
   "generated": true
  },
  "goose": {
+  "file": "Chinese Goose grey-brown variety in Abruzzo region Italy 9851.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/File:Chinese_Goose_grey-brown_variety_in_Abruzzo_region_Italy_9851.jpg",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:ImagePerson&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ImagePerson (page does not exist)\">ImagePerson</a>",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "pufferfish": {
   "generated": true
  }
 }
