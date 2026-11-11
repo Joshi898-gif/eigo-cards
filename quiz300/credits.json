@@ -468,13 +468,7 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "ostrich": {
-  "file": "Struthio_camelus_-_Etosha_2014_(3).jpg",
-  "page": "Common ostrich",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=38145796",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Yathin_sk\" title=\"User:Yathin sk\">Yathin S Krishnappa</a>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "generated": true
  },
  "flamingo": {
   "file": "American_Flamingo_JG.jpg",
@@ -639,13 +633,7 @@
   "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/harumkoh/15579000828/\">Japan fish, South American pilchard (Sardinops sagax)</a>"
  },
  "shark": {
-  "file": "White_shark.jpg",
-  "page": "Great white shark",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=1561215",
-  "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Pterantula\" class=\"extiw\" title=\"en:User:Pterantula\">Pterantula</a> (Terry Goss) at <a class=\"external text\" data-mw-original-href=\"http://en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a>",
-  "license": "CC BY 2.5",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-  "credit": "Derivative of <a href=\"https://en.wikipedia.org/wiki/Image:Whiteshark-TGoss5b.jpg\" class=\"extiw\" title=\"w:Image:Whiteshark-TGoss5b.jpg\">w:Image:Whiteshark-TGoss5b.jpg</a>"
+  "generated": true
  },
  "stingray": {
   "file": "SStringray.jpg",
@@ -657,13 +645,7 @@
   "credit": "<bdi lang=\"en\" dir=\"ltr\">Transferred from <span class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Jacob_Robertson\" title=\"User:Jacob Robertson\">Jacob Robertson</a> using <a href=\"https://iw.toolforge.org/commonshelper/\" class=\"extiw\" title=\"toollabs:commonshelper/\">CommonsHelper</a>.</bdi>"
  },
  "eel": {
-  "file": "Anguilla_japonica.jpg",
-  "page": "Japanese eel",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=14520151",
-  "artist": "opencage",
-  "license": "CC BY-SA 2.5",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://opencage.info/pics/large_14405.asp\">http://opencage.info/pics/large_14405.asp</a>"
+  "generated": true
  },
  "seahorse": {
   "file": "Hippocampus_hippocampus_(on_Ascophyllum_nodosum).jpg",
@@ -3286,5 +3268,11 @@
   "license": "CC BY-SA 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "axolotl": {
+  "generated": true
+ },
+ "goose": {
+  "generated": true
  }
 }
