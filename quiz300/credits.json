@@ -789,13 +789,7 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "firefly": {
-  "file": "Photuris_lucicrescens.jpg",
-  "page": "Firefly",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=1536654",
-  "artist": "Bruce Marlin",
-  "license": "CC BY-SA 2.5",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-  "credit": "Own work <a rel=\"nofollow\" class=\"external free\" href=\"http://www.cirrusimage.com/beetle_firefly_Photuris_lucicrescens.htm\">http://www.cirrusimage.com/beetle_firefly_Photuris_lucicrescens.htm</a>"
+  "generated": true
  },
  "ant": {
   "file": "Red_Ant_-_March_2025.jpg",
@@ -2033,15 +2027,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
- "bullet train": {
-  "file": "JRW Shinkansen Series N700 S5 set.jpg",
-  "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=15041608",
-  "artist": "Scfema",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
- },
  "bicycle": {
   "file": "Left_side_of_Flying_Pigeon.jpg",
   "page": "Bicycle",
@@ -2179,15 +2164,6 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span> : <a rel=\"nofollow\" class=\"external free\" href=\"http://bahnbilder.ch/picture/7697\">http://bahnbilder.ch/picture/7697</a>."
- },
- "wind": {
-  "file": "Coconut Trees blowing in the wind-1and (4270243814).jpg",
-  "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=73355776",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/34534185@N00\">Sheba_Also 43,000 photos</a>",
-  "license": "CC BY-SA 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/shebalso/4270243814/\">https://www.flickr.com/photos/shebalso/4270243814/</a>"
  },
  "rainbow": {
   "file": "Double-alaskan-rainbow.jpg",
@@ -3015,13 +2991,7 @@
   "credit": ""
  },
  "subway": {
-  "file": "Seoul-metro-2009-20180916-103548.jpg",
-  "page": "Rapid transit",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=81057595",
-  "artist": "<bdi><a href=\"//commons.wikimedia.org/wiki/User:LERK\" title=\"User:LERK\">LERK</a></bdi>",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "generated": true
  },
  "wheelchair": {
   "file": "Man_in_wheelchair_with_AFO_braces_and_crutches_b.jpg",

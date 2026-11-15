@@ -789,13 +789,7 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
  "firefly": {
-  "file": "Photuris_lucicrescens.jpg",
-  "page": "Firefly",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=1536654",
-  "artist": "Bruce Marlin",
-  "license": "CC BY-SA 2.5",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-  "credit": "Own work <a rel=\"nofollow\" class=\"external free\" href=\"http://www.cirrusimage.com/beetle_firefly_Photuris_lucicrescens.htm\">http://www.cirrusimage.com/beetle_firefly_Photuris_lucicrescens.htm</a>"
+  "generated": true
  },
  "ant": {
   "file": "Red_Ant_-_March_2025.jpg",
