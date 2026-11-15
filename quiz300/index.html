@@ -256,7 +256,7 @@ textarea{width:100%;min-height:140px;border-radius:14px;border:2px solid var(--l
     <div class="chips" id="weakChips" style="justify-content:flex-start"></div>
     <div class="h">最近のクイズ</div>
     <div class="wrap"><table id="sessTable"><thead><tr><th>日時</th><th>内容</th><th>問題数</th><th>正解</th><th>正答率</th></tr></thead><tbody></tbody></table></div>
-    <div class="setting" style="margin-top:14px"><label>この構成のねらい</label><div class="desc">英語を聞いて写真を選ぶ四択だけで進みます。正解した語は 1日→3日→7日→14日→30日 と間隔をあけて出し直し、間違えた語は同じ回の後半でもう一度出して翌日にも出します。覚えが進んだ語は英語の文字を隠して音だけで出題します。問題数の区切りはなく、🏠を押すまで続きます。復習が必要な語が先に出て、そのあと新しい語が出ます。「わからない」を押した語は間違いと同じ扱いです。見た目や音が似ている語（eagle と hawk、pencil と pencil case など）は同じ四択に並べません。</div></div>
+    <div class="setting" style="margin-top:14px"><label>この構成のねらい</label><div class="desc">英語を聞いて写真を選ぶ四択だけで進みます。正解した語は 1日→3日→7日→14日→30日 と間隔をあけて出し直し、間違えた語は同じ回の後半でもう一度出して翌日にも出します。覚えが進んだ語は英語の文字を隠して音だけで出題します。問題数の区切りはなく、🏠を押すまで続きます。復習が必要な語と新しい語を半分ずつまぜて出します。カテゴリーを選んだときは、そのカテゴリーの語を出し終えると、同じ語をくり返さずにほかのカテゴリーの新しい語に進みます。「わからない」を押した語は間違いと同じ扱いです。見た目や音が似ている語（eagle と hawk、pencil と pencil case など）は同じ四択に並べません。</div></div>
   </div>
   <div class="panel" id="p-words">
     <input type="search" id="wq" placeholder="英語・日本語で検索">
@@ -321,13 +321,26 @@ function grade(w,ok,retry){const s=st(w.id),now=Date.now();s.seen++;s.a++;s.last
   if(ok){s.c++;if(!retry){s.b=Math.min(5,s.b+1);s.due=s.b===1?startOfDay(now)+DAY:now+BOX[s.b]*DAY}}
   else{s.miss++;s.b=0;s.due=startOfDay(now)+DAY}
   const d=DAYS();const o=d[dkey()]||(d[dkey()]={n:0,c:0});o.n++;if(ok)o.c++;save()}
-function buildRound(cat){
-  const n=DB.settings.per,now=Date.now();const pool=W.filter(w=>!cat||w.cat===cat);
-  const due=pool.filter(w=>isDue(st(w.id),now)).sort((a,b)=>st(a.id).due-st(b.id).due).slice(0,n);
-  const out=[...due];
-  let fresh=pool.filter(w=>!st(w.id).seen);if(!cat)fresh=shuffle(fresh);
-  out.push(...fresh.slice(0,n-out.length));
-  if(out.length<n){const rest=shuffle(pool.filter(w=>!out.includes(w)));out.push(...rest.slice(0,n-out.length))}
+// One batch of n words. skip = ids not to pick now (just asked or already waiting in the queue);
+// shown = ids already asked in this session, so known words are not repeated as filler.
+function buildRound(cat,skip=new Set(),shown=new Set()){
+  const n=DB.settings.per,now=Date.now(),half=Math.ceil(n/2);
+  const ok=w=>!skip.has(w.id),inCat=w=>!cat||w.cat===cat,byDue=(a,b)=>st(a.id).due-st(b.id).due;
+  const due=W.filter(w=>inCat(w)&&ok(w)&&isDue(st(w.id),now)).sort(byDue);
+  let fresh=W.filter(w=>inCat(w)&&ok(w)&&!st(w.id).seen);if(!cat)fresh=shuffle(fresh);
+  // half reviews, half new words, so a day after a long session is not all repeats; a short side is filled by the other
+  const nd=Math.min(due.length,Math.max(half,n-fresh.length));
+  const out=[...due.slice(0,nd),...fresh.slice(0,n-nd)];
+  if(out.length<n&&cat){
+    // the chosen category is used up: move on to new words elsewhere, then to reviews elsewhere
+    out.push(...shuffle(W.filter(w=>w.cat!==cat&&ok(w)&&!st(w.id).seen)).slice(0,n-out.length));
+    if(out.length<n)out.push(...W.filter(w=>w.cat!==cat&&ok(w)&&isDue(st(w.id),now)).sort(byDue).slice(0,n-out.length));
+  }
+  if(out.length<n){
+    // nothing new and nothing due anywhere: the weakest words that have not come up yet in this session
+    const rest=W.filter(w=>ok(w)&&!shown.has(w.id)&&!out.includes(w)).sort((a,b)=>st(a.id).b-st(b.id).b||st(a.id).last-st(b.id).last);
+    out.push(...rest.slice(0,n-out.length));
+  }
   return shuffle(out).map(w=>({w,retry:false}));
 }
 
@@ -369,9 +382,11 @@ $("#btnStart").onclick=()=>startRound(0);
 
 /* ---------- quiz ---------- */
 let SES=null,autoT=null;
-function startRound(cat){const q=buildRound(cat);if(!q.length){toast("ことばが ありません");return}SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(),start:Date.now()};prepare(q[0]);go("quiz");updateScore();showQ()}
+function startRound(cat){const q=buildRound(cat);if(!q.length){toast("ことばが ありません");return}SES={q,i:0,cat,correct:0,total:0,wrong:new Set(),words:[],retried:new Set(),start:Date.now()};prepare(q[0]);go("quiz");updateScore();showQ();tellMovedOn(q)}
 function recentIds(){return new Set(SES.q.slice(Math.max(0,SES.i-6)).map(it=>it.w.id))}
-function refill(){if(SES.q.length-SES.i>3)return;const recent=recentIds();let add=buildRound(SES.cat).filter(it=>!recent.has(it.w.id));if(!add.length)add=buildRound(SES.cat);SES.q.push(...add)}
+// say once when a category quiz runs out of its own words and carries on with other words
+function tellMovedOn(add){if(SES.cat&&!SES.moved&&add.some(it=>it.w.cat!==SES.cat)){SES.moved=true;toast(`${CATS[SES.cat-1][0]} は ぜんぶ やったよ！ ほかの ことばに すすむね`)}}
+function refill(){if(SES.q.length-SES.i>3)return;const recent=recentIds(),shown=new Set(SES.q.map(it=>it.w.id));let add=buildRound(SES.cat,recent,shown);if(!add.length)add=buildRound(SES.cat,recent);if(!add.length)add=buildRound(SES.cat);tellMovedOn(add);SES.q.push(...add)}
 function updateScore(){$("#count").textContent=`⭕ ${SES.correct}`;$("#bar").style.width=((SES.total%10)/10*100)+"%"}
 function showQ(){
   clearTimeout(autoT);const it=SES.q[SES.i],w=it.w;SES.t0=Date.now();updateScore();

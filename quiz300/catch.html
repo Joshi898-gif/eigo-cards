@@ -175,8 +175,17 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const imgSrc=w=>`img/${w.id}.jpg`, audSrc=w=>`audio/${w.id}.mp3`;
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+// Pure random picks are clumpy: the same photo can turn up game after game while others never appear.
+// So both the questions and the other three photos are taken from whatever has appeared least so far (ties broken at random).
+function leastUsed(list,counts,k){return list.map(w=>[counts[w.id]||0,Math.random(),w]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]).slice(0,k).map(x=>x[2])}
 // same rule as the quiz: distractors come from the same category, never a look-alike of the answer
-function makeOpts(w){const av=AVOID[w.id]||new Set();const okOther=x=>x.id!==w.id&&x.ja!==w.ja&&!av.has(x.id);let others=shuffle(W.filter(x=>x.cat===w.cat&&okOther(x)));if(others.length<3)others=others.concat(shuffle(W.filter(x=>x.cat!==w.cat&&okOther(x))));return shuffle([w,...others.slice(0,3)])}
+function makeOpts(w){
+  const av=AVOID[w.id]||new Set();const okOther=x=>x.id!==w.id&&x.ja!==w.ja&&!av.has(x.id);
+  let pick=leastUsed(W.filter(x=>x.cat===w.cat&&okOther(x)),DB.shown,3);
+  if(pick.length<3)pick=pick.concat(leastUsed(W.filter(x=>x.cat!==w.cat&&okOther(x)),DB.shown,3-pick.length));
+  for(const o of [w,...pick])DB.shown[o.id]=(DB.shown[o.id]||0)+1;
+  return shuffle([w,...pick]);
+}
 
 /* ---------- storage: player names and each player's best record ---------- */
 function load(){
@@ -185,7 +194,8 @@ function load(){
     let names=[];try{names=(JSON.parse(localStorage.getItem(QUIZKEY)).children||[]).map(c=>c.name)}catch(e){}
     d={names:names.length?names:["こども"],active:"",best:{}};
   }
-  d.best??={};if(!d.names.includes(d.active))d.active=d.names[0]||"";
+  d.best??={};d.asked??={};d.shown??={};   // asked: times each word was the question; shown: times each photo was on screen
+  if(!d.names.includes(d.active))d.active=d.names[0]||"";
   return d;
 }
 let DB=load();
@@ -225,7 +235,8 @@ function preloadRound(r){if(!r)return;for(const o of r.opts){if(!IMGCACHE[o.id])
 function clearTimers(){clearTimeout(holdT);clearTimeout(limitT);clearTimeout(nextT)}
 function startGame(){
   clearTimers();
-  const rounds=shuffle(W.slice()).slice(0,ROUNDS).map(w=>({w,opts:makeOpts(w)}));
+  const targets=shuffle(leastUsed(W,DB.asked,ROUNDS));for(const w of targets)DB.asked[w.id]=(DB.asked[w.id]||0)+1;
+  const rounds=targets.map(w=>({w,opts:makeOpts(w)}));save();
   G={rounds,i:0,correct:0,times:[],missed:[],done:true,cards:[]};
   // unlock audio inside this tap so the words can play later without a tap (iPhone)
   try{player.muted=true;player.src=audSrc(rounds[0].w);player.play().then(()=>{player.pause();player.muted=false}).catch(()=>{player.muted=false})}catch(e){}
