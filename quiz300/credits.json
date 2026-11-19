@@ -3223,5 +3223,14 @@
  },
  "pufferfish": {
   "generated": true
+ },
+ "ape": {
+  "file": "Male_gorilla_in_SF_zoo.jpg",
+  "page": "Western gorilla",
+  "desc": "https://commons.wikimedia.org/w/index.php?curid=7283971",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://sites.google.com/site/thebrockeninglory/\">Brocken Inaglory</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  }
 }
