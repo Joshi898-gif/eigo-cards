@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>えいけん コーナー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#1f2a37;--sub:#5b6878;--line:#d7dee8;--main:#2f7de1;--main-d:#1f5fb4;--ok:#1f9d57;--ok-bg:#dff5e8;--ng:#d6453d;--ng-bg:#fde5e3}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:"Hiragino Maru Gothic ProN","BIZ UDPGothic","Yu Gothic UI","Meiryo",sans-serif;font-size:19px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-action:manipulation}
+a{color:var(--main)}
+.en{font-family:"Andika","Century Gothic","Trebuchet MS",sans-serif}
+#app{max-width:960px;margin:0 auto;padding:16px 20px 40px}
+.top{display:flex;align-items:center;gap:10px;min-height:52px;flex-wrap:wrap}
+.sp{flex:1}
+.chip{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:8px 18px;font-size:17px;text-decoration:none;color:var(--ink)}
+.h{font-size:24px;font-weight:700;margin:14px 0 8px}
+.small{font-size:16px;color:var(--sub)}
+.btn{background:var(--main);color:#fff;border-radius:16px;padding:14px 24px;font-size:21px;font-weight:700;box-shadow:0 4px 0 var(--main-d);display:inline-block;text-decoration:none}
+.btn.sub{background:var(--card);color:var(--ink);border:2px solid var(--line);box-shadow:0 4px 0 var(--line)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px}
+.grades{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gr{background:var(--card);border:3px solid var(--line);border-radius:18px;padding:18px 8px;font-size:26px;font-weight:700;text-align:center}
+.gr small{display:block;font-size:14px;font-weight:400;color:var(--sub);margin-top:4px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+select,input{font:inherit;padding:9px 12px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.sheet{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:6px 22px}
+.mr{display:flex;align-items:center;gap:6px;padding:3px 0}
+.mr .no{width:42px;text-align:right;color:var(--sub);font-size:16px}
+.mk{width:46px;height:40px;border-radius:20px;border:2px solid var(--line);background:#fff;font-size:17px}
+.mk.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.mk.key{border-color:var(--ok);box-shadow:inset 0 0 0 2px var(--ok)}
+.mk.on.key{background:var(--ok);border-color:var(--ok)}
+.mk.on.bad{background:var(--ng);border-color:var(--ng)}
+.res{width:26px;text-align:center;font-weight:700}
+.tabs{display:flex;gap:8px;margin:10px 0}
+.tab{padding:10px 16px;border-radius:12px;background:#e3e9f1}
+.tab.on{background:var(--ink);color:#fff}
+.bar{height:8px;border-radius:4px;background:#e3e9f1;margin:10px 0 14px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--main)}
+.prompt{background:var(--card);border-radius:20px;padding:18px;border:2px solid var(--line);font-size:28px;line-height:1.5;margin-bottom:14px}
+.prompt.c{text-align:center}
+.pic{font-size:72px;text-align:center;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ch{background:var(--card);border:3px solid var(--line);border-radius:18px;padding:14px;font-size:24px;min-height:74px;text-align:center}
+.ch.num{font-size:40px;font-weight:700}
+.ch.right{border-color:var(--ok);background:var(--ok-bg)}
+.ch.wrong{border-color:var(--ng);background:var(--ng-bg)}
+.ch.now{border-color:var(--main)}
+.spk{width:72px;height:72px;border-radius:50%;background:var(--main);color:#fff;font-size:34px;box-shadow:0 4px 0 var(--main-d)}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;min-height:70px;padding:10px;border-radius:16px}
+.tiles.ansrow{background:var(--card);border:3px dashed var(--line);margin-bottom:10px}
+.tiles.right{border-color:var(--ok);background:var(--ok-bg);border-style:solid}
+.tiles.wrong{border-color:var(--ng);background:var(--ng-bg);border-style:solid}
+.tile{background:#fff;border:3px solid var(--main);border-radius:12px;padding:8px 14px;font-size:26px;font-weight:700;box-shadow:0 3px 0 var(--main-d)}
+.tile.used{visibility:hidden}
+.foot{display:flex;gap:12px;justify-content:center;margin-top:16px;min-height:60px;flex-wrap:wrap}
+.script{font-size:19px;color:var(--sub);margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:16px}
+td,th{border-bottom:1px solid var(--line);padding:6px;text-align:left}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="eiken_data.js"></script>
+<script>
+"use strict";
+const app=document.getElementById('app');
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rnd=n=>Math.floor(Math.random()*n);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
+const pad=n=>String(n).padStart(2,'0');
+
+/* 級ごとの形式（公式サイトの「試験内容」の問題数。2026-11 に確認） */
+const GR=[
+ {g:'5',name:'5級',url:'grade_5',time:'リーディング 25分／リスニング 約20分',R:[['大問1 語句',15,4],['大問2 会話文',5,4],['大問3 並べかえ',5,4]],L:[['第1部',10,3],['第2部',5,4],['第3部',10,3]],W:[]},
+ {g:'4',name:'4級',url:'grade_4',time:'リーディング 35分／リスニング 約30分',R:[['大問1 語句',15,4],['大問2 会話文',5,4],['大問3 並べかえ',5,4],['大問4 長文',10,4]],L:[['第1部',10,3],['第2部',10,4],['第3部',10,4]],W:[]},
+ {g:'3',name:'3級',url:'grade_3',time:'リーディング・ライティング 65分／リスニング 約25分',R:[['大問1 語句',15,4],['大問2 会話文',5,4],['大問3 長文',10,4]],L:[['第1部',10,3],['第2部',10,4],['第3部',10,4]],W:['Eメール','英作文']},
+ {g:'p2',name:'準2級',url:'grade_p2',time:'リーディング・ライティング 80分／リスニング 約25分',R:[['大問1 語句',15,4],['大問2 会話文',5,4],['大問3 長文の空所',2,4],['大問4 長文',7,4]],L:[['第1部',10,3],['第2部',10,4],['第3部',10,4]],W:['Eメール','英作文']},
+ {g:'p2p',name:'準2級プラス',url:'grade_p2plus',time:'リーディング・ライティング 85分／リスニング 約25分',R:[['大問1 語句',17,4],['大問2 長文の空所',6,4],['大問3 長文',8,4]],L:[['第1部',15,4],['第2部',15,4]],W:['英文要約','英作文']},
+ {g:'2',name:'2級',url:'grade_2',time:'リーディング・ライティング 85分／リスニング 約25分',R:[['大問1 語句',17,4],['大問2 長文の空所',6,4],['大問3 長文',8,4]],L:[['第1部',15,4],['第2部',15,4]],W:['英文要約','英作文']},
+ {g:'p1',name:'準1級',url:'grade_p1',time:'リーディング・ライティング 90分／リスニング 約30分',R:[['大問1 語句',18,4],['大問2 長文の空所',6,4],['大問3 長文',7,4]],L:[['Part 1',12,4],['Part 2',12,4],['Part 3',5,4]],W:['英文要約','英作文']}
+];
+const OFFICIAL='https://www.eiken.or.jp/eiken/exam/';
+
+/* 保存（おやこ えいご 本体と同じ場所を使う） */
+const KEY='oyako-eigo-v1';
+let S;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(!S||!S.users)S={users:[],cur:null,slow:false};
+S.ek=S.ek||{ans:{},key:{}};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const U=()=>S.users.find(u=>u.id===S.cur);
+let db=null,memLog=[];
+function openDb(){return new Promise(res=>{try{const r=indexedDB.open('oyako-eigo',1);
+  r.onupgradeneeded=()=>{const st=r.result.createObjectStore('log',{keyPath:'id',autoIncrement:true});st.createIndex('u','u')};
+  r.onsuccess=()=>{db=r.result;res()};r.onerror=()=>res()}catch(e){res()}})}
+function addLog(row,t){row.t=t||Date.now();row.u=S.cur;if(!db){memLog.push(row);return}
+  try{db.transaction('log','readwrite').objectStore('log').add(row)}catch(e){memLog.push(row)}}
+
+/* 音 */
+const player=new Audio();let queue=[];
+function nextAudio(){const q=queue.shift();if(!q)return;if(q.on)q.on();if(!q.src){setTimeout(nextAudio,q.wait||0);return}
+  player.src=q.src;const p=player.play();if(p&&p.catch)p.catch(()=>{})}
+player.addEventListener('ended',()=>setTimeout(nextAudio,350));player.addEventListener('error',nextAudio);
+function playList(l){queue=l.slice();player.pause();nextAudio()}
+const A=id=>'audio_ek/'+id+'.mp3';
+
+/* ---------- 入口 ---------- */
+function topBar(title){const u=U();
+  return '<div class="top"><a class="chip" href="index.html">← おやこ えいご</a><div class="h" style="margin:0">'+title+'</div><div class="sp"></div>'+
+    (S.users.length?'<select id="usr">'+S.users.map(x=>'<option value="'+x.id+'"'+(x.id===S.cur?' selected':'')+'>👤 '+esc(x.name)+'</option>').join('')+'</select>':'')+'</div>'}
+function bindUser(redraw){const s=document.getElementById('usr');if(s)s.onchange=()=>{S.cur=s.value;save();redraw()}}
+function home(){
+  if(!U()){app.innerHTML='<div class="box">さきに <a href="index.html">おやこ えいご</a> で つかう人の なまえを 入れて ください。</div>';return}
+  let h=topBar('えいけん コーナー')+
+   '<div class="h">① かこもん（公式サイトの 問題で れんしゅう）</div><div class="small">問題と 音声は 英検の 公式サイトの ものを つかいます。ここでは こたえを 入れて、まちがいを きろくします。</div><div class="grades" style="margin-top:10px">';
+  GR.forEach(g=>h+='<button class="gr" data-g="'+g.g+'">'+g.name+'<small>かこもん</small></button>');
+  h+='</div><div class="h">② れんしゅう もんだい（オリジナル）</div><div class="small">英検と おなじ 形の、この教材だけの 問題です。かこもんでは ありません。</div><div class="grades" style="margin-top:10px">';
+  GR.forEach(g=>{const sets=EK.sets.filter(s=>s.g===g.g);
+    if(sets.length)sets.forEach((s,i)=>h+='<button class="gr" data-p="'+EK.sets.indexOf(s)+'">'+esc(s.title)+'<small>'+s.qs.length+' もん</small></button>');
+    else h+='<div class="gr" style="opacity:.45">'+g.name+'<small>じゅんびちゅう</small></div>'});
+  h+='</div>';
+  app.innerHTML=h;bindUser(home);
+  app.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>kako(b.dataset.g));
+  app.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>practiceStart(+b.dataset.p))}
+
+/* ---------- ① かこもん: マークシート ---------- */
+let K={g:null,y:null,n:null,phase:'ans'};
+function sheetId(){return S.cur+'|'+K.g+'|'+K.y+'-'+K.n}
+function keyId(){return K.g+'|'+K.y+'-'+K.n}
+function kako(g){
+  const G=GR.find(x=>x.g===g);K.g=g;
+  const now=new Date();const fy=now.getMonth()>=3?now.getFullYear():now.getFullYear()-1;
+  if(!K.y){K.y=fy;K.n=1}
+  const rec=S.ek.ans[sheetId()]=S.ek.ans[sheetId()]||{a:{},w:{},done:0};
+  const key=S.ek.key[keyId()]=S.ek.key[keyId()]||{};
+  let h=topBar(G.name+' かこもん')+
+   '<div class="box"><div class="row"><a class="btn" target="_blank" rel="noopener" href="'+OFFICIAL+G.url+'/">公式サイトの '+G.name+' かこもんを ひらく</a><span class="small">'+G.time+'</span></div>'+
+   '<div class="small" style="margin-top:8px">1. 公式サイトで 問題冊子と リスニング音源を ひらく　2. といて、下に こたえを 入れる　3. 公式の 解答を 見て、こたえあわせを する</div></div>'+
+   '<div class="box row"><span>どの 回？</span><select id="yy">'+[fy+1,fy,fy-1,fy-2].map(y=>'<option'+(y===K.y?' selected':'')+'>'+y+'</option>').join('')+'</select><span>年度</span>'+
+   '<select id="nn">'+[1,2,3].map(n=>'<option value="'+n+'"'+(n===K.n?' selected':'')+'>第'+n+'回</option>').join('')+'</select>'+
+   (rec.done?'<span class="small">✅ '+rec.done+' に きろく ずみ</span>':'')+'</div>'+
+   '<div class="tabs"><button class="tab'+(K.phase==='ans'?' on':'')+'" data-ph="ans">① こたえを 入れる</button><button class="tab'+(K.phase==='key'?' on':'')+'" data-ph="key">② こたえあわせ（正しい 番号を おす）</button></div>';
+  let score={R:[0,0],L:[0,0]};
+  const part=(code,label,secs)=>{let s='<div class="h">'+label+'</div>',no=0;
+    secs.forEach(sec=>{s+='<div class="box"><div class="small">'+sec[0]+'</div><div class="sheet">';
+      for(let i=0;i<sec[1];i++){no++;const id=code+no,a=rec.a[id],k=key[id];let res='';
+        if(a&&k){score[code][1]++;if(a===k){score[code][0]++;res='<span style="color:var(--ok)">○</span>'}else res='<span style="color:var(--ng)">×</span>'}
+        s+='<div class="mr"><span class="no">'+(code==='L'?'No.':'')+no+'</span>';
+        for(let c=1;c<=sec[2];c++){let cl='mk';
+          if(a===c)cl+=' on';if(K.phase==='key'&&k===c)cl+=' key';if(K.phase==='key'&&a===c&&k&&k!==c)cl+=' bad';
+          s+='<button class="'+cl+'" data-id="'+id+'" data-c="'+c+'">'+c+'</button>'}
+        s+='<span class="res">'+(K.phase==='key'?res:'')+'</span></div>'}
+      s+='</div></div>'});return s};
+  h+=part('R','リーディング',G.R);
+  if(G.W.length)h+='<div class="h">ライティング</div><div class="box row">'+G.W.map((w,i)=>'<label><input type="checkbox" data-w="'+i+'"'+(rec.w[i]?' checked':'')+'> '+w+'を かいた</label>').join('')+'<span class="small">（採点は しません。おうちの人や 先生に 見て もらって ください）</span></div>';
+  h+=part('L','リスニング',G.L);
+  const tot=score.R[1]+score.L[1];
+  h+='<div class="box"><div class="h" style="margin-top:0">けっか</div>'+(tot?'リーディング '+score.R[0]+' / '+score.R[1]+'　リスニング '+score.L[0]+' / '+score.L[1]+'　ごうけい '+(score.R[0]+score.L[0])+' / '+tot:'こたえあわせを すると ここに 出ます。')+
+   '<div class="foot" style="justify-content:flex-start"><button class="btn" id="rec"'+(tot&&!rec.done?'':' disabled')+'>きろくに のこす</button><button class="btn sub" id="redo">この 回を やりなおす</button><button class="btn sub" id="bk">もどる</button></div>'+
+   '<div class="small">「きろくに のこす」を おすと、1 もんごとに「おうちの人」の きろく・まちがいノートに 入ります。</div></div>';
+  const y0=window.scrollY;app.innerHTML=h;window.scrollTo(0,y0);bindUser(()=>kako(g));
+  document.getElementById('yy').onchange=e=>{K.y=+e.target.value;kako(g)};
+  document.getElementById('nn').onchange=e=>{K.n=+e.target.value;kako(g)};
+  app.querySelectorAll('[data-ph]').forEach(b=>b.onclick=()=>{K.phase=b.dataset.ph;kako(g)});
+  app.querySelectorAll('.mk').forEach(b=>b.onclick=()=>{const id=b.dataset.id,c=+b.dataset.c;
+    if(K.phase==='ans'){if(rec.done)return;rec.a[id]=rec.a[id]===c?0:c}else key[id]=key[id]===c?0:c;save();kako(g)});
+  app.querySelectorAll('[data-w]').forEach(b=>b.onchange=()=>{rec.w[b.dataset.w]=b.checked?1:0;save()});
+  document.getElementById('bk').onclick=home;
+  document.getElementById('redo').onclick=()=>{if(confirm('この 回の こたえを けして、もういちど ときますか？（きろくずみの 行は のこります）')){delete S.ek.ans[sheetId()];save();K.phase='ans';kako(g)}};
+  document.getElementById('rec').onclick=()=>{const t=Date.now();let i=0;const lid='英検'+G.name+' '+K.y+'年度 第'+K.n+'回';
+    [['R','リーディング',G.R],['L','リスニング',G.L]].forEach(([code,sk,secs])=>{let no=0;secs.forEach(sec=>{for(let j=0;j<sec[1];j++){no++;const id=code+no,a=rec.a[id],k=key[id];
+      if(a&&k)addLog({l:lid,sk,q:sec[0]+' '+(code==='L'?'No.':'(')+no+(code==='L'?'':')'),a:String(a),c:String(k),ok:a===k?1:0,kd:a===k?'':'英検 '+sec[0]},t+(i++))}})});
+    G.W.forEach((w,j)=>{if(rec.w[j])addLog({l:lid,sk:'ライティング',q:w,a:'かいた',c:'',ok:1,kd:''},t+(i++))});
+    const d=new Date();rec.done=(d.getMonth()+1)+'/'+d.getDate();save();kako(g)}}
+
+/* ---------- ② れんしゅう もんだい ---------- */
+let P=null;
+const SECNAME={R1:'リーディング 大問1',R2:'リーディング 大問2',R3:'リーディング 大問3',L1:'リスニング 第1部',L2:'リスニング 第2部',L3:'リスニング 第3部'};
+function practiceStart(si){const set=EK.sets[si];P={set,i:0,ok:{},n:{},lid:'英検'+set.title};pShow()}
+function pHead(q){return '<div class="top"><div class="h" style="margin:0">'+SECNAME[q.sec]+'</div><div class="sp"></div><span class="small">'+(P.i+1)+' / '+P.set.qs.length+'</span><button class="chip" id="quit">✕</button></div><div class="bar"><i style="width:'+(100*P.i/P.set.qs.length)+'%"></i></div>'}
+function pResult(q,ok,ans,correct,label){P.n[q.sec]=(P.n[q.sec]||0)+1;if(ok)P.ok[q.sec]=(P.ok[q.sec]||0)+1;
+  addLog({l:P.lid,sk:q.sec[0]==='R'?'リーディング':'リスニング',q:label,a:ans,c:correct,ok:ok?1:0,kd:ok?'':'英検 '+SECNAME[q.sec]})}
+function pNext(){P.i++;pShow()}
+function pFoot(ok,extra){const ft=document.getElementById('ft');ft.innerHTML=(extra||'')+'<button class="btn" id="nx">つぎへ</button>';document.getElementById('nx').onclick=pNext}
+function pShow(){
+  playList([]);
+  if(P.i>=P.set.qs.length)return pEnd();
+  const q=P.set.qs[P.i];
+  ({mc:pMc,order:pOrder,l1:pListen,l2:pListen,l3:pListen})[q.t](q);
+  document.getElementById('quit').onclick=()=>{playList([]);home()};window.scrollTo(0,0)}
+function pMc(q){
+  const ch=shuffle(q.ch.map((t,i)=>({t,ok:i===0})));
+  app.innerHTML=pHead(q)+'<div class="prompt en">'+q.lines.map(esc).join('<br>')+'</div><div class="grid" id="g">'+ch.map((c,i)=>'<button class="ch en" data-i="'+i+'">'+esc(c.t)+'</button>').join('')+'</div><div class="foot" id="ft"></div>';
+  let done=false;app.querySelectorAll('#g .ch').forEach(b=>b.onclick=()=>{if(done)return;done=true;const i=+b.dataset.i,ci=ch.findIndex(c=>c.ok);
+    app.querySelectorAll('#g .ch').forEach((x,j)=>{if(j===ci)x.classList.add('right');else if(j===i)x.classList.add('wrong')});
+    pResult(q,i===ci,ch[i].t,q.ch[0],q.lines.join(' / '));pFoot()})}
+function pOrder(q){
+  const en=q.parts.join(' ');let sh=shuffle(q.parts),n=0;while(sh.join(' ')===en&&n++<8)sh=shuffle(q.parts);
+  app.innerHTML=pHead(q)+'<div class="prompt">'+esc(q.ja)+'</div><div class="tiles ansrow en" id="ans"></div><div class="tiles en" id="bank"></div><div class="foot" id="ft"><button class="btn" id="chk" disabled>できた</button></div>';
+  const bank=document.getElementById('bank'),ans=document.getElementById('ans'),chk=document.getElementById('chk');let picked=[],locked=false;
+  const draw=()=>{ans.innerHTML='';picked.forEach((bi,pi)=>{const b=document.createElement('button');b.className='tile';b.textContent=sh[bi];b.onclick=()=>{if(locked)return;picked.splice(pi,1);draw()};ans.appendChild(b)});
+    [...bank.children].forEach((b,i)=>b.classList.toggle('used',picked.includes(i)));chk.disabled=picked.length!==sh.length};
+  sh.forEach((p,i)=>{const b=document.createElement('button');b.className='tile';b.textContent=p;b.onclick=()=>{if(locked||picked.includes(i))return;picked.push(i);draw()};bank.appendChild(b)});
+  chk.onclick=()=>{locked=true;const got=picked.map(i=>sh[i]).join(' '),ok=got===en;ans.classList.add(ok?'right':'wrong');
+    pResult(q,ok,got,en,q.ja);bank.innerHTML=ok?'':'<div class="box en" style="font-size:24px">'+esc(en)+'</div>';pFoot()}}
+function pListen(q){
+  const spoken=q.t!=='l2';   // 選択肢を 読み上げる 形か、画面に 出す 形か
+  const ch=shuffle((spoken?q.ch:q.ch.map(t=>({t}))).map((c,i)=>({t:c.t,a:c.a,ok:i===0})));
+  let h=pHead(q)+'<div class="prompt c">'+(q.t==='l3'?'<div class="pic">'+esc(q.pic)+'</div>':'')+'<button class="spk" id="sp">🔊</button><div class="script en" id="sc"></div></div>'+
+    '<div class="grid" id="g" style="'+(spoken?'grid-template-columns:repeat(3,1fr)':'')+'">'+ch.map((c,i)=>'<button class="ch'+(spoken?' num':' en')+'" data-i="'+i+'">'+(spoken?(i+1):esc(c.t))+'</button>').join('')+'</div><div class="foot" id="ft"></div>';
+  app.innerHTML=h;
+  const btns=[...app.querySelectorAll('#g .ch')];
+  const mark=i=>()=>btns.forEach((b,j)=>b.classList.toggle('now',j===i));
+  const list=()=>{const l=[];(q.pr||[]).forEach(p=>l.push({src:A(p.a)}));if(q.q)l.push({wait:300},{src:A(q.q.a)});
+    if(spoken){l.push({wait:500});ch.forEach((c,i)=>l.push({src:A(c.a),on:mark(i)}));l.push({on:mark(-1)})}return l};
+  document.getElementById('sp').onclick=()=>playList(list());playList(list());
+  let done=false;btns.forEach(b=>b.onclick=()=>{if(done)return;done=true;playList([]);const i=+b.dataset.i,ci=ch.findIndex(c=>c.ok);
+    btns.forEach((x,j)=>{x.classList.remove('now');if(spoken){x.classList.remove('num');x.classList.add('en');x.textContent=(j+1)+'. '+ch[j].t}if(j===ci)x.classList.add('right');else if(j===i)x.classList.add('wrong')});
+    document.getElementById('sc').innerHTML=(q.pr||[]).map(p=>esc(p.v==='M'?'★ ':'☆ ')+esc(p.t)).join('<br>')+(q.q?'<br><b>'+esc(q.q.t)+'</b>':'');
+    const label=q.t==='l3'?q.pic+' '+q.ch[0].t:(q.pr.map(p=>p.t).join(' / ')+(q.q?' ｜ '+q.q.t:''));
+    pResult(q,i===ci,ch[i].t,spoken?q.ch[0].t:q.ch[0],label);pFoot()})}
+function pEnd(){
+  let rows='',ok=0,n=0;Object.keys(SECNAME).forEach(s=>{if(!P.n[s])return;ok+=P.ok[s]||0;n+=P.n[s];rows+='<tr><td>'+SECNAME[s]+'</td><td>'+(P.ok[s]||0)+' / '+P.n[s]+'</td></tr>'});
+  app.innerHTML='<div class="top"><div class="h">'+esc(P.set.title)+' おわり</div></div><div class="box"><div class="h" style="margin-top:0">'+ok+' / '+n+'</div><table>'+rows+'</table>'+
+    '<div class="small" style="margin-top:8px">まちがえた 問題は「おうちの人」の まちがいノートに 入って います。</div></div><div class="foot"><button class="btn" id="hm">もどる</button></div>';
+  document.getElementById('hm').onclick=home}
+
+openDb().then(home);
+</script>
+</body>
+</html>

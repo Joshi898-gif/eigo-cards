@@ -247,7 +247,7 @@ function home(){
     week+='<div class="day'+(u.days[k]?' done':'')+(k===td?' today':'')+'">'+(u.days[k]?'⭐':'月火水木金土日'[i])+'</div>'}
   const resume=u.sess&&u.sess.i<u.sess.steps.length;
   const st=streak(u);
-  app.innerHTML='<div class="top"><button class="chip" id="who">👤 '+esc(u.name)+'</button><div class="sp"></div>'+
+  app.innerHTML='<div class="top"><button class="chip" id="who">👤 '+esc(u.name)+'</button><a class="chip" href="eiken.html" style="text-decoration:none;color:inherit">📝 えいけん</a><div class="sp"></div>'+
     '<button class="chip hold" id="par">おうちの人（ながおし）<i></i></button></div>'+
     '<div class="home"><div class="week">'+week+'</div>'+
     '<div class="small">'+(st>1?st+'にち つづいて いるよ':'')+'</div>'+
