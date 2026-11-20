@@ -59,6 +59,15 @@ select,input{font:inherit;padding:9px 12px;border:2px solid var(--line);border-r
 .tile{background:#fff;border:3px solid var(--main);border-radius:12px;padding:8px 14px;font-size:26px;font-weight:700;box-shadow:0 3px 0 var(--main-d)}
 .tile.used{visibility:hidden}
 .foot{display:flex;gap:12px;justify-content:center;margin-top:16px;min-height:60px;flex-wrap:wrap}
+.pass{background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 18px;font-size:21px;line-height:1.6;max-height:44vh;overflow:auto;margin-bottom:12px}
+.pass p{margin:0 0 .6em}
+.pt{font-weight:700;margin-bottom:6px}
+.bl{background:#fff3c4;padding:0 4px;border-radius:6px}
+.bl.cur{background:var(--main);color:#fff}
+.q{font-size:22px;font-weight:700;margin:6px 0 10px}
+.grid.one{grid-template-columns:1fr}
+.grid.one .ch{font-size:21px;min-height:54px;text-align:left;padding:10px 16px}
+.sit{font-size:20px;text-align:left;margin-bottom:10px}
 .script{font-size:19px;color:var(--sub);margin-top:8px}
 table{border-collapse:collapse;width:100%;font-size:16px}
 td,th{border-bottom:1px solid var(--line);padding:6px;text-align:left}
@@ -181,24 +190,42 @@ function kako(g){
 /* ---------- ② れんしゅう もんだい ---------- */
 let P=null;
 const SECNAME={R1:'リーディング 大問1',R2:'リーディング 大問2',R3:'リーディング 大問3',L1:'リスニング 第1部',L2:'リスニング 第2部',L3:'リスニング 第3部'};
+const secName=q=>(P.set.secs&&P.set.secs[q.sec])||SECNAME[q.sec]||q.sec;
+const SKILL={R:'リーディング',W:'ライティング',L:'リスニング'};
+const one=ch=>ch.some(c=>(c.t||c).length>26)?' one':'';
 function practiceStart(si){const set=EK.sets[si];P={set,i:0,ok:{},n:{},lid:'英検'+set.title};pShow()}
-function pHead(q){return '<div class="top"><div class="h" style="margin:0">'+SECNAME[q.sec]+'</div><div class="sp"></div><span class="small">'+(P.i+1)+' / '+P.set.qs.length+'</span><button class="chip" id="quit">✕</button></div><div class="bar"><i style="width:'+(100*P.i/P.set.qs.length)+'%"></i></div>'}
+function pHead(q){return '<div class="top"><div class="h" style="margin:0">'+esc(secName(q))+'</div><div class="sp"></div><span class="small">'+(P.i+1)+' / '+P.set.qs.length+'</span><button class="chip" id="quit">✕</button></div><div class="bar"><i style="width:'+(100*P.i/P.set.qs.length)+'%"></i></div>'}
 function pResult(q,ok,ans,correct,label){P.n[q.sec]=(P.n[q.sec]||0)+1;if(ok)P.ok[q.sec]=(P.ok[q.sec]||0)+1;
-  addLog({l:P.lid,sk:q.sec[0]==='R'?'リーディング':'リスニング',q:label,a:ans,c:correct,ok:ok?1:0,kd:ok?'':'英検 '+SECNAME[q.sec]})}
+  addLog({l:P.lid,sk:SKILL[q.sec[0]]||'リーディング',q:label,a:ans,c:correct,ok:ok?1:0,kd:ok?'':'英検 '+secName(q)})}
 function pNext(){P.i++;pShow()}
 function pFoot(ok,extra){const ft=document.getElementById('ft');ft.innerHTML=(extra||'')+'<button class="btn" id="nx">つぎへ</button>';document.getElementById('nx').onclick=pNext}
 function pShow(){
   playList([]);
   if(P.i>=P.set.qs.length)return pEnd();
   const q=P.set.qs[P.i];
-  ({mc:pMc,order:pOrder,l1:pListen,l2:pListen,l3:pListen})[q.t](q);
+  ({mc:pMc,order:pOrder,pq:pPassage,cz:pPassage,w:pWrite,l1:pListen,l2:pListen,l3:pListen})[q.t](q);
   document.getElementById('quit').onclick=()=>{playList([]);home()};window.scrollTo(0,0)}
 function pMc(q){
   const ch=shuffle(q.ch.map((t,i)=>({t,ok:i===0})));
-  app.innerHTML=pHead(q)+'<div class="prompt en">'+q.lines.map(esc).join('<br>')+'</div><div class="grid" id="g">'+ch.map((c,i)=>'<button class="ch en" data-i="'+i+'">'+esc(c.t)+'</button>').join('')+'</div><div class="foot" id="ft"></div>';
-  let done=false;app.querySelectorAll('#g .ch').forEach(b=>b.onclick=()=>{if(done)return;done=true;const i=+b.dataset.i,ci=ch.findIndex(c=>c.ok);
+  app.innerHTML=pHead(q)+'<div class="prompt en">'+q.lines.map(esc).join('<br>')+'</div>'+choiceHtml(ch)+'<div class="foot" id="ft"></div>';
+  bindChoices(q,ch,q.lines.join(' / '))}
+function choiceHtml(ch){return '<div class="grid'+one(ch)+'" id="g">'+ch.map((c,i)=>'<button class="ch en" data-i="'+i+'">'+esc(c.t)+'</button>').join('')+'</div>'}
+function bindChoices(q,ch,label){let done=false;app.querySelectorAll('#g .ch').forEach(b=>b.onclick=()=>{if(done)return;done=true;const i=+b.dataset.i,ci=ch.findIndex(c=>c.ok);
     app.querySelectorAll('#g .ch').forEach((x,j)=>{if(j===ci)x.classList.add('right');else if(j===i)x.classList.add('wrong')});
-    pResult(q,i===ci,ch[i].t,q.ch[0],q.lines.join(' / '));pFoot()})}
+    pResult(q,i===ci,ch[i].t,q.ch[0],label);pFoot()})}
+function passHtml(p,n){return '<div class="pass en">'+(p.title?'<div class="pt">'+esc(p.title)+'</div>':'')+p.paras.map(x=>'<p>'+esc(x).replace(/\( (\d+) \)/g,(m,k)=>'<b class="bl'+(k===n?' cur':'')+'">( '+k+' )</b>')+'</p>').join('')+'</div>'}
+function pPassage(q){
+  const p=P.set.ps[q.pid],ch=shuffle(q.ch.map((t,i)=>({t,ok:i===0})));
+  const qt=q.t==='cz'?'( '+q.n+' ) に 入る ものを えらぼう':q.q;
+  const keep=P.lastPid===q.pid?(document.querySelector('.pass')||{}).scrollTop||0:0;P.lastPid=q.pid;
+  app.innerHTML=pHead(q)+passHtml(p,q.n)+'<div class="q'+(q.t==='cz'?'':' en')+'">'+esc(qt)+'</div>'+choiceHtml(ch)+'<div class="foot" id="ft"></div>';
+  document.querySelector('.pass').scrollTop=keep;
+  const cur=document.querySelector('.bl.cur');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'center'});
+  bindChoices(q,ch,(p.title||p.paras[0].slice(0,30))+' ｜ '+qt)}
+function pWrite(q){
+  app.innerHTML=pHead(q)+'<div class="prompt en" style="font-size:22px">'+q.p.map(esc).join('<br>')+'</div><div id="rv"></div><div class="foot" id="ft"><button class="btn" id="see">ノートに かけた（れいを みる）</button></div>';
+  document.getElementById('see').onclick=()=>{document.getElementById('rv').innerHTML='<div class="box"><div class="small">かいとうれい（1 つの 例です）</div><div class="en" style="font-size:21px;line-height:1.6">'+esc(q.ex)+'</div><div class="small" style="margin-top:6px">採点は しません。おうちの人や 先生に ノートを 見て もらって ください。</div></div>';
+    addLog({l:P.lid,sk:'ライティング',q:secName(q)+': '+q.p[0].slice(0,60),a:'かいた',c:'',ok:1,kd:''});pFoot()}}
 function pOrder(q){
   const en=q.parts.join(' ');let sh=shuffle(q.parts),n=0;while(sh.join(' ')===en&&n++<8)sh=shuffle(q.parts);
   app.innerHTML=pHead(q)+'<div class="prompt">'+esc(q.ja)+'</div><div class="tiles ansrow en" id="ans"></div><div class="tiles en" id="bank"></div><div class="foot" id="ft"><button class="btn" id="chk" disabled>できた</button></div>';
@@ -211,12 +238,12 @@ function pOrder(q){
 function pListen(q){
   const spoken=q.t!=='l2';   // 選択肢を 読み上げる 形か、画面に 出す 形か
   const ch=shuffle((spoken?q.ch:q.ch.map(t=>({t}))).map((c,i)=>({t:c.t,a:c.a,ok:i===0})));
-  let h=pHead(q)+'<div class="prompt c">'+(q.t==='l3'?'<div class="pic">'+esc(q.pic)+'</div>':'')+'<button class="spk" id="sp">🔊</button><div class="script en" id="sc"></div></div>'+
-    '<div class="grid" id="g" style="'+(spoken?'grid-template-columns:repeat(3,1fr)':'')+'">'+ch.map((c,i)=>'<button class="ch'+(spoken?' num':' en')+'" data-i="'+i+'">'+(spoken?(i+1):esc(c.t))+'</button>').join('')+'</div><div class="foot" id="ft"></div>';
+  let h=pHead(q)+'<div class="prompt c">'+(q.sit?'<div class="sit en"><b>Situation:</b> '+esc(q.sit)+'</div>':'')+(q.t==='l3'?'<div class="pic">'+esc(q.pic)+'</div>':'')+'<button class="spk" id="sp">🔊</button>'+(q.q&&q.q.show?'<div class="q en">'+esc(q.q.t)+'</div>':'')+'<div class="script en" id="sc"></div></div>'+
+    '<div class="grid'+(spoken?'':one(ch))+'" id="g" style="'+(spoken?'grid-template-columns:repeat(3,1fr)':'')+'">'+ch.map((c,i)=>'<button class="ch'+(spoken?' num':' en')+'" data-i="'+i+'">'+(spoken?(i+1):esc(c.t))+'</button>').join('')+'</div><div class="foot" id="ft"></div>';
   app.innerHTML=h;
   const btns=[...app.querySelectorAll('#g .ch')];
   const mark=i=>()=>btns.forEach((b,j)=>b.classList.toggle('now',j===i));
-  const list=()=>{const l=[];(q.pr||[]).forEach(p=>l.push({src:A(p.a)}));if(q.q)l.push({wait:300},{src:A(q.q.a)});
+  const list=()=>{const l=[];(q.pr||[]).forEach(p=>l.push({src:A(p.a)}));if(q.q&&q.q.a)l.push({wait:300},{src:A(q.q.a)});
     if(spoken){l.push({wait:500});ch.forEach((c,i)=>l.push({src:A(c.a),on:mark(i)}));l.push({on:mark(-1)})}return l};
   document.getElementById('sp').onclick=()=>playList(list());playList(list());
   let done=false;btns.forEach(b=>b.onclick=()=>{if(done)return;done=true;playList([]);const i=+b.dataset.i,ci=ch.findIndex(c=>c.ok);
@@ -225,7 +252,7 @@ function pListen(q){
     const label=q.t==='l3'?q.pic+' '+q.ch[0].t:(q.pr.map(p=>p.t).join(' / ')+(q.q?' ｜ '+q.q.t:''));
     pResult(q,i===ci,ch[i].t,spoken?q.ch[0].t:q.ch[0],label);pFoot()})}
 function pEnd(){
-  let rows='',ok=0,n=0;Object.keys(SECNAME).forEach(s=>{if(!P.n[s])return;ok+=P.ok[s]||0;n+=P.n[s];rows+='<tr><td>'+SECNAME[s]+'</td><td>'+(P.ok[s]||0)+' / '+P.n[s]+'</td></tr>'});
+  let rows='',ok=0,n=0;Object.keys(P.set.secs||SECNAME).forEach(s=>{if(!P.n[s])return;ok+=P.ok[s]||0;n+=P.n[s];rows+='<tr><td>'+esc((P.set.secs||SECNAME)[s])+'</td><td>'+(P.ok[s]||0)+' / '+P.n[s]+'</td></tr>'});
   app.innerHTML='<div class="top"><div class="h">'+esc(P.set.title)+' おわり</div></div><div class="box"><div class="h" style="margin-top:0">'+ok+' / '+n+'</div><table>'+rows+'</table>'+
     '<div class="small" style="margin-top:8px">まちがえた 問題は「おうちの人」の まちがいノートに 入って います。</div></div><div class="foot"><button class="btn" id="hm">もどる</button></div>';
   document.getElementById('hm').onclick=home}
