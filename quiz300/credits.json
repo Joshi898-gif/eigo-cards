@@ -2787,13 +2787,7 @@
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>. One of a series of common objects I photographed in the  to illustrate <a href=\"https://en.wikipedia.org/wiki/Basic_English_picture_wordlist\" class=\"extiw\" title=\"wikipedia:Basic English picture wordlist\">Wikipedia:Basic English picture wordlist</a>."
  },
  "shelf": {
-  "file": "Atifells_de_cuina_andalusins,_Museu_Arqueològic_Municipal_d'Alcoi.JPG",
-  "page": "Shelf (storage)",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=17831905",
-  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Joanbanjo\" title=\"User:Joanbanjo\">Joanbanjo</a>",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+  "generated": true
  },
  "key": {
   "file": "Solex_99_30_padlock_with_keys_(DSCF2659).jpg",
