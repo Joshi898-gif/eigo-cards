@@ -3190,5 +3190,17 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "catechism": {
+  "generated": true
+ },
+ "Talmud": {
+  "file": "Talmud set.JPG",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/3559428",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Reuvenk\" title=\"User:Reuvenk\">Reuvenk</a>",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  }
 }
