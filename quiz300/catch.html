@@ -206,10 +206,27 @@ const better=(a,b)=>!b||a.c>b.c||(a.c===b.c&&a.c>0&&a.t<b.t);   // more catches 
 const fmtT=ms=>(ms/1000).toFixed(2);
 
 /* ---------- sound ---------- */
-const player=new Audio();player.preload="auto";let actx=null;
-function play(w){try{player.pause();player.muted=false;player.src=audSrc(w);player.onerror=()=>tts(w.en);const p=player.play();if(p&&p.catch)p.catch(()=>tts(w.en))}catch(e){tts(w.en)}}
+// Words are fetched and decoded ahead into Web Audio buffers and started at the very moment the photos appear.
+// (Loading a fresh <audio> source for each question started the word 0.2-0.3 s late even on a fast line,
+//  and every file also opens with about 0.2 s of silence, which is skipped here.)
+let actx=null,cur=null;const BUF={};
+function ac(){
+  if(!actx){actx=new (window.AudioContext||window.webkitAudioContext)();try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}}   // "playback": iPhone plays even with the silent switch on
+  if(actx.state!=="running"&&actx.resume)actx.resume();
+  return actx;
+}
+function loadWord(w){
+  if(!BUF[w.id])BUF[w.id]=fetch(audSrc(w)).then(r=>{if(!r.ok)throw 0;return r.arrayBuffer()})
+    .then(ab=>new Promise((res,rej)=>ac().decodeAudioData(ab,res,rej)))
+    .then(b=>{const ch=b.getChannelData(0);let i=0;while(i<ch.length&&Math.abs(ch[i])<0.02)i++;return {b,off:Math.max(0,i/b.sampleRate-0.03)}})
+    .catch(()=>null);
+  return BUF[w.id];
+}
+function stopWord(){try{if(cur)cur.stop()}catch(e){}cur=null;try{speechSynthesis.cancel()}catch(e){}}
+function playLoaded(x,w){stopWord();if(!x){tts(w.en);return}try{const s=ac().createBufferSource();s.buffer=x.b;s.connect(actx.destination);s.start(0,x.off);cur=s}catch(e){tts(w.en)}}
+async function play(w){playLoaded(await loadWord(w),w)}
 function tts(text){if(!("speechSynthesis" in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=0.9;speechSynthesis.speak(u)}catch(e){}}
-function tone(freqs,type,gain,step){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();actx.resume&&actx.resume();const t=actx.currentTime;freqs.forEach((f,i)=>{const o=actx.createOscillator(),g=actx.createGain(),s=t+i*step;o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,s);g.gain.linearRampToValueAtTime(gain,s+.02);g.gain.exponentialRampToValueAtTime(.001,s+.3);o.connect(g);g.connect(actx.destination);o.start(s);o.stop(s+.32)})}catch(e){}}
+function tone(freqs,type,gain,step){try{ac();const t=actx.currentTime;freqs.forEach((f,i)=>{const o=actx.createOscillator(),g=actx.createGain(),s=t+i*step;o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,s);g.gain.linearRampToValueAtTime(gain,s+.02);g.gain.exponentialRampToValueAtTime(.001,s+.3);o.connect(g);g.connect(actx.destination);o.start(s);o.stop(s+.32)})}catch(e){}}
 const sfxOK=()=>tone([880,1320],"triangle",.14,.08), sfxNG=()=>tone([220,180],"sine",.16,.12), sfxTick=()=>tone([660],"triangle",.1,0);
 
 /* ---------- start screen ---------- */
@@ -233,7 +250,7 @@ $("#delName").onclick=()=>{if(DB.names.length<2||!confirm(`「${DB.active}」と
 /* ---------- game ---------- */
 let G=null,holdT=null,limitT=null,nextT=null;
 const IMGCACHE={};
-function preloadRound(r){if(!r)return;for(const o of r.opts){if(!IMGCACHE[o.id]){const im=new Image();im.decoding="async";im.src=imgSrc(o);IMGCACHE[o.id]=im}}try{const a=new Audio(audSrc(r.w));a.preload="auto";a.load();r._a=a}catch(e){}}
+function preloadRound(r){if(!r)return;for(const o of r.opts){if(!IMGCACHE[o.id]){const im=new Image();im.decoding="async";im.src=imgSrc(o);IMGCACHE[o.id]=im}}loadWord(r.w)}
 function clearTimers(){clearTimeout(holdT);clearTimeout(limitT);clearTimeout(nextT)}
 // 20 questions: a few focus words (the ones asked least so far), the rest from all other words asked least so far, in random order
 function pickTargets(){
@@ -246,16 +263,21 @@ function startGame(){
   const targets=pickTargets();for(const w of targets)DB.asked[w.id]=(DB.asked[w.id]||0)+1;
   const rounds=targets.map(w=>({w,opts:makeOpts(w)}));save();
   G={rounds,i:0,correct:0,times:[],missed:[],done:true,cards:[]};
-  // unlock audio inside this tap so the words can play later without a tap (iPhone)
-  try{player.muted=true;player.src=audSrc(rounds[0].w);player.play().then(()=>{player.pause();player.muted=false}).catch(()=>{player.muted=false})}catch(e){}
-  preloadRound(rounds[0]);preloadRound(rounds[1]);
+  // start the sound engine inside this tap so the words can play later without a tap (iPhone);
+  // a silent one-sample buffer makes older iPhones actually switch the audio on
+  try{const c=ac(),s=c.createBufferSource();s.buffer=c.createBuffer(1,1,22050);s.connect(c.destination);s.start(0)}catch(e){}
+  preloadRound(rounds[0]);preloadRound(rounds[1]);preloadRound(rounds[2]);
   go("play");$("#score").textContent="⭕ 0";$("#prog").textContent=`1/${ROUNDS}`;setBar(1,0);
   const a=$("#arena");a.innerHTML='<div class="count" id="cnt"></div>';
   let n=3;const tick=()=>{if(!G||!$("#s-play").classList.contains("on"))return;if(n===0){startRound();return}$("#cnt").innerHTML=`<span>${n}</span>`;sfxTick();n--;nextT=setTimeout(tick,700)};tick();
 }
 function setBar(frac,ms){const b=$("#tbar");b.style.transition=ms?`width ${ms}ms linear`:"none";b.style.width=(frac*100)+"%";if(!ms)void b.offsetWidth}
-function startRound(){
-  const r=G.rounds[G.i],a=$("#arena");a.innerHTML="";
+async function startRound(){
+  const g=G,r=G.rounds[G.i];
+  // wait (at most 2.5 s) until this word's sound is ready, so the photos, the word and the clock all start together
+  const x=await Promise.race([loadWord(r.w),new Promise(res=>setTimeout(()=>res(null),2500))]);
+  if(G!==g||!$("#s-play").classList.contains("on"))return;
+  const a=$("#arena");a.innerHTML="";
   $("#prog").textContent=`${G.i+1}/${ROUNDS}`;
   const aw=a.clientWidth,ah=a.clientHeight;
   const cw=Math.floor(Math.min(aw*0.43,230,ah*0.30*4/3)),ch=Math.floor(cw*3/4),gap=Math.round(cw*0.08);
@@ -275,8 +297,8 @@ function startRound(){
     return {el,o,left,top,dx:ux*dist,dy:uy*dist,rot:(Math.random()*50-25)};
   });
   const fb=document.createElement("div");fb.className="fb";fb.id="fb";a.appendChild(fb);
+  playLoaded(x,r.w);
   G.done=false;G.t0=performance.now();
-  play(r.w);
   setBar(1,0);setBar(0,LIMIT);
   holdT=setTimeout(()=>{for(const c of G.cards){c.el.style.transition=`transform ${LIMIT-HOLD}ms cubic-bezier(.45,.05,.85,.6)`;c.el.style.transform=`translate(${c.dx}px,${c.dy}px) rotate(${c.rot}deg)`}},HOLD);
   limitT=setTimeout(()=>finishRound(null,null),LIMIT);
@@ -308,7 +330,7 @@ function finishRound(o,el){
   nextT=setTimeout(()=>{if(!G)return;G.i++;if(G.i>=ROUNDS)finishGame();else startRound()},ok?1000:2200);
 }
 $("#again").onclick=()=>{if(G&&G.rounds[G.i])play(G.rounds[G.i].w)};
-$("#quit").onclick=()=>{clearTimers();G=null;try{player.pause()}catch(e){}go("start")};
+$("#quit").onclick=()=>{clearTimers();G=null;stopWord();go("start")};
 
 /* ---------- result ---------- */
 function finishGame(){
