@@ -320,13 +320,13 @@ function finishRound(o,el){
   if(el&&!ok){el.classList.remove("fade");el.classList.add("wrong")}
   right.el.classList.add("right");
   const fb=$("#fb");
+  // bring the right photo back to the middle so its word is fully on screen (it may have been caught at the edge)
+  const g=G.geo;void right.el.offsetWidth;right.el.style.transition="transform .35s ease-out";
+  right.el.style.transform=`translate(${g.cx-(right.left+g.cw/2)}px,${g.cy-(right.top+g.ch/2)}px) scale(1.15)`;
   if(ok){G.correct++;G.times.push(rt);sfxOK();fb.className="fb ok";fb.textContent=`つかまえた！ ${fmtT(rt)} びょう`;$("#score").textContent=`⭕ ${G.correct}`}
   else{
     G.missed.push(r.w);sfxNG();fb.className="fb ng";fb.textContent=o?"ざんねん！ こっちだよ":"にげられた〜！";
-    // bring the right photo back to the middle so the word can be learned, and say it again
-    const g=G.geo;void right.el.offsetWidth;right.el.style.transition="transform .35s ease-out";
-    right.el.style.transform=`translate(${g.cx-(right.left+g.cw/2)}px,${g.cy-(right.top+g.ch/2)}px) scale(1.15)`;
-    setTimeout(()=>{if(G&&G.rounds[G.i]===r)play(r.w)},350);
+    setTimeout(()=>{if(G&&G.rounds[G.i]===r)play(r.w)},350);   // say the word again
   }
   nextT=setTimeout(()=>{if(!G)return;G.i++;if(G.i>=ROUNDS)finishGame();else startRound()},ok?1000:2200);
 }
