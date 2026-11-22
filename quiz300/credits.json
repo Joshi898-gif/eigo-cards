@@ -3202,5 +3202,50 @@
   "license": "CC BY 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "bean sprouts": {
+  "file": "Bean-sprouts.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/12014703",
+  "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Kwantonge\" class=\"extiw\" title=\"wikipedia:User:Kwantonge\">Kwantonge</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<bdi lang=\"en\" dir=\"ltr\">Transferred from <span class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//en.wikipedia.org\" href=\"https://en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Liftarn\" title=\"User:Liftarn\">Liftarn</a> using <a href=\"https://iw.toolforge.org/commonshelper/\" class=\"extiw\" title=\"toollabs:commonshelper/\">CommonsHelper</a>.</bdi>"
+ },
+ "high jump": {
+  "file": "2007 Military World Games high jump.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/10946465",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/35703177@N00\">The U.S. Army</a>",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/soldiersmediacenter/1710756676/\">india</a>"
+ },
+ "javelin throw": {
+  "file": "2019-09-01 ISTAF 2019 Javelin throw (Martin Rulsch) 038.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/82211308",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:DerHexer\" title=\"User:DerHexer\">Martin Rulsch</a>, Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "Statue of Liberty": {
+  "file": "LibertyStatue.JPG",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/12052584",
+  "artist": "<a href=\"https://en.wikipedia.org/wiki/ml:User:Jyothis\" class=\"extiw\" title=\"w:ml:User:Jyothis\">Jyothis</a> at <a href=\"https://en.wikipedia.org/wiki/ml:\" class=\"extiw\" title=\"w:ml:\">Malayalam Wikipedia</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<bdi lang=\"en\" dir=\"ltr\">Transferred from <span class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//ml.wikipedia.org\" href=\"https://ml.wikipedia.org\">ml.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Sreejithk2000\" title=\"User:Sreejithk2000\">Sreejithk2000</a> using <a href=\"https://iw.toolforge.org/commonshelper/\" class=\"extiw\" title=\"toollabs:commonshelper/\">CommonsHelper</a>.</bdi>"
+ },
+ "palace": {
+  "file": "Catherine Palace, Tsarskoye Selo.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/5304617",
+  "artist": "Presidential Press and Information Office",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.kremlin.ru/events/photos/2003/05/46482.shtml\">http://www.kremlin.ru/events/photos/2003/05/46482.shtml</a>"
  }
 }
