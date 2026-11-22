@@ -2141,9 +2141,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
  },
- "rain": {
-  "generated": true
- },
  "snow": {
   "file": "CargoNet_Di_12_Euro_4000_Lønsdal_-_Bolna.jpg",
   "page": "Snow",
@@ -3247,5 +3244,119 @@
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.kremlin.ru/events/photos/2003/05/46482.shtml\">http://www.kremlin.ru/events/photos/2003/05/46482.shtml</a>"
+ },
+ "fossil": {
+  "file": "Ammonite fossil (8606998286).jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/25739294",
+  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/37767174@N04\">Becks</a>",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/littlemisspurps/8606998286/\">Ammonite fossil</a>"
+ },
+ "fog": {
+  "file": "Dülmen, Hausdülmen, Feld -- 2016 -- 1780.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/48085959",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q34788025\" class=\"extiw\" title=\"d:Q34788025\"><span title=\"German photographer and mathematician\">Dietmar Rabich</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "desert": {
+  "file": "Cavalier de chameaux au passage dans une dune de sable au Maroc.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/116138045",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Merzougaloisirs&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Merzougaloisirs (page does not exist)\">Merzougaloisirs</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "mud": {
+  "generated": true
+ },
+ "valley": {
+  "file": "Chilly, blue river cutting through the lush, green mountains of Naran valley, nearby are the encamped travellers 02.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/39948110",
+  "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Shahzaibq12&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Shahzaibq12 (page does not exist)\">Shahzaib Qureshi</a>",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "cliff": {
+  "generated": true
+ },
+ "glacier": {
+  "file": "Aletsch CDB.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/12103154",
+  "artist": "Cristina Del Biaggio",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "icicle": {
+  "file": "Icicles hanging from roof 20180326.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/67720089",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Zunter\" title=\"User:Zunter\">Santeri Viinamäki</a>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "frost": {
+  "file": "Dülmen, Hausdülmen, Eiskristalle auf Blättern -- 2022 -- 9657.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/114220996",
+  "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q34788025\" class=\"extiw\" title=\"d:Q34788025\"><span title=\"German photographer and mathematician\">Dietmar Rabich</span></a></bdi>",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>"
+ },
+ "sunrise": {
+  "generated": true
+ },
+ "sunset": {
+  "generated": true
+ },
+ "shooting star": {
+  "file": "Astronomy; a meteor in the night sky. Coloured wood engravin Wellcome V0024755.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/36571790",
+  "artist": "",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<p><a rel=\"nofollow\" class=\"external free\" href=\"https://wellcomeimages.org/indexplus/obf_images/57/5a/720bf99a23c8291fe3aa3ecc6229.jpg\">https://wellcomeimages.org/indexplus/obf_images/57/5a/720bf99a23c8291fe3aa3ecc6229.jpg</a>\n</p>\n<ul><li>Gallery: <a rel=\"nofollow\" class=\"external free\" href=\"https://wellcomeimages.org/indexplus/image/V0024755.html\">https://wellcomeimages.org/indexplus/image/V0024755.html</a></li>\n<li>Wellcome Collection gallery (2018-03-23): <a rel=\"nofollow\" class=\"external free\" href=\"https://wellcomecollection.org/works/hz422v4r\">https://wellcomecollection.org/works/hz422v4r</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://creativecommons.org/licenses/by/4.0/\">CC-BY-4.0</a></li></ul>"
+ },
+ "iceberg": {
+  "file": "Iceberg.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/209674",
+  "artist": "Created by <a href=\"//commons.wikimedia.org/wiki/User:Uwe_kils\" title=\"User:Uwe kils\">Uwe Kils</a> (iceberg) and <a href=\"//commons.wikimedia.org/wiki/User:Wiska_Bodo\" title=\"User:Wiska Bodo\">User:Wiska Bodo</a> (sky).",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "credit": "(Work by <a href=\"https://en.wikipedia.org/wiki/User:Kils\" class=\"extiw\" title=\"en:User:Kils\">Uwe Kils</a>) <a rel=\"nofollow\" class=\"external free\" href=\"http://www.ecoscope.com/iceberg/\">http://www.ecoscope.com/iceberg/</a>"
+ },
+ "Mars": {
+  "file": "Mars atmosphere by Hubble.jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/34926345",
+  "artist": "Philip James (University of Toledo), Steven Lee (University of Colorado), NASA",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://hubblesite.org/newscenter/archive/releases/1995/16/image/b/\">http://hubblesite.org/newscenter/archive/releases/1995/16/image/b/</a>"
+ },
+ "comet": {
+  "file": "Comet C-1995 O1 Hale-Bopp, on March 14, 1997 (cropped).jpg",
+  "page": "Wikimedia Commons",
+  "desc": "https://commons.wikimedia.org/wiki/Special:Redirect/page/123449917",
+  "artist": "ignoto - Credit: ESO/E. Slawik",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.eso.org/public/images/phot-mar14-hbs-2/\">ESO.org</a> (<a rel=\"nofollow\" class=\"external text\" href=\"https://www.eso.org/public/images/phot-mar14-hbs-2/\">v.</a>)"
+ },
+ "precipitation": {
+  "generated": true
  }
 }
