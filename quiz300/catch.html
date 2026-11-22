@@ -170,8 +170,9 @@ a{color:inherit}
 const W=RAW.map(r=>({id:r[3],cat:r[0],en:r[1],ja:r[2]}));
 const BYID=Object.fromEntries(W.map(w=>[w.id,w]));
 const ROUNDS=20, LIMIT=4000, HOLD=600;   // 20 questions; photos are gone 4 s after they appear; they stand still for the first 0.6 s
-// Words the parent wants practised more: every game asks FOCUS_PER_GAME of them, taking turns so each comes up about every other game.
-const FOCUS=["eggplant","cube","toe","cloud","lip","pear","persimmon","shrine","shelf"], FOCUS_PER_GAME=5;
+// Words the parent wants practised more: every game asks FOCUS_PER_GAME of them, taking turns (25 words, 8 a game: each comes up about every third game).
+const FOCUS=["eggplant","cube","toe","cloud","lip","pear","persimmon","shrine","shelf",
+  "fossil","fog","desert","mud","valley","cliff","glacier","icicle","frost","sunrise","sunset","shooting_star","iceberg","mars","comet","precipitation"], FOCUS_PER_GAME=8;
 const KEY="eigo-catch-v1", QUIZKEY="eigo-quiz300-v1";
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
