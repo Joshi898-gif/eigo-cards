@@ -66,6 +66,21 @@ a{color:inherit}
 .rank .empty{color:var(--muted);text-align:center;padding:14px 0;font-weight:700}
 .small{font-size:13px;color:var(--muted);text-align:center;margin:0}
 .linkbtn{font-size:13px;color:var(--muted);text-decoration:underline;align-self:center;padding:8px}
+/* word records (parent screen) */
+.shead{display:flex;align-items:center;gap:12px}
+.stitle{font-size:22px;font-weight:800}
+.small.left{text-align:left}
+.names.tabs button{font-size:15px;padding:7px 12px;min-height:42px}
+.srow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.srow:last-child{border-bottom:0}
+.srow img{width:52px;height:39px;border-radius:6px;object-fit:contain;background:#FFFFFF}
+.srow .sw b{display:block;font-family:var(--f-en);font-size:17px;line-height:1.2;overflow-wrap:anywhere}
+.srow .sw small{font-size:12px;color:var(--muted)}
+.srow .sn{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px}
+.srow .sn b{font-size:16px;margin-right:6px}
+.srow .sn .hi{color:var(--leaf)}.srow .sn .lo{color:var(--berry)}
+.srow select{font:inherit;font-size:14px;font-weight:700;padding:8px 4px;border-radius:10px;border:2px solid var(--line);background:var(--card);color:var(--ink);max-width:96px}
+.srow select.f{border-color:var(--sun)}.srow select.x{border-color:var(--berry);color:var(--muted)}
 /* play */
 #s-play{position:fixed;inset:0;background:var(--paper);gap:0;padding-top:max(10px,env(safe-area-inset-top,0px))}
 .topbar{display:flex;align-items:center;gap:10px;padding:0 max(12px,env(safe-area-inset-right,0px)) 0 max(12px,env(safe-area-inset-left,0px));min-height:52px}
@@ -127,7 +142,20 @@ a{color:inherit}
   <button class="go" id="btnGo">▶ START</button>
   <div class="h">🏆 ランキング（じぶんの いちばん いい きろく）</div>
   <div class="rank" id="rankStart"></div>
+  <button class="ghost" id="toStats">📊 ことばの記録（おうちのひと）</button>
   <button class="linkbtn" id="delName">えらんでいる なまえを けす</button>
+</section>
+
+<!-- WORD RECORDS (for parents) -->
+<section class="screen" id="s-stats">
+  <div class="shead"><button class="iconbtn" id="stBack" aria-label="もどる">←</button><div class="stitle">ことばの記録</div></div>
+  <p class="small left" id="stSum"></p>
+  <div class="names" id="stNames"></div>
+  <div class="names" id="stTabs"></div>
+  <div class="rank" id="stList"></div>
+  <p class="small left">「★ 重点」にした言葉は、毎ゲーム多めに出ます。「🚫 出さない」にした言葉は、問題に出ません（ほかの3枚の写真としては出ることがあります）。行をタップすると発音が聞けます。設定と記録は、この端末に保存されます。</p>
+  <button class="ghost" id="stCopy">📋 記録をコピー（表計算やメモに貼れます）</button>
+  <button class="linkbtn" id="stReset"></button>
 </section>
 
 <!-- PLAY -->
@@ -198,6 +226,7 @@ function load(){
     d={names:names.length?names:["こども"],active:"",best:{}};
   }
   d.best??={};d.asked??={};d.shown??={};   // asked: times each word was the question; shown: times each photo was on screen
+  d.stat??={};d.mode??={};                 // stat[name][word]=[caught, missed, total ms of the catches]; mode[word]="f" focus / "x" never ask / "n" normal
   if(!d.names.includes(d.active))d.active=d.names[0]||"";
   return d;
 }
@@ -246,18 +275,22 @@ function renderRank(el){
   const medal=["🥇","🥈","🥉"];
   el.innerHTML=rows.length?rows.map((r,i)=>`<div class="row${r.n===DB.active?" me":""}"><div class="pos">${medal[i]||i+1}</div><div>${esc(r.n)}</div><div class="sc">${r.c} / ${ROUNDS}</div><div class="tm">${r.c?fmtT(r.t)+" びょう":"—"}</div></div>`).join(""):'<div class="empty">まだ きろくが ないよ。さいしょの チャンピオンに なろう！</div>';
 }
-$("#delName").onclick=()=>{if(DB.names.length<2||!confirm(`「${DB.active}」と その きろくを けしますか？`))return;delete DB.best[DB.active];DB.names=DB.names.filter(n=>n!==DB.active);DB.active=DB.names[0];save();renderStart()};
+$("#delName").onclick=()=>{if(DB.names.length<2||!confirm(`「${DB.active}」と その きろくを けしますか？`))return;delete DB.best[DB.active];delete DB.stat[DB.active];DB.names=DB.names.filter(n=>n!==DB.active);DB.active=DB.names[0];save();renderStart()};
 
 /* ---------- game ---------- */
 let G=null,holdT=null,limitT=null,nextT=null;
 const IMGCACHE={};
 function preloadRound(r){if(!r)return;for(const o of r.opts){if(!IMGCACHE[o.id]){const im=new Image();im.decoding="async";im.src=imgSrc(o);IMGCACHE[o.id]=im}}loadWord(r.w)}
 function clearTimers(){clearTimeout(holdT);clearTimeout(limitT);clearTimeout(nextT)}
-// 20 questions: a few focus words (the ones asked least so far), the rest from all other words asked least so far, in random order
+// A word is "f" (focus), "x" (never asked) or "n" (normal). The parent sets this on the records screen;
+// until then the FOCUS list above decides.
+const modeOf=id=>DB.mode[id]||(FOCUS.includes(id)?"f":"n");
+// 20 questions: a few focus words (the ones asked least so far), the rest from the other words asked least so far, in random order
 function pickTargets(){
-  const fw=FOCUS.map(id=>BYID[id]).filter(Boolean),inFocus=new Set(fw.map(w=>w.id));
-  const focus=leastUsed(fw,DB.asked,Math.min(FOCUS_PER_GAME,ROUNDS));
-  return shuffle([...focus,...leastUsed(W.filter(w=>!inFocus.has(w.id)),DB.asked,ROUNDS-focus.length)]);
+  const on=W.filter(w=>modeOf(w.id)!=="x"),pool=on.length>=ROUNDS?on:W;      // if too many are switched off, use every word
+  const fw=pool.filter(w=>modeOf(w.id)==="f"),focus=leastUsed(fw,DB.asked,Math.min(FOCUS_PER_GAME,ROUNDS));
+  let rest=pool.filter(w=>modeOf(w.id)!=="f");if(rest.length<ROUNDS-focus.length)rest=pool.filter(w=>!focus.includes(w));
+  return shuffle([...focus,...leastUsed(rest,DB.asked,ROUNDS-focus.length)]);
 }
 function startGame(){
   clearTimers();
@@ -314,6 +347,8 @@ function pick(o,el){if(!G||G.done)return;finishRound(o,el)}
 function finishRound(o,el){
   if(G.done)return;G.done=true;clearTimers();
   const r=G.rounds[G.i],rt=performance.now()-G.t0,ok=!!o&&o.id===r.w.id;
+  // keep a per-word record for this player (saved every question, so a game stopped half-way still counts)
+  const ws=((DB.stat[DB.active]??={})[r.w.id]??=[0,0,0]);if(ok){ws[0]++;ws[2]+=Math.round(rt)}else ws[1]++;save();
   freeze();
   const right=G.cards.find(c=>c.o.id===r.w.id);
   for(const c of G.cards)if(c!==right)c.el.classList.add("fade");
@@ -347,6 +382,51 @@ function finishGame(){
   $$("#rMiss .chip").forEach(b=>b.onclick=()=>play(BYID[b.dataset.id]));
   renderRank($("#rankResult"));
 }
+
+/* ---------- word records and per-word settings (parent screen) ---------- */
+let stWho="",stTab="good";   // stWho "" = everyone together
+const ST_TABS=[["good","とくい 上位20"],["weak","にがて 上位20"],["focus","★ 重点"],["off","🚫 出さない"],["all","ぜんぶ"]];
+function statRows(){
+  const sum={};for(const n of (stWho?[stWho]:DB.names)){const s=DB.stat[n]||{};for(const id in s){const o=(sum[id]??=[0,0,0]);o[0]+=s[id][0];o[1]+=s[id][1];o[2]+=s[id][2]}}
+  return W.map(w=>{const s=sum[w.id]||[0,0,0],n=s[0]+s[1];return {w,c:s[0],m:s[1],n,rate:n?s[0]/n:null,avg:s[0]?s[2]/s[0]:null,mode:modeOf(w.id)}});
+}
+function statList(rows){
+  const played=rows.filter(r=>r.n);
+  if(stTab==="good")return played.filter(r=>r.c).sort((a,b)=>b.rate-a.rate||b.n-a.n||(a.avg??9e9)-(b.avg??9e9)).slice(0,20);   // highest rate; ties: asked more often, then faster
+  if(stTab==="weak")return played.filter(r=>r.m).sort((a,b)=>a.rate-b.rate||b.m-a.m).slice(0,20);                        // lowest rate; ties: missed more often
+  if(stTab==="focus")return rows.filter(r=>r.mode==="f");
+  if(stTab==="off")return rows.filter(r=>r.mode==="x");
+  return rows;
+}
+function renderStats(){
+  const rows=statRows(),played=rows.filter(r=>r.n);
+  $("#stSum").textContent=`記録：${played.reduce((a,r)=>a+r.n,0)}問・${played.length}語　／　★ 重点 ${rows.filter(r=>r.mode==="f").length}語　🚫 出さない ${rows.filter(r=>r.mode==="x").length}語`;
+  const chips=(el,items,cur,set)=>{el.innerHTML="";for(const [v,label] of items){const b=document.createElement("button");b.textContent=label;if(v===cur)b.className="on";b.onclick=()=>{set(v);renderStats()};el.appendChild(b)}};
+  chips($("#stNames"),[["","みんな"],...DB.names.map(n=>[n,n])],stWho,v=>stWho=v);
+  $("#stTabs").className="names tabs";chips($("#stTabs"),ST_TABS,stTab,v=>stTab=v);
+  $("#stReset").textContent=stWho?`「${stWho}」の ことばの記録を消す`:"みんなの ことばの記録を消す";
+  const list=statList(rows),empty={good:"まだ記録がありません。ゲームをすると、ここにたまります。",weak:"にがした言葉は、まだありません。",focus:"重点の言葉はありません。",off:"出さない言葉はありません。",all:""}[stTab];
+  $("#stList").innerHTML=list.length?list.map(r=>{
+    const pct=r.rate==null?"—":Math.round(r.rate*100)+"%",cls=r.rate==null?"":r.rate>=0.8?"hi":r.rate<0.5?"lo":"";
+    return `<div class="srow" data-id="${r.w.id}"><img src="${imgSrc(r.w)}" alt="" loading="lazy"><div class="sw"><b>${esc(r.w.en)}</b><small>${esc(r.w.ja)}</small>`
+      +`<div class="sn"><b class="${cls}">${pct}</b>⭕${r.c} ✕${r.m}${r.avg==null?"":" ・"+fmtT(r.avg)+"びょう"}</div></div>`
+      +`<select class="${r.mode}" data-id="${r.w.id}" aria-label="出し方">${[["n","ふつう"],["f","★ 重点"],["x","🚫 出さない"]].map(([v,t])=>`<option value="${v}"${v===r.mode?" selected":""}>${t}</option>`).join("")}</select></div>`}).join("")
+    :`<div class="empty">${empty}</div>`;
+  $$("#stList select").forEach(s=>{s.onclick=e=>e.stopPropagation();s.onchange=()=>{const id=s.dataset.id,dflt=FOCUS.includes(id)?"f":"n";if(s.value===dflt)delete DB.mode[id];else DB.mode[id]=s.value;save();renderStats()}});
+  $$("#stList .srow").forEach(el=>el.onclick=()=>play(BYID[el.dataset.id]));
+}
+// a small sum keeps children out of the parent screen
+$("#toStats").onclick=()=>{const a=3+Math.floor(Math.random()*6),b=4+Math.floor(Math.random()*6);if(String((prompt(`おうちのひと かくにん\n${a} + ${b} = ?`)||"").trim())!==String(a+b))return;stWho="";stTab="good";go("stats");renderStats()};
+$("#stBack").onclick=()=>go("start");
+$("#stCopy").onclick=()=>{
+  const rows=statRows().filter(r=>r.n||r.mode!=="n").sort((a,b)=>(b.rate??-1)-(a.rate??-1)||b.n-a.n);
+  const label={n:"ふつう",f:"重点",x:"出さない"};
+  const text=[["英語","日本語","正答率","つかまえた","にがした","平均びょう","出し方"].join("\t"),...rows.map(r=>[r.w.en,r.w.ja,r.rate==null?"":Math.round(r.rate*100)+"%",r.c,r.m,r.avg==null?"":fmtT(r.avg),label[r.mode]].join("\t"))].join("\n");
+  const done=()=>{$("#stCopy").textContent="✅ コピーしました";setTimeout(()=>{$("#stCopy").textContent="📋 記録をコピー（表計算やメモに貼れます）"},1800)};
+  const fallback=()=>{const t=document.createElement("textarea");t.value=text;document.body.appendChild(t);t.select();try{document.execCommand("copy");done()}catch(e){}t.remove()};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(done).catch(fallback);else fallback();
+};
+$("#stReset").onclick=()=>{if(!confirm(($("#stReset").textContent)+"\nよろしいですか？（重点・出さないの設定は消えません）"))return;if(stWho)delete DB.stat[stWho];else DB.stat={};save();renderStats()};
 $("#btnGo").onclick=startGame;$("#btnAgain").onclick=startGame;$("#btnHome").onclick=()=>go("start");
 document.addEventListener("contextmenu",e=>{if(e.target.closest(".arena"))e.preventDefault()});
 renderStart();
