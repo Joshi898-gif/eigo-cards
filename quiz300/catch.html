@@ -80,6 +80,10 @@ a{color:inherit}
 .srow .sn b{font-size:16px;margin-right:6px}
 .srow .sn .hi{color:var(--leaf)}.srow .sn .lo{color:var(--berry)}
 .srow select{font:inherit;font-size:14px;font-weight:700;padding:8px 4px;border-radius:10px;border:2px solid var(--line);background:var(--card);color:var(--ink);max-width:96px}
+.autobox{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:12px 14px;font-size:14px}
+.autobox p{margin:6px 0 0;color:var(--muted);overflow-wrap:anywhere}.autobox p b{color:var(--ink)}
+.autobox .arow{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:16px}
+.mini{font-size:14px;font-weight:800;padding:8px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);margin-top:6px}
 .srow select.f{border-color:var(--sun)}.srow select.x{border-color:var(--berry);color:var(--muted)}
 /* play */
 #s-play{position:fixed;inset:0;background:var(--paper);gap:0;padding-top:max(10px,env(safe-area-inset-top,0px))}
@@ -142,6 +146,7 @@ a{color:inherit}
   <button class="go" id="btnGo">▶ START</button>
   <div class="h">🏆 ランキング（じぶんの いちばん いい きろく）</div>
   <div class="rank" id="rankStart"></div>
+  <p class="small" id="autoNote" hidden>🗓 こんげつの みなおしを しました（おうちのひとは「ことばの記録」を みてね）</p>
   <button class="ghost" id="toStats">📊 ことばの記録（おうちのひと）</button>
   <button class="linkbtn" id="delName">えらんでいる なまえを けす</button>
 </section>
@@ -149,11 +154,12 @@ a{color:inherit}
 <!-- WORD RECORDS (for parents) -->
 <section class="screen" id="s-stats">
   <div class="shead"><button class="iconbtn" id="stBack" aria-label="もどる">←</button><div class="stitle">ことばの記録</div></div>
+  <div class="autobox" id="stAuto"></div>
   <p class="small left" id="stSum"></p>
   <div class="names" id="stNames"></div>
   <div class="names" id="stTabs"></div>
   <div class="rank" id="stList"></div>
-  <p class="small left">「★ 重点」にした言葉は、毎ゲーム多めに出ます。「🚫 出さない」にした言葉は、問題に出ません（ほかの3枚の写真としては出ることがあります）。行をタップすると発音が聞けます。設定と記録は、この端末に保存されます。</p>
+  <p class="small left">上で名前を選ぶと、その子だけの設定になります。「みんな」のまま変えると、全員の設定になります。「★ 重点」にした言葉は、毎ゲーム多めに出ます。「🚫 出さない」にした言葉は、問題に出ません（ほかの3枚の写真としては出ることがあります）。行をタップすると発音が聞けます。設定と記録は、この端末に保存されます。</p>
   <button class="ghost" id="stCopy">📋 記録をコピー（表計算やメモに貼れます）</button>
   <button class="linkbtn" id="stReset"></button>
 </section>
@@ -226,10 +232,13 @@ function load(){
     d={names:names.length?names:["こども"],active:"",best:{}};
   }
   d.best??={};d.asked??={};d.shown??={};   // asked: times each word was the question; shown: times each photo was on screen
-  d.stat??={};d.mode??={};                 // stat[name][word]=[caught, missed, total ms of the catches]; mode[word]="f" focus / "x" never ask / "n" normal
+  d.stat??={};d.mode??={};                 // stat[name][word]=[caught, missed, total ms of the catches, catches in a row]; mode[word]="f" focus / "x" never ask / "n" normal
+  d.pmode??={};                            // pmode[name][word]: the same, for one child only (wins over mode)
+  d.auto??={on:true,month:monthKey(),log:[],prev:null,unseen:false};   // monthly auto review; the first one runs when the month changes
   if(!d.names.includes(d.active))d.active=d.names[0]||"";
   return d;
 }
+const monthKey=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`};
 let DB=load();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
 const better=(a,b)=>!b||a.c>b.c||(a.c===b.c&&a.c>0&&a.t<b.t);   // more catches wins; on a tie the faster average wins
@@ -262,6 +271,7 @@ const sfxOK=()=>tone([880,1320],"triangle",.14,.08), sfxNG=()=>tone([220,180],"s
 /* ---------- start screen ---------- */
 function go(id){$$(".screen").forEach(s=>s.classList.remove("on"));$("#s-"+id).classList.add("on");window.scrollTo(0,0);if(id==="start")renderStart()}
 function renderStart(){
+  autoCheck();$("#autoNote").hidden=!DB.auto.unseen;
   const n=$("#names");n.innerHTML="";
   for(const name of DB.names){const b=document.createElement("button");b.textContent=name;if(name===DB.active)b.className="on";b.onclick=()=>{DB.active=name;save();renderStart()};n.appendChild(b)}
   const add=document.createElement("button");add.className="add";add.textContent="＋ なまえを たす";
@@ -275,7 +285,7 @@ function renderRank(el){
   const medal=["🥇","🥈","🥉"];
   el.innerHTML=rows.length?rows.map((r,i)=>`<div class="row${r.n===DB.active?" me":""}"><div class="pos">${medal[i]||i+1}</div><div>${esc(r.n)}</div><div class="sc">${r.c} / ${ROUNDS}</div><div class="tm">${r.c?fmtT(r.t)+" びょう":"—"}</div></div>`).join(""):'<div class="empty">まだ きろくが ないよ。さいしょの チャンピオンに なろう！</div>';
 }
-$("#delName").onclick=()=>{if(DB.names.length<2||!confirm(`「${DB.active}」と その きろくを けしますか？`))return;delete DB.best[DB.active];delete DB.stat[DB.active];DB.names=DB.names.filter(n=>n!==DB.active);DB.active=DB.names[0];save();renderStart()};
+$("#delName").onclick=()=>{if(DB.names.length<2||!confirm(`「${DB.active}」と その きろくを けしますか？`))return;delete DB.best[DB.active];delete DB.stat[DB.active];delete DB.pmode[DB.active];DB.names=DB.names.filter(n=>n!==DB.active);DB.active=DB.names[0];save();renderStart()};
 
 /* ---------- game ---------- */
 let G=null,holdT=null,limitT=null,nextT=null;
@@ -284,7 +294,8 @@ function preloadRound(r){if(!r)return;for(const o of r.opts){if(!IMGCACHE[o.id])
 function clearTimers(){clearTimeout(holdT);clearTimeout(limitT);clearTimeout(nextT)}
 // A word is "f" (focus), "x" (never asked) or "n" (normal). The parent sets this on the records screen;
 // until then the FOCUS list above decides.
-const modeOf=id=>DB.mode[id]||(FOCUS.includes(id)?"f":"n");
+const baseMode=id=>DB.mode[id]||(FOCUS.includes(id)?"f":"n");                       // setting for everyone
+const modeOf=(id,name=DB.active)=>(name&&DB.pmode[name]&&DB.pmode[name][id])||baseMode(id);   // setting for one child
 // 20 questions: a few focus words (the ones asked least so far), the rest from the other words asked least so far, in random order
 function pickTargets(){
   const on=W.filter(w=>modeOf(w.id)!=="x"),pool=on.length>=ROUNDS?on:W;      // if too many are switched off, use every word
@@ -348,7 +359,7 @@ function finishRound(o,el){
   if(G.done)return;G.done=true;clearTimers();
   const r=G.rounds[G.i],rt=performance.now()-G.t0,ok=!!o&&o.id===r.w.id;
   // keep a per-word record for this player (saved every question, so a game stopped half-way still counts)
-  const ws=((DB.stat[DB.active]??={})[r.w.id]??=[0,0,0]);if(ok){ws[0]++;ws[2]+=Math.round(rt)}else ws[1]++;save();
+  const ws=((DB.stat[DB.active]??={})[r.w.id]??=[0,0,0,0]);if(ok){ws[0]++;ws[2]+=Math.round(rt);ws[3]=(ws[3]||0)+1}else{ws[1]++;ws[3]=0}save();
   freeze();
   const right=G.cards.find(c=>c.o.id===r.w.id);
   for(const c of G.cards)if(c!==right)c.el.classList.add("fade");
@@ -388,7 +399,7 @@ let stWho="",stTab="good";   // stWho "" = everyone together
 const ST_TABS=[["good","とくい 上位20"],["weak","にがて 上位20"],["focus","★ 重点"],["off","🚫 出さない"],["all","ぜんぶ"]];
 function statRows(){
   const sum={};for(const n of (stWho?[stWho]:DB.names)){const s=DB.stat[n]||{};for(const id in s){const o=(sum[id]??=[0,0,0]);o[0]+=s[id][0];o[1]+=s[id][1];o[2]+=s[id][2]}}
-  return W.map(w=>{const s=sum[w.id]||[0,0,0],n=s[0]+s[1];return {w,c:s[0],m:s[1],n,rate:n?s[0]/n:null,avg:s[0]?s[2]/s[0]:null,mode:modeOf(w.id)}});
+  return W.map(w=>{const s=sum[w.id]||[0,0,0],n=s[0]+s[1];return {w,c:s[0],m:s[1],n,rate:n?s[0]/n:null,avg:s[0]?s[2]/s[0]:null,mode:stWho?modeOf(w.id,stWho):baseMode(w.id)}});
 }
 function statList(rows){
   const played=rows.filter(r=>r.n);
@@ -404,6 +415,7 @@ function renderStats(){
   const chips=(el,items,cur,set)=>{el.innerHTML="";for(const [v,label] of items){const b=document.createElement("button");b.textContent=label;if(v===cur)b.className="on";b.onclick=()=>{set(v);renderStats()};el.appendChild(b)}};
   chips($("#stNames"),[["","みんな"],...DB.names.map(n=>[n,n])],stWho,v=>stWho=v);
   $("#stTabs").className="names tabs";chips($("#stTabs"),ST_TABS,stTab,v=>stTab=v);
+  renderAuto();
   $("#stReset").textContent=stWho?`「${stWho}」の ことばの記録を消す`:"みんなの ことばの記録を消す";
   const list=statList(rows),empty={good:"まだ記録がありません。ゲームをすると、ここにたまります。",weak:"にがした言葉は、まだありません。",focus:"重点の言葉はありません。",off:"出さない言葉はありません。",all:""}[stTab];
   $("#stList").innerHTML=list.length?list.map(r=>{
@@ -412,11 +424,48 @@ function renderStats(){
       +`<div class="sn"><b class="${cls}">${pct}</b>⭕${r.c} ✕${r.m}${r.avg==null?"":" ・"+fmtT(r.avg)+"びょう"}</div></div>`
       +`<select class="${r.mode}" data-id="${r.w.id}" aria-label="出し方">${[["n","ふつう"],["f","★ 重点"],["x","🚫 出さない"]].map(([v,t])=>`<option value="${v}"${v===r.mode?" selected":""}>${t}</option>`).join("")}</select></div>`}).join("")
     :`<div class="empty">${empty}</div>`;
-  $$("#stList select").forEach(s=>{s.onclick=e=>e.stopPropagation();s.onchange=()=>{const id=s.dataset.id,dflt=FOCUS.includes(id)?"f":"n";if(s.value===dflt)delete DB.mode[id];else DB.mode[id]=s.value;save();renderStats()}});
+  $$("#stList select").forEach(s=>{s.onclick=e=>e.stopPropagation();s.onchange=()=>{setMode(s.dataset.id,s.value,stWho);save();renderStats()}});
   $$("#stList .srow").forEach(el=>el.onclick=()=>play(BYID[el.dataset.id]));
 }
+// One child selected: the setting is for that child only. Everyone selected: it is for all, and replaces the children's own settings.
+function setMode(id,v,name){
+  if(name){const pm=(DB.pmode[name]??={});if(v===baseMode(id))delete pm[id];else pm[id]=v}
+  else{if(v===(FOCUS.includes(id)?"f":"n"))delete DB.mode[id];else DB.mode[id]=v;for(const n in DB.pmode)delete DB.pmode[n][id]}
+}
+/* Monthly auto review, per child, from that child's own record:
+   - caught 3 or more times in a row            -> never ask again (learned)
+   - a focus word asked 4+ times, 80%+ caught    -> back to normal
+   - asked 2+ times, under 60% caught            -> focus
+   At most AUTO_MAX words change per rule and child each month. The parent can undo it or switch it off. */
+const AUTO_MAX=20;
+function autoReview(){
+  const prev=JSON.stringify(DB.pmode),log=[];
+  for(const name of DB.names){
+    const st=DB.stat[name]||{},rows=W.map(w=>{const s=st[w.id]||[0,0,0,0],n=s[0]+s[1];return {id:w.id,n,m:s[1],rate:n?s[0]/n:0,run:s[3]||0,mode:modeOf(w.id,name)}}).filter(r=>r.n);
+    const off=rows.filter(r=>r.mode!=="x"&&r.n>=3&&r.run>=3).sort((a,b)=>b.run-a.run||b.n-a.n).slice(0,AUTO_MAX),isOff=new Set(off.map(r=>r.id));
+    const back=rows.filter(r=>r.mode==="f"&&!isOff.has(r.id)&&r.n>=4&&r.rate>=0.8).slice(0,AUTO_MAX);
+    const focus=rows.filter(r=>r.mode==="n"&&r.n>=2&&r.m>=1&&r.rate<0.6).sort((a,b)=>a.rate-b.rate||b.m-a.m).slice(0,AUTO_MAX);
+    for(const r of off)setMode(r.id,"x",name);for(const r of back)setMode(r.id,"n",name);for(const r of focus)setMode(r.id,"f",name);
+    if(off.length||back.length||focus.length)log.push({name,off:off.map(r=>r.id),back:back.map(r=>r.id),focus:focus.map(r=>r.id)});
+  }
+  DB.auto.log=log;DB.auto.prev=log.length?prev:null;DB.auto.unseen=log.length>0;DB.auto.done=monthKey();
+}
+function autoCheck(){const m=monthKey();if(DB.auto.month===m)return;DB.auto.month=m;if(DB.auto.on)autoReview();save()}
+function renderAuto(){
+  const a=DB.auto,names=ids=>ids.map(id=>BYID[id]?esc(BYID[id].en):"").filter(Boolean).join("、");
+  let h=`<div class="arow"><b>🗓 毎月の自動見直し：${a.on?"オン":"オフ"}</b><button class="mini" id="autoToggle">${a.on?"オフにする":"オンにする"}</button></div>`;
+  h+=`<p>月が替わって最初にゲームを開いたときに、子どもごとの記録から見直します。3回続けてつかまえた言葉は「出さない」に、正答率60%未満の言葉は「★ 重点」に、よくできるようになった重点の言葉は「ふつう」に戻します（それぞれ最大${AUTO_MAX}語）。</p>`;
+  if(a.done){
+    h+=`<p><b>前回の見直し（${a.done.replace("-","年")}月）</b></p>`;
+    h+=a.log.length?a.log.map(l=>`<p><b>${esc(l.name)}</b>`+(l.off.length?`<br>🚫 出さない（${l.off.length}語）：${names(l.off)}`:"")+(l.focus.length?`<br>★ 重点（${l.focus.length}語）：${names(l.focus)}`:"")+(l.back.length?`<br>ふつうに戻した（${l.back.length}語）：${names(l.back)}`:"")+`</p>`).join(""):"<p>変えた言葉はありませんでした。</p>";
+    if(a.prev)h+=`<button class="mini" id="autoUndo">この見直しを元に戻す</button>`;
+  }else h+=`<p>まだ見直しはしていません。次に月が替わったときに、はじめて行います。</p>`;
+  $("#stAuto").innerHTML=h;
+  $("#autoToggle").onclick=()=>{a.on=!a.on;save();renderAuto()};
+  if($("#autoUndo"))$("#autoUndo").onclick=()=>{if(!confirm("前回の自動見直しで変えた設定を、元に戻しますか？"))return;try{DB.pmode=JSON.parse(a.prev)}catch(e){}a.prev=null;a.log=[];save();renderStats()};
+}
 // a small sum keeps children out of the parent screen
-$("#toStats").onclick=()=>{const a=3+Math.floor(Math.random()*6),b=4+Math.floor(Math.random()*6);if(String((prompt(`おうちのひと かくにん\n${a} + ${b} = ?`)||"").trim())!==String(a+b))return;stWho="";stTab="good";go("stats");renderStats()};
+$("#toStats").onclick=()=>{const a=3+Math.floor(Math.random()*6),b=4+Math.floor(Math.random()*6);if(String((prompt(`おうちのひと かくにん\n${a} + ${b} = ?`)||"").trim())!==String(a+b))return;stWho="";stTab="good";DB.auto.unseen=false;save();go("stats");renderStats()};
 $("#stBack").onclick=()=>go("start");
 $("#stCopy").onclick=()=>{
   const rows=statRows().filter(r=>r.n||r.mode!=="n").sort((a,b)=>(b.rate??-1)-(a.rate??-1)||b.n-a.n);
