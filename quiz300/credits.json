@@ -2241,13 +2241,7 @@
   "credit": "first upload pl.wikipedia 11:26, 10 jul (lipiec) 2004 by <a href=\"https://pl.wikipedia.org/wiki/Wikipedysta:Kpjas\" class=\"extiw\" title=\"pl:Wikipedysta:Kpjas\">Kpjas</a> as <a href=\"https://pl.wikipedia.org/wiki/Grafika:Lisc_lipy.jpg\" class=\"extiw\" title=\"pl:Grafika:Lisc lipy.jpg\">pl:Grafika:Lisc lipy.jpg</a>"
  },
  "rock": {
-  "file": "Boulder with dry stone wall - geograph.org.uk - 3544818.jpg",
-  "page": "Wikimedia Commons",
-  "desc": "https://commons.wikimedia.org/w/index.php?curid=118329089",
-  "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/profile/39198\">Trevor Littlewood</a> <span class=\"mw-valign-text-top noprint\" typeof=\"mw:File/Frameless\"><a href=\"//commons.wikimedia.org/wiki/File:Boulder_with_dry_stone_wall_-_geograph.org.uk_-_3544818.jpg#P170\" title=\"Edit this at Structured Data on Commons\"><img alt=\"Edit this at Structured Data on Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"10\" height=\"10\" class=\"mw-file-element\" data-file-width=\"20\" data-file-height=\"20\"></a></span>",
-  "license": "CC BY-SA 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/photo/3544818\">Geograph Britain and Ireland</a> <span class=\"mw-valign-text-top noprint\" typeof=\"mw:File/Frameless\"><a href=\"//commons.wikimedia.org/wiki/File:Boulder_with_dry_stone_wall_-_geograph.org.uk_-_3544818.jpg#P7482\" title=\"Edit this at Structured Data on Commons\"><img alt=\"Edit this at Structured Data on Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"10\" height=\"10\" class=\"mw-file-element\" data-file-width=\"20\" data-file-height=\"20\"></a></span>"
+  "generated": true
  },
  "fire": {
   "file": "Large_bonfire.jpg",
